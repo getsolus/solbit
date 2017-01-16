@@ -5,17 +5,22 @@
 // Text will automatically contrast
 @button-bg-color: #1a559c;
 
-// Background color of navigational elements, namely Header, Footer, and Sidepane.
+// Background color of navigational elements, namely Header, Footer, and Sidepane (including a faded out Overlay).
 // Text will automatically contrast.
 @navigation-bg-color: #26292b;
 
-@black: #26292b;
-@grey: lighten(@black, 20%);
-@blue: #1a559c;
-@solusblue: #5294E2;
+// Border color of an active link in a navigational element, namely the Header.
+@navigation-active-link: #1a559c;
+
+// Link Color
+@link: #1a559c;
+
+// Text color
 @text : #333333;
+
+// Misc. colors
+@solusblue: #5294E2;
 @white: #f5f5f5;
-@overlay: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
 
 html {
 	height: 100%;
@@ -71,7 +76,7 @@ html {
 		& > div[data-solbit="content-overlay"] { // Overlay for content
 			height: e("calc(100% - 60px)");
 			.fullWidth;
-			background-color: fadeout(@black, 20%);
+			background-color: fadeout(@navigation-bg-color, 20%);
 			position: fixed;
 			bottom: 0;
 			z-index: 98;
@@ -87,7 +92,7 @@ html {
 	}
 
 	a { // Links
-		color: @blue;
+		color: @link;
 		cursor: pointer;
 		text-decoration: none; // No more underline for you!
 	}
