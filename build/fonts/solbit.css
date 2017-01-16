@@ -1,0 +1,51 @@
+/*
+  Icon Font: solbit
+*/
+
+@font-face {
+  font-family: "solbit";
+  src: url("./solbit.eot");
+  src: url("./solbit.eot?#iefix") format("embedded-opentype"),
+       url("./solbit.woff") format("woff"),
+       url("./solbit.ttf") format("truetype"),
+       url("./solbit.svg#solbit") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "solbit";
+    src: url("./solbit.svg#solbit") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.solbit-icon-check:before,
+.solbit-icon-error:before,
+.solbit-icon-menu:before,
+.solbit-icon-rss:before,
+.solbit-icon-star:before,
+.solbit-icon-user:before {
+  display: inline-block;
+  font-family: "solbit";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.solbit-icon-check:before { content: "\f100"; }
+.solbit-icon-error:before { content: "\f101"; }
+.solbit-icon-menu:before { content: "\f102"; }
+.solbit-icon-rss:before { content: "\f103"; }
+.solbit-icon-star:before { content: "\f104"; }
+.solbit-icon-user:before { content: "\f105"; }

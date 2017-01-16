@@ -1,0 +1,43 @@
+a, button, div, span {
+	&[data-solbit-icon] {
+		&::before {
+			font-family: "Solbit Icons";
+		}
+	}
+
+	&[data-solbit-icon="check"], &[data-solbit-icon="checkbox"] {
+		&::before {
+			content: "\f100";
+		}
+	}
+
+	&[data-solbit-icon="error"] {
+		&::before {
+			content: "\f101";
+		}
+	}
+
+	&[data-solbit-icon="menu"] {
+		&::before {
+			content: "\f102";
+		}
+	}
+
+	&[data-solbit-icon="rss"] {
+		&::before {
+			content: "\f103";
+		}
+	}
+
+	&[data-solbit-icon="official"], &[data-solbit-icon="star"] {
+		&::before {
+			content: "\f104";
+		}
+	}
+
+	&[data-solbit-icon="community"], &[data-solbit-icon="user"] {
+		&::before {
+			content: "\f105";
+		}
+	}
+}

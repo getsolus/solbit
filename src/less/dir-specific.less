@@ -1,0 +1,125 @@
+// #region Implementation of LTR and RTL support
+
+body {
+	// #region Ikey's Perfect World
+
+	&[dir="ikey"]{
+		transform: rotate(180deg);
+		-webkit-transform: rotate(180deg);
+	}
+
+	// #endregion
+
+	// #region Left-to-right
+
+	&:not([dir="rtl"]) {
+		header { // Header
+			& > section { // Links section
+				float: right;
+			}
+		}
+
+		footer { // Footer
+			& > div[data-solbit="footer-menus"] {
+				a {
+					margin-right: 1em;
+				}
+			}
+		}
+
+		div[data-solbit="main"] {
+			float: left;
+		}
+
+		// #region Scalable UX Specific
+
+		@media screen and (min-width: 1024px) { // Non-Mobile
+			header { // Header
+				& > a:first-of-type { // Logo
+					margin-left: 6%;
+				}
+
+				& > section {
+					margin-right: 6%;
+				}
+			}
+
+			div[data-solbit="content"] {
+				div[data-solbit="view-container"] {
+					& > div[data-solbit="view-primary"] {
+						margin-right: 6%;
+					}
+				}
+			}
+
+			footer { // Footer (Obviously)
+				div[data-solbit="footer-menus"] { // Footer Menus
+					margin: 1.5% 0 1.5% 6%; // 2.5 vertical margins, 6% on left
+				}
+			}
+		}
+	}
+
+	// #endregion
+
+	// #region Right-to-left
+
+	&[dir="rtl"]{
+		header { // Header
+			& > section { // Links section
+				float: left;
+			}
+		}
+
+		footer { // Footer
+			& > div[data-solbit="footer-menus"] {
+				a {
+					margin-right: 1em;
+				}
+			}
+		}
+
+		div[data-solbit="main"] {
+			float: right;
+		}
+
+		// #endregion
+
+		// #region Scalable UX Specific
+
+		@media screen and (max-width: 1023px) { // Mobile
+			header {
+				direction: ltr; // Enforce LTR so logo sits on left
+			}
+		}
+
+		@media screen and (min-width: 1024px) { // Non-Mobile
+
+			header { // Header
+				& > a:first-of-type { // Logo
+					margin-right: 6%;
+				}
+
+				& > section {
+					margin-left: 6%;
+				}
+			}
+
+			div[data-solbit="content"] {
+				div[data-solbit="view-container"] {
+					& > div[data-solbit="view-primary"] {
+						margin-left: 6%;
+					}
+				}
+			}
+
+			footer { // Footer
+				div[data-solbit="footer-menus"] { // Footer Menus
+					margin: 1.5% 6% 1.5% 0; // 2.5 vertical margins, 6% on right
+				}
+			}
+		}
+	}
+}
+
+// #endregion
