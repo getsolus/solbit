@@ -2,14 +2,18 @@
 
 Solbit is the unified component styling and JavaScript for Budgie and Solus brand assets, such as the Budgie and Solus websites, as well as future Solhub.
 
+## Font
+
+The Solbit Icons font is intended to work independently of any separate fonts provided via brand assets, such as from the Budgie or Solus websites / platforms.
+
 ## JavaScript
 
-The Solbit JavaScript is intended to work independently of any brand assets, such as from the Budgie or Solus websites / platforms.
+The Solbit JavaScript is intended to work independently of any JavaScript provided via brand assets, such as from the Budgie or Solus websites / platforms.
 
 ## Styling
 
-The Solbit Styling is intended to be utilized by the respective styling of the above listed assets and is not intended to be shipped independently. Compilation of 
-solbit is purely intended to validate a lack of LESS errors. Assets inheriting this theming due so via Git submodules and leverage LESS importing to merge it into a single stylesheet.
+The Solbit Styling is intended to be utilized by the respective styling of the above listed assets and **is not intended to be shipped independently**. Compilation of 
+solbit is purely **intended to validate** a lack of LESS errors. Assets inheriting this theming due so via Git submodules and leverage LESS importing to merge it into a single stylesheet.
 
 ## Development
 
