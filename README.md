@@ -54,4 +54,4 @@ I use 4-char wide tabs, not spaces, in everything **except** YAML files, as enfo
 
 ## Licensing
 
-Apache-2.0
+All source **except** for the Solbit font are licensed under Apache-2.0. Solbit font icons are provided by FontAwesome under [SIL OFL 1.1](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
