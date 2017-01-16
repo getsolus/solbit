@@ -32,7 +32,7 @@ font:
 
 setup:
 	sudo eopkg install nodejs ruby-devel woff-tools
-	sudo npm install -g less less-plugin-clean-css less-plugin-glob
+	sudo npm install -g closurecompiler less less-plugin-clean-css less-plugin-glob typescript
 	sudo gem install fontcustom
 
 less:
