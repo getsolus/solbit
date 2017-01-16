@@ -1,10 +1,34 @@
-// #region Footer
+// #region Implementation of LTR and RTL support
 
-footer {
+body {
+	&:not([dir="rtl"]) { // LTR
+		footer { // Footer
+			@media screen and (min-width: 1024px) { // Non-Mobile
+				& > div[data-solbit="footer-menus"] { // Footer Menus
+					margin: 1.5% 0 1.5% 6%; // 2.5 vertical margins, 6% on left
+				}
+			}
+		}
+	}
+
+	&[dir="rtl"]{ // RTL
+		footer { // Footer
+			@media screen and (min-width: 1024px) { // Non-Mobile
+				& > div[data-solbit="footer-menus"] { // Footer Menus
+					margin: 1.5% 6% 1.5% 0; // 2.5 vertical margins, 6% on right
+				}
+			}
+		}
+	}
+}
+
+// #endregion
+
+footer { // Footer
 	display: -webkit-flex;
 	display: flex;
-	.fullWidth;
 	min-height: 200px;
+	.fullWidth;
 	color: @white;
 	background-color: @black;
 
@@ -53,5 +77,3 @@ footer {
 		}
 	}
 }
-
-// #endregion

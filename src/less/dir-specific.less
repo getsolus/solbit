@@ -4,14 +4,6 @@ body {
 	// #region Left-to-right
 
 	&:not([dir="rtl"]) {
-		footer { // Footer
-			& > div[data-solbit="footer-menus"] {
-				a {
-					margin-right: 1em;
-				}
-			}
-		}
-
 		div[data-solbit="main"] {
 			float: left;
 		}
@@ -26,12 +18,6 @@ body {
 					}
 				}
 			}
-
-			footer { // Footer (Obviously)
-				div[data-solbit="footer-menus"] { // Footer Menus
-					margin: 1.5% 0 1.5% 6%; // 2.5 vertical margins, 6% on left
-				}
-			}
 		}
 	}
 
@@ -40,14 +26,6 @@ body {
 	// #region Right-to-left
 
 	&[dir="rtl"]{
-		footer { // Footer
-			& > div[data-solbit="footer-menus"] {
-				a {
-					margin-right: 1em;
-				}
-			}
-		}
-
 		div[data-solbit="main"] {
 			float: right;
 		}
@@ -62,12 +40,6 @@ body {
 					& > div[data-solbit="view-primary"] {
 						margin-left: 6%;
 					}
-				}
-			}
-
-			footer { // Footer
-				div[data-solbit="footer-menus"] { // Footer Menus
-					margin: 1.5% 6% 1.5% 0; // 2.5 vertical margins, 6% on right
 				}
 			}
 		}
