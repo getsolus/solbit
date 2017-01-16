@@ -29,8 +29,8 @@ footer { // Footer
 	display: flex;
 	min-height: 200px;
 	.fullWidth;
-	color: @white;
-	background-color: @black;
+	color: contrast(@navigation-bg-color);
+	background-color: @navigation-bg-color;
 
 	// #region Scalable
 
@@ -66,7 +66,7 @@ footer { // Footer
 				width: e("calc(100% - 75px)"); // Ensure it reserves room for bold tag and aligns all items to container edge
 
 				& > a { // All the links
-					color: @white;
+					color: contrast(@navigation-bg-color);
 					margin-right: 1em;
 				}
 			}

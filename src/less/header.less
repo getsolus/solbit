@@ -39,7 +39,7 @@ body {
 
 header { // Header
 	.fullWidth;
-	background-color: @black;
+	background-color: @navigation-bg-color;
 
 	// #region Scalable
 
@@ -73,7 +73,7 @@ header { // Header
 			height: 100%;
 
 			& > a { // Header Links
-				color: @white;
+				color: contrast(@navigation-bg-color);
 				text-decoration: none; // No underline in header
 				line-height: 80px;
 				padding: 0 20px; // 20px horizontal padding
