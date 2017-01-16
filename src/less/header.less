@@ -1,12 +1,50 @@
-// #region Header
+// #region Implementation of LTR and RTL support
 
-header{
+body {
+	&:not([dir="rtl"]) { // LTR
+		header { // Header
+			@media screen and (min-width: 1024px) { // Non-Mobile
+				& > a:first-of-type { // Logo
+					margin-left: 6%;
+				}
+
+				& > section {
+					float: right;
+					margin-right: 6%;
+				}
+			}
+		}
+	}
+
+	&[dir="rtl"] { // RTL
+		header {
+			@media screen and (min-width: 1024px) { // Non-Mobile
+				& > a:first-of-type { // Logo
+					margin-right: 6%;
+				}
+
+				& > section {
+					margin-left: 6%;
+				}
+			}
+
+			& > section { // Links section
+				float: left;
+			}
+		}
+	}
+}
+
+// #endregion
+
+header { // Header
 	.fullWidth;
 	background-color: @black;
 
 	// #region Scalable
 
 	@media screen and (max-width: 1023px) { // Mobile
+		direction: ltr; // Enforce LTR so logo sits on left, even on RTL
 		height: 60px;
 
 		& > a:first-of-type { // Logo
