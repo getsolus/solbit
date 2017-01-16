@@ -1,13 +1,34 @@
 # Solbit
 
-Unified component styling for Budgie and Solus brand assets, such as the Budgie and Solus websites, as well as future Solhub.
+Solbit is the unified component styling and JavaScript for Budgie and Solus brand assets, such as the Budgie and Solus websites, as well as future Solhub.
 
-**Note:** This styling is intended to be utilized by the respective styling of the above listed assets and is not intended to be shipped independently. Compilation of 
+## JavaScript
+
+The Solbit JavaScript is intended to work independently of any brand assets, such as from the Budgie or Solus websites / platforms.
+
+## Styling
+
+The Solbit Styling is intended to be utilized by the respective styling of the above listed assets and is not intended to be shipped independently. Compilation of 
 solbit is purely intended to validate a lack of LESS errors. Assets inheriting this theming due so via Git submodules and leverage LESS importing to merge it into a single stylesheet.
 
 ## Development
 
-### Dependencies
+### JavaScript
+
+Solbit JavaScript takes advantage of TypeScript to enable faster iteration, type checking, clean implementation of namespacing and modules, etc.
+
+#### Dependencies
+
+To get started on TypeScript development, run `make setup` on Solus. If you're not on Solus, you'll need to:
+
+1. Install nodejs.
+2. Globally npm install: closurecompiler typescript
+
+### Styling
+
+Solbit styling takes advantage of LESS for a wide variety of features, such as mixins, variables, and nesting.
+
+#### Dependencies
 
 To get started on LESS development, run `make setup` on Solus. If you're not on Solus, you'll need to:
 
@@ -19,7 +40,9 @@ To get started on LESS development, run `make setup` on Solus. If you're not on 
 
 - All the things: `make`
 - Fonts: `make font`
-- LESS: `make solbit`
+- LESS: `make less`
+- TypeScript: `make ts`
+ - Minify generated JavaScript: `make minify`
 
 ### Styling
 

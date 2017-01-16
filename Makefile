@@ -1,3 +1,8 @@
+SHELL = /bin/bash
+
+CCJS_FLAGS= --compilation_level=SIMPLE_OPTIMIZATIONS \
+	--warning_level=QUIET
+
 FONTCUSTOM_FLAGS = --config src/font/fontcustom.yml \
 	--name=solbit \
 	--no-hash \
@@ -11,6 +16,17 @@ LESSFLAGS = --clean-css \
 	--no-js \
 	--strict-math=on
 
+TSC_COMPILE_FLAGS = --declaration \
+	--forceConsistentCasingInFileNames \
+	--noImplicitAny \
+	--noImplicitReturns \
+	--noImplicitThis \
+	--noUnusedLocals \
+	--noUnusedParameters \
+	--outDir build/ \
+	--removeComments \
+	--target ES5
+
 font:
 	fontcustom compile $(FONTCUSTOM_FLAGS)
 
@@ -19,9 +35,15 @@ setup:
 	sudo npm install -g less less-plugin-clean-css less-plugin-glob
 	sudo gem install fontcustom
 
-solbit:
+less:
 	lessc $(LESSFLAGS) src/less/solbit.less > build/solbit.css
+
+minify:
+	ccjs build/solbit.js $(CCJS_FLAGS) > build/solbit.min.js
+
+ts:
+	tsc $(TSC_COMPILE_FLAGS) src/typescript/solbit.ts --outFile build/solbit.js
 
 .DEFAULT_GOAL := all
 .PHONY : all
-all: font solbit
+all: font solbit ts minify
