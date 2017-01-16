@@ -1,3 +1,27 @@
+// #region Alignment and Width Mixins
+
+.fullWidth(){
+	width: 100%;
+}
+
+.halfWidth() {
+	width: 50%;
+}
+
+.horizontalAlign(@width) when (ispercentage(@width)){
+	width: @width;
+	margin-left: e("calc((100% - @{width}) / 2)");
+	margin-right: e("calc((100% - @{width}) / 2)")
+}
+
+.horizontalAlign(@width) when (ispixel(@width)) {
+	width: @width;
+	margin-left: e("calc(50% - @{width} / 2)");
+	margin-right: e("calc(50% - @{width} / 2)");
+}
+
+// #endregion
+
 // #region Animation Parametric Mixin - Allows easy adding of animations
 
 .animate(@properties; @duration : 250){

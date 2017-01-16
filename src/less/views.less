@@ -1,5 +1,30 @@
 // Views provides unified models on how to lay out / render content
-// Most styling provided in dir-specific
+
+// #region Implementation of LTR and RTL support
+
+body {
+	&:not([dir="rtl"]) { // LTR
+		@media screen and (min-width: 1024px) { // Non-Mobile
+			div[data-solbit="view-container"] {
+				& > div[data-solbit="view-primary"] {
+					margin-right: 6%;
+				}
+			}
+		}
+	}
+
+	&[dir="rtl"] { // RTL
+		@media screen and (min-width: 1024px) { // Non-Mobile
+			div[data-solbit="view-container"] {
+				& > div[data-solbit="view-primary"] {
+					margin-left: 6%;
+				}
+			}
+		}
+	}
+}
+
+// #endregion
 
 div[data-solbit="view-container"] { // View Container
 	display: flex; // This is a flexbox
