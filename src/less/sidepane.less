@@ -10,35 +10,39 @@ div[data-solbit="sidepane"]{
 	bottom: 0;
 	z-index: 99;
 
-    // #region Screen-Based Width
+    // #region Scalable
 
-    @media (max-width: 1279px){ // Lower than HD
-        width: 60%; // 60% of page
-        max-width: 500px;
-        transform: translateX(100%); // Default to only showing the edge of the Sidepane
-        -webkit-transform: translateX(100%); // Default to only showing the edge of the Sidepane
+    @media screen and (max-width: 1023px) { // Mobile
+		width: 60%; // 60% of page
+		max-width: 500px;
+		transform: translateX(100%); // Default to only showing the edge of the Sidepane
+		-webkit-transform: translateX(100%); // Default to only showing the edge of the Sidepane
 
-        .slide(0, 250); // Enable slide animation for Sidepane so it slides to left position of 0 in 250ms
+		.slide(0, 250); // Enable slide animation for Sidepane so it slides to left position of 0 in 250ms
+
+		& > div[data-solbit="full-width-box"] {
+			height: 2.5em;
+			line-height: 2.5em;
+
+			& > h3, & > p, & > span, & > span > a {
+				color: @white;
+			}
+
+			& > span > a {
+				.fullWidth;
+			}
+
+			& > span:first-of-type { // First span
+				margin-top: 1.5%;
+			}
+		}
     }
 
+	@media screen and (min-width: 1024px) { // Non-Mobile
+		display: none; // Hide away you!
+	}
+
     // #endregion
-
-	& > div[data-solbit="full-width-box"] {
-		height: 2.5em;
-		line-height: 2.5em;
-
-		 & > h3, & > p, & > span, & > span > a {
-			color: @white;
-		}
-
-		& > span > a {
-			.fullWidth;
-		}
-
-		& > span:first-of-type { // First span
-			margin-top: 1.5%;
-		}
-	}	
 }
 
 // #endregion

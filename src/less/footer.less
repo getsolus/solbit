@@ -8,6 +8,25 @@ footer {
 	color: @white;
 	background-color: @black;
 
+	// #region Scalable
+
+	@media screen and (max-width: 1023px) { // Mobile
+		flex-direction: column;
+
+		& > div[data-solbit="footer-menus"] { // Footer Menu
+			.horizontalAlign(90%);
+			margin-top: 5%;
+		}
+	}
+	
+	@media screen and (min-width: 1024px) { // Non-Mobile
+		& > div[data-solbit="footer-menus"] { // Footer Menu
+			width: e("calc(100% - 32px)");
+		}
+	}
+
+	// #endregion
+
 	& > div[data-solbit="footer-menus"] { // Footer menus and Copyright
 		& > div[data-solbit="full-width-row"] {
 			display: -webkit-inline-flex;

@@ -4,6 +4,60 @@ header{
 	.fullWidth;
 	background-color: @black;
 
+	// #region Scalable
+
+	@media screen and (max-width: 1023px) { // Mobile
+		height: 60px;
+
+		& > a:first-of-type { // Logo
+			margin-left: 5%;
+		}
+
+		& >  div[data-solbit="button"] { // Header Sidepane Button
+			float: right;
+			height: 60px;
+			width: 60px;
+			line-height: 60px;
+			text-align: center;
+		}
+
+		& > section { // Header Menu
+			display: none;
+		}
+	}
+
+	@media screen and (min-width: 1024px) { // Non-Mobile
+		height: 80px;
+
+		& > section {
+			display: -webkit-inline-flex;
+			display: inline-flex;
+			height: 100%;
+
+			& > a { // Header Links
+				color: @white;
+				text-decoration: none; // No underline in header
+				line-height: 80px;
+				padding: 0 20px; // 20px horizontal padding
+
+				&:not([active]){ // Inactive Link
+					height: 80px
+				}
+
+				&[active] { // Active Link
+					height: 77px; // Account for 3px bottom border
+					border-bottom: 3px solid @blue;
+				}
+			}
+		}
+
+		& > div[data-solbit="button"] { // Menu Button
+			display: none;
+		}
+	}
+
+	// #endregion
+
 	& > a:first-of-type { // Solbit Logo
 		display: inline-block;
 		height: e("calc(100% - 20px)");
@@ -12,30 +66,6 @@ header{
 		& > img {
 			height: 100%;
 		}
-	}
-
-	& > section { // Links section
-		display: -webkit-inline-flex;
-		display: inline-flex;
-		height: 100%;
-
-		& > a { // Header Links
-			color: @white;
-			text-decoration: none; // No underline in header
-			padding: 0 20px; // 20px horizontal padding
-
-			&[active]{ // Active Link
-				border-bottom: 3px solid @blue;
-			}
-		}
-	}
-
-	& > div[data-solbit="button"] { // Header Sidepane Button
-		float: right;
-		height: 60px;
-		width: 60px;
-		line-height: 60px;
-		text-align: center;
 	}
 }
 

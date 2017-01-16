@@ -4,12 +4,12 @@
 	font-family: "Roboto", sans-serif;
 	font-style: normal;
 	font-weight: 400;
-	src: local("Roboto"), local("roboto"), url(https://fonts.googleapis.com/css?family=Roboto:400,300,500); // Use Roboto locally first then fallback to Google Fonts
+	src: local("Roboto"), local("roboto"), url("https://fonts.googleapis.com/css?family=Roboto:400,300,500"); // Use Roboto locally first then fallback to Google Fonts
 }
 
 @font-face {
 	font-family: "Solbit Icons";
-	src: url(fonts/solbit.woff) format("woff"), url(fonts/solbit.ttf) format("truetype");
+	src: url("fonts/solbit.woff") format("woff"), url("fonts/solbit.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -60,6 +60,24 @@ html {
 
 			div[data-solbit="content"] {
 				margin-bottom: 5%;
+
+				// #region Scalable
+
+				@media screen and (max-width: 1023px) { // Mobile
+					div[data-solbit="content"] { // General Page content that requires margins
+						width: 90%;
+						margin: 5%;
+					}
+				}
+
+				@media screen and (min-width: 1024px) { // Non-Mobile
+					div[data-solbit="content"] { // Content
+						.horizontalAlign(88%);
+						margin-top: 3%;
+					}
+				}
+
+				// #endregion
 			}
 		}
 
