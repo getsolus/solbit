@@ -30,7 +30,9 @@
 
 	&:not([data-solbit-render-animation="false"]){ // If we are not "overriding" Animation by setting render-animation to false
 		transition: e(@properties) unit(@duration, ms); // String escape the provided properties that'll change in transform
-		-webkit-transition: e(@properties) unit(@duration, ms); // Same as above, just specific to Webkit
+		-moz-transition: e(@properties) unit(@duration, ms); // Gecko-specific
+		-o-transition: e(@properties) unit(@duration, ms); // Opera-specific
+		-webkit-transition: e(@properties) unit(@duration, ms); // Blink/WebKit-specific
 	}
 
 	// #endregion
@@ -45,9 +47,10 @@
 
 	&[data-solbit-animation="slide"]{
 		transform: translateX(@pos); // Set translateX to @pos, where pos can be px, e(calc()), etc.
-		-moz-transform: translateX(@pos); // Mozilla Equivelant (where necessary)
-		-ms-transform: translateX(@pos); // Microsoft Equivelant (where necessary)
-		-webkit-transform: translateX(@pos); // WebKit Equivelant
+		-moz-transform: translateX(@pos); // Gecko-specific
+		-ms-transform: translateX(@pos); // IE / Edge specific
+		-o-transform: translateX(@pos); // Opera-specific
+		-webkit-transform: translateX(@pos); // Blink/WebKit-specific
 	}
 }
 
