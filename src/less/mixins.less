@@ -9,7 +9,7 @@
 }
 
 .horizontalAlign(@margin) when (ispercentage(@margin)){
-	@width: 100 - (unit(@margin) * 2);
+	@width: (100 - (unit(@margin) * 2));
 	width: e("@{width}%");
 	margin-left: @margin;
 	margin-right: @margin;
