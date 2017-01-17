@@ -5,12 +5,12 @@ body {
 		header { // Header
 			@media screen and (min-width: 1024px) { // Non-Mobile
 				& > a:first-of-type { // Logo
-					margin-left: 6%;
+					margin-left: @page-margin;
 				}
 
 				& > section {
 					float: right;
-					margin-right: 6%;
+					margin-right: @page-margin;
 				}
 			}
 		}
@@ -20,11 +20,11 @@ body {
 		header {
 			@media screen and (min-width: 1024px) { // Non-Mobile
 				& > a:first-of-type { // Logo
-					margin-right: 6%;
+					margin-right: @page-margin;
 				}
 
 				& > section {
-					margin-left: 6%;
+					margin-left: @page-margin;
 				}
 			}
 
@@ -48,7 +48,7 @@ header { // Header
 		height: 60px;
 
 		& > a:first-of-type { // Logo
-			margin-left: 5%;
+			margin-left: @page-margin;
 		}
 
 		& >  div[data-solbit="button"] { // Header Sidepane Button

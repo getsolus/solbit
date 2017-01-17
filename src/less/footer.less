@@ -5,7 +5,7 @@ body {
 		footer { // Footer
 			@media screen and (min-width: 1024px) { // Non-Mobile
 				& > div[data-solbit="footer-menus"] { // Footer Menus
-					margin: 1.5% 0 1.5% 6%; // 2.5 vertical margins, 6% on left
+					margin: 1.5% 0 1.5% @page-margin; // 2.5 vertical margins, @page-margin on left
 				}
 			}
 		}
@@ -15,7 +15,7 @@ body {
 		footer { // Footer
 			@media screen and (min-width: 1024px) { // Non-Mobile
 				& > div[data-solbit="footer-menus"] { // Footer Menus
-					margin: 1.5% 6% 1.5% 0; // 2.5 vertical margins, 6% on right
+					margin: 1.5% @page-margin 1.5% 0; // 2.5 vertical margins, @page-margin on right
 				}
 			}
 		}
