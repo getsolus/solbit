@@ -48,6 +48,7 @@ header { // Header
 		height: 60px;
 
 		& > a:first-of-type { // Logo
+			line-height: 60px;
 			margin-left: @page-margin;
 		}
 
@@ -66,6 +67,10 @@ header { // Header
 
 	@media screen and (min-width: 1024px) { // Non-Mobile
 		height: 80px;
+
+		& > a:first-of-type { // Logo
+			line-height: 80px;
+		}
 
 		& > section {
 			display: -webkit-inline-flex;
@@ -97,7 +102,7 @@ header { // Header
 	// #endregion
 
 	& > a:first-of-type { // Logo
-		display: inline-block;
+		display: inline-flex;
 		height: e("calc(100% - 20px)");
 		margin-top: 10px; // 10px top margin
 
