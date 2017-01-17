@@ -24,12 +24,13 @@ div[data-solbit="sidepane"]{
 			height: 2.5em;
 			line-height: 2.5em;
 
-			& > h3, & > p, & > span, & > span > a {
+			& > h3, & > p, & > span {
 				color: contrast(@navigation-bg-color);
 			}
 
 			& > span > a {
 				.fullWidth;
+				color: @navigation-link-color;
 			}
 
 			& > span:first-of-type { // First span
