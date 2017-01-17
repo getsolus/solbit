@@ -42,6 +42,8 @@ a[data-solbit="button"], button[data-solbit="button"], div[data-solbit="button"]
 	}
 
 	&[data-solbit-icon="menu"] {
+		.animate(all, 125);
+
 		&:not([active]) { // Not active
 			color: @button-menu-inactive-color;
 		}
