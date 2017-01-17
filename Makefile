@@ -46,4 +46,4 @@ ts:
 
 .DEFAULT_GOAL := all
 .PHONY : all
-all: font solbit ts minify
+all: font less ts minify
