@@ -11,9 +11,14 @@ var solbit;
         }
         header.Enable = Enable;
         function Toggle(headerItemElement, customElement) {
-            console.log(arguments);
-            console.log(headerItemElement);
-            console.log(customElement);
+            if (!customElement.hasAttribute("data-solbit-show")) {
+                var headerItemLocation = headerItemElement.getClientRects()[0];
+                var headerItemX = headerItemLocation.left;
+                var headerItemY = headerItemLocation.bottom;
+            }
+            else {
+                customElement.removeAttribute("data-solbit-show");
+            }
         }
         header.Toggle = Toggle;
     })(header = solbit.header || (solbit.header = {}));

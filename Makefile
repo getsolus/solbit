@@ -20,7 +20,6 @@ TSC_COMPILE_FLAGS = --declaration \
 	--forceConsistentCasingInFileNames \
 	--noImplicitAny \
 	--noImplicitReturns \
-	--noUnusedLocals \
 	--noUnusedParameters \
 	--outDir build/ \
 	--removeComments \

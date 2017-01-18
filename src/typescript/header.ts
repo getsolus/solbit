@@ -14,9 +14,14 @@ namespace solbit.header {
 	// Toggle
 	// This function toggles the visibility of a Custom Element
 	export function Toggle(headerItemElement: Element, customElement: Element) {
-		console.log(arguments); // Debug arguments passed for now
-		console.log(headerItemElement);
-		console.log(customElement);
+		if (!customElement.hasAttribute("data-solbit-show")) { // If we aren't already force showing customElement
+			let headerItemLocation: ClientRect = headerItemElement.getClientRects()[0]; // Get the ClientRect Object of the headerItemElement
+			let headerItemX: number = headerItemLocation.left; // Get the headerItemElement's x position
+			let headerItemY: number = headerItemLocation.bottom; // Get the Y value of the bottom of the headerItemElement
+		} else { // If we are already showing the customElement
+			customElement.removeAttribute("data-solbit-show"); // Hide away.
+		}
+
 	}
 
 }
