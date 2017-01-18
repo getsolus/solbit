@@ -1,3 +1,7 @@
+declare namespace solbit.header {
+    function Enable(headerItemElement: Element, customElement: Element): void | boolean;
+    function Toggle(headerItemElement: Element, customElement: Element): void;
+}
 declare namespace solbit.sidepane {
     var Container: Element;
     var SidepaneButton: Element;

@@ -20,12 +20,14 @@ TSC_COMPILE_FLAGS = --declaration \
 	--forceConsistentCasingInFileNames \
 	--noImplicitAny \
 	--noImplicitReturns \
-	--noImplicitThis \
 	--noUnusedLocals \
 	--noUnusedParameters \
 	--outDir build/ \
 	--removeComments \
 	--target ES5
+
+buildts:
+	tsc $(TSC_COMPILE_FLAGS) src/typescript/solbit.ts --outFile build/solbit.js
 
 font:
 	fontcustom compile $(FONTCUSTOM_FLAGS)
@@ -41,8 +43,7 @@ less:
 minify:
 	ccjs build/solbit.js $(CCJS_FLAGS) > build/solbit.min.js
 
-ts:
-	tsc $(TSC_COMPILE_FLAGS) src/typescript/solbit.ts --outFile build/solbit.js
+ts: buildts minify
 
 .DEFAULT_GOAL := all
 .PHONY : all

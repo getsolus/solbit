@@ -1,5 +1,25 @@
 var solbit;
 (function (solbit) {
+    var header;
+    (function (header) {
+        function Enable(headerItemElement, customElement) {
+            if ((typeof headerItemElement.tagName == "string") && (headerItemElement.tagName.toLowerCase() == "span")) {
+                if (typeof customElement.tagName == "string") {
+                    headerItemElement.addEventListener("mouseup", solbit.header.Toggle.bind(this, headerItemElement, customElement));
+                }
+            }
+        }
+        header.Enable = Enable;
+        function Toggle(headerItemElement, customElement) {
+            console.log(arguments);
+            console.log(headerItemElement);
+            console.log(customElement);
+        }
+        header.Toggle = Toggle;
+    })(header = solbit.header || (solbit.header = {}));
+})(solbit || (solbit = {}));
+var solbit;
+(function (solbit) {
     var sidepane;
     (function (sidepane) {
         function Enable() {
