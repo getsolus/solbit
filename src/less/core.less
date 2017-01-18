@@ -27,17 +27,12 @@ html {
 			margin: 0;
 
 			div[data-solbit="content"] {
+				.horizontalAlign(@page-margin);
 				margin-bottom: 5%;
 
 				// #region Scalable
 
-				@media screen and (max-width: 1023px) { // Mobile
-					width: 90%;
-					margin: @page-margin;
-				}
-
 				@media screen and (min-width: 1024px) { // Non-Mobile
-					.horizontalAlign(@page-margin);
 					margin-top: 3%;
 				}
 
