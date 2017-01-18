@@ -15,6 +15,10 @@ var solbit;
                 var headerItemLocation = headerItemElement.getClientRects()[0];
                 var headerItemX = headerItemLocation.left;
                 var headerItemY = headerItemLocation.bottom;
+                var customElementWidth = customElement.getClientRects()[0].width;
+                customElement.style.top = headerItemY.toString() + "px";
+                customElement.style.left = (headerItemX - ((customElementWidth - headerItemLocation.width) / 2)).toString() + "px";
+                customElement.setAttribute("data-solbit-show", "");
             }
             else {
                 customElement.removeAttribute("data-solbit-show");
