@@ -12,12 +12,8 @@ var solbit;
         header.Enable = Enable;
         function Toggle(headerItemElement, customElement) {
             if (!customElement.hasAttribute("data-solbit-show")) {
-                var headerItemLocation = headerItemElement.getClientRects()[0];
-                var headerItemX = headerItemLocation.left;
-                var headerItemY = headerItemLocation.bottom;
-                var customElementWidth = customElement.getClientRects()[0].width;
-                customElement.style.top = headerItemY.toString() + "px";
-                customElement.style.left = (headerItemX - ((customElementWidth - headerItemLocation.width) / 2)).toString() + "px";
+                solbit.position.Bottom(headerItemElement, customElement);
+                solbit.position.Center(headerItemElement, customElement);
                 customElement.setAttribute("data-solbit-show", "");
             }
             else {
@@ -26,6 +22,38 @@ var solbit;
         }
         header.Toggle = Toggle;
     })(header = solbit.header || (solbit.header = {}));
+})(solbit || (solbit = {}));
+var solbit;
+(function (solbit) {
+    var position;
+    (function (position) {
+        function Top(primaryElement, secondaryElement) {
+            var primaryElementDimensions = primaryElement.getClientRects()[0];
+            var secondaryElementDimensions = secondaryElement.getClientRects()[0];
+            secondaryElement.style.top = (primaryElementDimensions.top - secondaryElementDimensions.height).toString() + "px";
+        }
+        position.Top = Top;
+        function Bottom(primaryElement, secondaryElement) {
+            var primaryElementDimensions = primaryElement.getClientRects()[0];
+            secondaryElement.style.bottom = primaryElementDimensions.bottom.toString() + "px";
+        }
+        position.Bottom = Bottom;
+        function Center(primaryElement, secondaryElement) {
+            var primaryElementDimensions = primaryElement.getClientRects()[0];
+            var secondaryElementDimensions = secondaryElement.getClientRects()[0];
+            var primaryElementWidth = primaryElementDimensions.width;
+            var secondaryElementWidth = secondaryElementDimensions.width;
+            var secondaryElementX;
+            if (primaryElementWidth > secondaryElementWidth) {
+                secondaryElementX = primaryElementDimensions.left + ((primaryElementWidth - secondaryElementWidth) / 2);
+            }
+            else {
+                secondaryElementX = primaryElementDimensions.left - ((secondaryElementWidth - primaryElementWidth) / 2);
+            }
+            secondaryElement.style.left = secondaryElementX.toString() + "px";
+        }
+        position.Center = Center;
+    })(position = solbit.position || (solbit.position = {}));
 })(solbit || (solbit = {}));
 var solbit;
 (function (solbit) {

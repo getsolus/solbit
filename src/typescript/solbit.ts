@@ -1,5 +1,6 @@
 // Solbit Functionality
 /// <reference path="header.ts" />
+/// <reference path="position.ts" />
 /// <reference path="sidepane.ts" />
 
 namespace solbit {
