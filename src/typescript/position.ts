@@ -1,6 +1,15 @@
 // Positioning Functionality
 
+interface RegisteredObject extends Object {
+	Primary: Element;
+	Secondary: HTMLElement;
+	HorizontalPos: string;
+	VerticalPos: string;
+}
+
 namespace solbit.position {
+	export var registered: RegisteredObject[] = []; // Array of Objects
+
 	// Top
 	// This function will position the secondary Element specified above the first
 	export function Top(primaryElement: Element, secondaryElement: HTMLElement) {
@@ -34,5 +43,30 @@ namespace solbit.position {
 		}
 
 		secondaryElement.style.left = secondaryElementX.toString() + "px";
+	}
+
+	// Register
+	// This function will register the requested positioning, primary, and secondary Elements for Update.
+	export function Register(positions: string[], primaryElement: Element, secondaryElement: HTMLElement) {
+		let registeredObject: RegisteredObject = { HorizontalPos: positions[0], VerticalPos: positions[0], Primary: primaryElement, Secondary: secondaryElement };
+		solbit.position.registered.push(registeredObject); // Add the registeredObject
+	}
+
+	// Update
+	// This function will update positions of Elements
+	export function Update() {
+		for (let registeredObject of solbit.position.registered) { // For each registeredObject
+			// Horizontal Positioning
+			if (registeredObject.HorizontalPos == "top") { // Top
+				solbit.position.Top(registeredObject.Primary, registeredObject.Secondary);
+			} else { // Bottom
+				solbit.position.Bottom(registeredObject.Primary, registeredObject.Secondary);
+			}
+
+			// Vertical Positioning
+			if (registeredObject.VerticalPos == "center") { // Center
+				solbit.position.Center(registeredObject.Primary, registeredObject.Secondary);
+			}
+		}
 	}
 }

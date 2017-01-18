@@ -6,6 +6,7 @@ var solbit;
             if ((typeof headerItemElement.tagName == "string") && (headerItemElement.tagName.toLowerCase() == "span")) {
                 if (typeof customElement.tagName == "string") {
                     headerItemElement.addEventListener("mouseup", solbit.header.Toggle.bind(this, headerItemElement, customElement));
+                    solbit.position.Register(["center", "bottom"], headerItemElement, customElement);
                 }
             }
         }
@@ -27,6 +28,7 @@ var solbit;
 (function (solbit) {
     var position;
     (function (position) {
+        position.registered = [];
         function Top(primaryElement, secondaryElement) {
             var primaryElementDimensions = primaryElement.getClientRects()[0];
             var secondaryElementDimensions = secondaryElement.getClientRects()[0];
@@ -53,6 +55,26 @@ var solbit;
             secondaryElement.style.left = secondaryElementX.toString() + "px";
         }
         position.Center = Center;
+        function Register(positions, primaryElement, secondaryElement) {
+            var registeredObject = { HorizontalPos: positions[0], VerticalPos: positions[0], Primary: primaryElement, Secondary: secondaryElement };
+            solbit.position.registered.push(registeredObject);
+        }
+        position.Register = Register;
+        function Update() {
+            for (var _i = 0, _a = solbit.position.registered; _i < _a.length; _i++) {
+                var registeredObject = _a[_i];
+                if (registeredObject.HorizontalPos == "top") {
+                    solbit.position.Top(registeredObject.Primary, registeredObject.Secondary);
+                }
+                else {
+                    solbit.position.Bottom(registeredObject.Primary, registeredObject.Secondary);
+                }
+                if (registeredObject.VerticalPos == "center") {
+                    solbit.position.Center(registeredObject.Primary, registeredObject.Secondary);
+                }
+            }
+        }
+        position.Update = Update;
     })(position = solbit.position || (solbit.position = {}));
 })(solbit || (solbit = {}));
 var solbit;
@@ -95,6 +117,7 @@ var solbit;
 (function (solbit) {
     function Init() {
         solbit.sidepane.Enable();
+        document.addEventListener("resize", solbit.position.Update);
     }
     solbit.Init = Init;
 })(solbit || (solbit = {}));

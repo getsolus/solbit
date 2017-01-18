@@ -7,6 +7,7 @@ namespace solbit.header {
 		if ((typeof headerItemElement.tagName == "string") && (headerItemElement.tagName.toLowerCase() == "span")) { // If this is a Header span Element
 			if (typeof customElement.tagName == "string") { // If customElement is indeed an Element
 				headerItemElement.addEventListener("mouseup", solbit.header.Toggle.bind(this, headerItemElement, customElement)); // Have the Header Item listen to mouseup, with a Toggle with binded Elements
+				solbit.position.Register(["center", "bottom"], headerItemElement, customElement); // Register the headerItemElement and customElement
 			}
 		}
 	}
@@ -22,7 +23,6 @@ namespace solbit.header {
 		} else { // If we are already showing the customElement
 			customElement.removeAttribute("data-solbit-show"); // Hide away.
 		}
-
 	}
 
 }
