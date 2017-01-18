@@ -117,7 +117,7 @@ var solbit;
 (function (solbit) {
     function Init() {
         solbit.sidepane.Enable();
-        document.addEventListener("resize", solbit.position.Update);
+        window.addEventListener("resize", solbit.position.Update);
     }
     solbit.Init = Init;
 })(solbit || (solbit = {}));
