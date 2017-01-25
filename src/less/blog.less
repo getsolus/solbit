@@ -1,0 +1,56 @@
+// Blog and Blog Styling
+
+div[data-solbit="blog-content"] {
+	// #region Scaling
+
+	@media screen and (min-width: 1024px) { // Non-Mobile
+		div[data-solbit="video-player"] { // Video Player
+			height: 395px;
+		}
+	}
+
+	// #endregion
+
+	h1, h2, h3, h4, h5 { // Headers
+		color: @link;
+		font-weight: normal;
+	}
+
+	h2 {
+		font-size: 1.8em;
+	}
+
+	h3 {
+		font-size: 1.6em;
+	}
+
+	h4 {
+		font-size: 1.4em;
+	}
+
+	h5 {
+		font-size: 1.2em;
+	}
+
+	div[data-solbit="video-player"] { // Video Player
+		max-width: 700px;
+		margin: 3% 0;
+	}
+
+	img { // Images
+		display: block;
+		max-width: 100%;
+
+		&[class="featured-image"] { // Featured image
+			margin: 3% 0; // 3% top / bottom
+		}
+
+		&:not([class=featured-image]) { // Not Featured Image
+			margin-bottom: 1.5%;
+		}
+	}
+
+	ol, ul {
+		line-height: 1.5;
+	}
+}
