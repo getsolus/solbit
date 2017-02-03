@@ -1,31 +1,5 @@
 var solbit;
 (function (solbit) {
-    var header;
-    (function (header) {
-        function Enable(headerItemElement, customElement) {
-            if ((typeof headerItemElement.tagName == "string") && (headerItemElement.tagName.toLowerCase() == "span")) {
-                if (typeof customElement.tagName == "string") {
-                    headerItemElement.addEventListener("mouseup", solbit.header.Toggle.bind(this, headerItemElement, customElement));
-                    solbit.position.Register(["center", "bottom"], headerItemElement, customElement);
-                }
-            }
-        }
-        header.Enable = Enable;
-        function Toggle(headerItemElement, customElement) {
-            if (!customElement.hasAttribute("data-solbit-show")) {
-                solbit.position.Bottom(headerItemElement, customElement);
-                solbit.position.Center(headerItemElement, customElement);
-                customElement.setAttribute("data-solbit-show", "");
-            }
-            else {
-                customElement.removeAttribute("data-solbit-show");
-            }
-        }
-        header.Toggle = Toggle;
-    })(header = solbit.header || (solbit.header = {}));
-})(solbit || (solbit = {}));
-var solbit;
-(function (solbit) {
     var position;
     (function (position) {
         position.registered = [];
@@ -79,6 +53,54 @@ var solbit;
 })(solbit || (solbit = {}));
 var solbit;
 (function (solbit) {
+    var header;
+    (function (header) {
+        function Enable(type, headerItemElement, customElement) {
+            var success = false;
+            if ((type == "click") || (type == "hover")) {
+                if ((typeof headerItemElement.tagName == "string") && (headerItemElement.tagName.toLowerCase() == "span")) {
+                    if (typeof customElement.tagName == "string") {
+                        if (type == "click") {
+                            headerItemElement.addEventListener("mouseup", solbit.header.Toggle.bind(this, headerItemElement, customElement));
+                        }
+                        else {
+                            headerItemElement.addEventListener("mouseenter", solbit.header.Toggle.bind(this, headerItemElement, customElement, true));
+                            customElement.addEventListener("mouseleave", solbit.header.Toggle.bind(this, headerItemElement, customElement, false));
+                        }
+                        solbit.position.Register(["center", "bottom"], headerItemElement, customElement);
+                        success = true;
+                    }
+                }
+            }
+            return success;
+        }
+        header.Enable = Enable;
+        function HideAll() {
+            for (var _i = 0, _a = solbit.position.registered; _i < _a.length; _i++) {
+                var registeredObject = _a[_i];
+                registeredObject.Secondary.removeAttribute("data-solbit-show");
+            }
+        }
+        header.HideAll = HideAll;
+        function Toggle(headerItemElement, customElement, forceAction) {
+            if (forceAction == undefined) {
+                forceAction = !customElement.hasAttribute("data-solbit-show");
+            }
+            if (forceAction) {
+                solbit.header.HideAll();
+                solbit.position.Bottom(headerItemElement, customElement);
+                solbit.position.Center(headerItemElement, customElement);
+                customElement.setAttribute("data-solbit-show", "");
+            }
+            else {
+                customElement.removeAttribute("data-solbit-show");
+            }
+        }
+        header.Toggle = Toggle;
+    })(header = solbit.header || (solbit.header = {}));
+})(solbit || (solbit = {}));
+var solbit;
+(function (solbit) {
     var sidepane;
     (function (sidepane) {
         function Enable() {
@@ -117,6 +139,10 @@ var solbit;
 (function (solbit) {
     function Init() {
         solbit.sidepane.Enable();
+        var headerElement = document.body.querySelector("header");
+        if (headerElement !== null) {
+            headerElement.addEventListener("mouseleave", solbit.header.HideAll);
+        }
         window.addEventListener("resize", solbit.position.Update);
     }
     solbit.Init = Init;

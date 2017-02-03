@@ -1,7 +1,3 @@
-declare namespace solbit.header {
-    function Enable(headerItemElement: Element, customElement: HTMLElement): void | boolean;
-    function Toggle(headerItemElement: Element, customElement: HTMLElement): void;
-}
 interface RegisteredObject extends Object {
     Primary: Element;
     Secondary: HTMLElement;
@@ -15,6 +11,11 @@ declare namespace solbit.position {
     function Center(primaryElement: Element, secondaryElement: HTMLElement): void;
     function Register(positions: string[], primaryElement: Element, secondaryElement: HTMLElement): void;
     function Update(): void;
+}
+declare namespace solbit.header {
+    function Enable(type: string, headerItemElement: Element, customElement: HTMLElement): void | boolean;
+    function HideAll(): void;
+    function Toggle(headerItemElement: Element, customElement: HTMLElement, forceAction?: boolean): void;
 }
 declare namespace solbit.sidepane {
     var Container: Element;

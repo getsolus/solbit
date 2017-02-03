@@ -7,6 +7,13 @@ namespace solbit {
 	// Init
 	export function Init(): void {
 		solbit.sidepane.Enable(); // Enable the Sidepane
+
+		let headerElement: HTMLElement = document.body.querySelector("header");
+
+		if (headerElement !== null) { // If we have a header
+			headerElement.addEventListener("mouseleave", solbit.header.HideAll);
+		}
+
 		window.addEventListener("resize", solbit.position.Update); // Ensure we do Update positions on window resize
 	}
 }
