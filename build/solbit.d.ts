@@ -13,7 +13,7 @@ declare namespace solbit.position {
     function Update(): void;
 }
 declare namespace solbit.header {
-    function Enable(type: string, headerItemElement: Element, customElement: HTMLElement): void | boolean;
+    function Enable(type: string, headerItemElement: Element, customElement: HTMLElement): boolean;
     function HideAll(): void;
     function Toggle(headerItemElement: Element, customElement: HTMLElement, forceAction?: boolean): void;
 }

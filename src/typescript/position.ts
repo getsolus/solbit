@@ -12,7 +12,7 @@ namespace solbit.position {
 
 	// Top
 	// This function will position the secondary Element specified above the first
-	export function Top(primaryElement: Element, secondaryElement: HTMLElement) {
+	export function Top(primaryElement: Element, secondaryElement: HTMLElement): void {
 		let primaryElementDimensions: ClientRect = primaryElement.getClientRects()[0]; // Get the ClientRect Object of the primaryElement
 		let secondaryElementDimensions: ClientRect = secondaryElement.getClientRects()[0]; // Get the ClientRect Object of the secondaryElement
 
@@ -21,14 +21,14 @@ namespace solbit.position {
 
 	// Bottom
 	// This function will position the secondary Element specified below the first
-	export function Bottom(primaryElement: Element, secondaryElement: HTMLElement) {
+	export function Bottom(primaryElement: Element, secondaryElement: HTMLElement): void {
 		let primaryElementDimensions: ClientRect = primaryElement.getClientRects()[0]; // Get the ClientRect Object of the primaryElement
 		secondaryElement.style.bottom = primaryElementDimensions.bottom.toString() + "px"; // primaryElementDimensions.bottom
 	}
 
 	// Center
 	// This function will position the secondary Element centered respective to the first
-	export function Center(primaryElement: Element, secondaryElement: HTMLElement) {
+	export function Center(primaryElement: Element, secondaryElement: HTMLElement): void {
 		let primaryElementDimensions: ClientRect = primaryElement.getClientRects()[0]; // Get the ClientRect Object of the primaryElement
 		let secondaryElementDimensions: ClientRect = secondaryElement.getClientRects()[0]; // Get the ClientRect Object of the secondaryElement
 		let primaryElementWidth: number = primaryElementDimensions.width;
@@ -47,14 +47,14 @@ namespace solbit.position {
 
 	// Register
 	// This function will register the requested positioning, primary, and secondary Elements for Update.
-	export function Register(positions: string[], primaryElement: Element, secondaryElement: HTMLElement) {
+	export function Register(positions: string[], primaryElement: Element, secondaryElement: HTMLElement): void {
 		let registeredObject: RegisteredObject = { HorizontalPos: positions[0], VerticalPos: positions[0], Primary: primaryElement, Secondary: secondaryElement };
 		solbit.position.registered.push(registeredObject); // Add the registeredObject
 	}
 
 	// Update
 	// This function will update positions of Elements
-	export function Update() {
+	export function Update(): void {
 		for (let registeredObject of solbit.position.registered) { // For each registeredObject
 			// Horizontal Positioning
 			if (registeredObject.HorizontalPos == "top") { // Top

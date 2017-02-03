@@ -6,7 +6,7 @@ namespace solbit.sidepane {
 	export var ContentOverlay: Element;
 
 	// Enabling the Sidepane
-	export function Enable() {
+	export function Enable(): void {
 		solbit.sidepane.SidepaneButton = document.querySelector('header > div[data-solbit="button"]'); // Get Sidepane Button
 
 		if (solbit.sidepane.SidepaneButton !== null) { // If the SidepaneButton is defined
@@ -22,7 +22,7 @@ namespace solbit.sidepane {
 	}
 
 	// Toggling the Sidepane
-	export function Toggle() {
+	export function Toggle(): void {
 		let containerShowing: boolean = solbit.sidepane.SidepaneButton.hasAttribute("active"); // Get active attribute, if any
 
 		if (!containerShowing) { // If container is NOT showing

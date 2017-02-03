@@ -4,7 +4,7 @@
 namespace solbit.header {
 	// Enable
 	// This function is responsible for enabling the displaying of a "Custom Element" with a specified Header item
-	export function Enable(type: string, headerItemElement: Element, customElement: HTMLElement): void | boolean {
+	export function Enable(type: string, headerItemElement: Element, customElement: HTMLElement): boolean {
 		let success: boolean = false;
 
 		if ((type == "click") || (type == "hover")) { // Type is either click or hover
@@ -28,7 +28,7 @@ namespace solbit.header {
 
 	// HideAll
 	// This function will hide all Custom Elements
-	export function HideAll() {
+	export function HideAll(): void {
 		for (let registeredObject of solbit.position.registered) { // For each registeredObject of the registered Objects
 			registeredObject.Secondary.removeAttribute("data-solbit-show"); // Hide the Element. No need to call Toggle.
 		}
@@ -37,7 +37,7 @@ namespace solbit.header {
 	// Toggle
 	// This function toggles the visibility of a Custom Element.
 	// forceAction set to true will force show. forceAction set to false will force hide. No value passed enables dynamic toggle.
-	export function Toggle(headerItemElement: Element, customElement: HTMLElement, forceAction?: boolean) {
+	export function Toggle(headerItemElement: Element, customElement: HTMLElement, forceAction?: boolean): void {
 		if (forceAction == undefined) { // If no value is passed
 			forceAction = !customElement.hasAttribute("data-solbit-show"); // Set forceAction to inverse value of has attribute. If it doesn't, show. If it does, hide.
 		}
