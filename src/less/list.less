@@ -1,0 +1,13 @@
+// List
+
+div[data-solbit="list-item"] {
+	&:not(:last-of-type):not(:only-of-type) { // If this is both NOT the last List Item and NOT the only List Item
+		margin-bottom: 25px;
+		padding-bottom: 25px;
+		border-bottom: 2px solid @grey;
+	}
+
+	&:nth-of-type(odd) {
+		background-color: @white; // Have a slightly darker background
+	}
+}
