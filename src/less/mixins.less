@@ -23,15 +23,15 @@
 }
 
 .horizontalAlignContainer(@width) when (ispercentage(@width)){ // Horizontal Align based On Container Width
+	@halfMargin: unit((100 - unit(@width)) / 2, get-unit(@width));
 	width: @width;
-	@marginHalf: unit((100 - unit(@width)) / 2, get-unit(@width));
-	margin-left: @marginHalf;
-	margin-right: @marginHalf;
+	margin-left: @halfMargin;
+	margin-right: @halfMargin;
 }
 
 .horizontalAlignContainer(@width) when (ispixel(@width)) { // Horizontal Align based On Container Width
-	width: @width;
 	@halfWidth: unit(unit(@width) / 2, get-unit(@width));
+	width: @width;
 	margin-left: e("calc(50% - @{halfWidth])");
 	margin-right: e("calc(50% - @{halfWidth])");
 }
