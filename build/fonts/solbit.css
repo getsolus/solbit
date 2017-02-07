@@ -28,7 +28,9 @@
 .solbit-icon-menu:before,
 .solbit-icon-rss:before,
 .solbit-icon-star:before,
-.solbit-icon-user:before {
+.solbit-icon-tags:before,
+.solbit-icon-user:before,
+.solbit-icon-users:before {
   display: inline-block;
   font-family: "solbit";
   font-style: normal;
@@ -48,4 +50,6 @@
 .solbit-icon-menu:before { content: "\f102"; }
 .solbit-icon-rss:before { content: "\f103"; }
 .solbit-icon-star:before { content: "\f104"; }
+.solbit-icon-tags:before { content: "\f106"; }
 .solbit-icon-user:before { content: "\f105"; }
+.solbit-icon-users:before { content: "\f107"; }

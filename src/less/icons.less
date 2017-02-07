@@ -5,6 +5,12 @@ a, button, div, span {
 		}
 	}
 
+	&[data-solbit-icon="categories"], &[data-solbit-icon="tags"] {
+		&::before {
+			content: "\f106";
+		}
+	}
+
 	&[data-solbit-icon="check"], &[data-solbit-icon="checkbox"] {
 		&::before {
 			content: "\f100";
@@ -38,6 +44,12 @@ a, button, div, span {
 	&[data-solbit-icon="community"], &[data-solbit-icon="user"] {
 		&::before {
 			content: "\f105";
+		}
+	}
+
+	&[data-solbit-icon="users"] {
+		&::before {
+			content: "\f107";
 		}
 	}
 }
