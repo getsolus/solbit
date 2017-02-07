@@ -8,18 +8,32 @@
 	width: 50%;
 }
 
-.horizontalAlign(@margin) when (ispercentage(@margin)){
+.horizontalAlign(@margin) when (ispercentage(@margin)){ // Horizontal Align based on margin
 	@width: (100 - (unit(@margin) * 2));
 	width: e("@{width}%");
 	margin-left: @margin;
 	margin-right: @margin;
 }
 
-.horizontalAlign(@margin) when (ispixel(@margin)) {
+.horizontalAlign(@margin) when (ispixel(@margin)) { // Horizontal Align based on margin
 	@margindouble: unit(unit(@margin) * 2, px);
 	width: e("calc(100% - @{margindouble})");
 	margin-left: @margin;
 	margin-right: @margin;
+}
+
+.horizontalAlignContainer(@width) when (ispercentage(@width)){ // Horizontal Align based On Container Width
+	width: @width;
+	@marginHalf: unit((100 - unit(@width)) / 2, get-unit(@width));
+	margin-left: @marginHalf;
+	margin-right: @marginHalf;
+}
+
+.horizontalAlignContainer(@width) when (ispixel(@width)) { // Horizontal Align based On Container Width
+	width: @width;
+	@halfWidth: unit(unit(@width) / 2, get-unit(@width));
+	margin-left: e("calc(50% - @{halfWidth])");
+	margin-right: e("calc(50% - @{halfWidth])");
 }
 
 // #endregion
