@@ -56,14 +56,16 @@ div[data-solbit="blog-content"] {
 	}
 
 	ol, ul {
-		line-height: 1.5;
+		line-height: 2em;
 	}
 
 	p { // Paragraphs
 		min-height: 2em;
 		line-height: 2em;
+	}
 
-		& > code { // Single-line code blocks
+	ol, ul, p { // Locations code Element is likely going to be (outside of pre
+		code { // Single-line code blocks
 			&:extend(.codestyle);
 			padding: 0.5em;
 		}
