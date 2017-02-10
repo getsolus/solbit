@@ -1,5 +1,10 @@
 // Blog and Blog Styling
 
+.codestyle {
+	color: @text;
+	background-color: @white;
+}
+
 div[data-solbit="blog-content"] {
 	// #region Scaling
 
@@ -54,9 +59,17 @@ div[data-solbit="blog-content"] {
 		line-height: 1.5;
 	}
 
+	p { // Paragraphs
+		min-height: 2em;
+
+		& > code { // Single-line code blocks
+			&:extend(.codestyle);
+			padding: 0.5em;
+		}
+	}
+
 	pre { // Typically used with code (pre > code)
-		color: @text;
-		background-color: @white;
+		&:extend(.codestyle);
 		border-radius: 5px;
 		padding: 1em;
 	}
