@@ -61,6 +61,7 @@ div[data-solbit="blog-content"] {
 
 	p { // Paragraphs
 		min-height: 2em;
+		line-height: 2em;
 
 		& > code { // Single-line code blocks
 			&:extend(.codestyle);
@@ -72,5 +73,6 @@ div[data-solbit="blog-content"] {
 		&:extend(.codestyle);
 		border-radius: 5px;
 		padding: 1em;
+		overflow-x: auto; // Ensure there is a scrollbar for when code snippet lines exceed pre width.
 	}
 }
