@@ -77,4 +77,30 @@ div[data-solbit="blog-content"] {
 		padding: 1em;
 		overflow-x: auto; // Ensure there is a scrollbar for when code snippet lines exceed pre width.
 	}
+
+	table {
+		& > thead { // Table Header
+			height: 50px;
+			background-color: @white;
+
+			& > tr { // The actual row in Table Header
+				height: 50px;
+
+				& > th {
+					text-align: initial; // Ensure it isn't centered
+					padding: 0 1em; // 1em horizontal padding
+				}
+			}
+		}
+
+		& > tbody { // Table Body
+			& > tr { // Table rows
+				height: 40px;
+
+				& > td { // Table row columns
+					padding: 0 1em; // 1em horizontal padding
+				}
+			}
+		}
+	}
 }
