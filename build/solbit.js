@@ -130,42 +130,55 @@ var solbit;
         }
         searchbox_1.Enable = Enable;
         function Search(searchData) {
-            var keyEvent = arguments[2];
-            var doingSearch = false;
-            if (keyEvent.code !== "Escape") {
-                var value = searchData.Searchbox.value;
-                doingSearch = (value.length > 1);
-                if (doingSearch) {
-                    var results = searchData.ResultsFunc(value);
-                    var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list]');
-                    var currentListItems = resultsViewList.querySelectorAll('div[data-solbit="list-item]');
-                    if (currentListItems.length !== 0) {
-                        for (var item in currentListItems) {
-                            resultsViewList.removeChild(currentListItems[item]);
-                        }
-                    }
-                    if (results.length !== 0) {
-                        for (var _i = 0, results_1 = results; _i < results_1.length; _i++) {
-                            var result = results_1[_i];
-                            var resultElement = document.createElement("div");
-                            resultElement.setAttribute("data-solbit", "list-item");
-                            var resultElementLink = document.createElement("a");
-                            resultElementLink.title = result.Title;
-                            resultElementLink.textContent = result.Title;
-                            resultElementLink.href = result.Title;
-                            var resultElementContent = document.createElement("section");
-                            resultElementContent.innerHTML = result.Description.replace("\n", "<br />");
-                            resultElement.appendChild(resultElementLink);
-                            resultElement.appendChild(resultElementContent);
-                            resultsViewList.appendChild(resultElement);
-                        }
-                    }
-                    solbit.render.HideAll();
-                    solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
-                    solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+            var code = arguments[2].code;
+            var invalidKey = false;
+            var invalidKeys = ["Alt", "Caps", "Control", "Tab"];
+            for (var _i = 0, invalidKeys_1 = invalidKeys; _i < invalidKeys_1.length; _i++) {
+                var invalidKeyString = invalidKeys_1[_i];
+                switch (code.indexOf(invalidKeyString) !== -1) {
+                    case true:
+                        invalidKey = true;
+                        break;
                 }
             }
-            solbit.render.ToggleDisplay(searchData.ResultsView, doingSearch);
+            if (!invalidKey) {
+                var doingSearch = false;
+                if (code !== "Escape") {
+                    var value = searchData.Searchbox.value;
+                    doingSearch = (value.length > 1);
+                    if (doingSearch) {
+                        var results = searchData.ResultsFunc(value);
+                        var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list]');
+                        var currentListItems = resultsViewList.querySelectorAll('div[data-solbit="list-item]');
+                        if (currentListItems.length !== 0) {
+                            for (var item in currentListItems) {
+                                resultsViewList.removeChild(currentListItems[item]);
+                            }
+                        }
+                        if (results.length !== 0) {
+                            for (var _a = 0, results_1 = results; _a < results_1.length; _a++) {
+                                var result = results_1[_a];
+                                var resultElement = document.createElement("div");
+                                resultElement.setAttribute("data-solbit", "list-item");
+                                resultElement.setAttribute("data-solbit-nolistbg", "");
+                                var resultElementLink = document.createElement("a");
+                                resultElementLink.title = result.Title;
+                                resultElementLink.textContent = result.Title;
+                                resultElementLink.href = result.Title;
+                                var resultElementContent = document.createElement("section");
+                                resultElementContent.innerHTML = result.Description.replace("\n", "<br />");
+                                resultElement.appendChild(resultElementLink);
+                                resultElement.appendChild(resultElementContent);
+                                resultsViewList.appendChild(resultElement);
+                            }
+                        }
+                        solbit.render.HideAll();
+                        solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
+                        solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+                    }
+                }
+                solbit.render.ToggleDisplay(searchData.ResultsView, doingSearch);
+            }
         }
         searchbox_1.Search = Search;
     })(searchbox = solbit.searchbox || (solbit.searchbox = {}));
