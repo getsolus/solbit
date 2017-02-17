@@ -37,14 +37,16 @@ var solbit;
         function Update() {
             for (var _i = 0, _a = solbit.position.registered; _i < _a.length; _i++) {
                 var registeredObject = _a[_i];
-                if (registeredObject.HorizontalPos == "top") {
-                    solbit.position.Top(registeredObject.Primary, registeredObject.Secondary);
-                }
-                else {
-                    solbit.position.Bottom(registeredObject.Primary, registeredObject.Secondary);
-                }
-                if (registeredObject.VerticalPos == "center") {
-                    solbit.position.Center(registeredObject.Primary, registeredObject.Secondary);
+                if (registeredObject.Primary.getClientRects.length !== 0) {
+                    if (registeredObject.HorizontalPos == "top") {
+                        solbit.position.Top(registeredObject.Primary, registeredObject.Secondary);
+                    }
+                    else {
+                        solbit.position.Bottom(registeredObject.Primary, registeredObject.Secondary);
+                    }
+                    if (registeredObject.VerticalPos == "center") {
+                        solbit.position.Center(registeredObject.Primary, registeredObject.Secondary);
+                    }
                 }
             }
         }

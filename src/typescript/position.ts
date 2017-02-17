@@ -50,16 +50,18 @@ namespace solbit.position {
 	// This function will update positions of Elements
 	export function Update(): void {
 		for (let registeredObject of solbit.position.registered) { // For each registeredObject
-			// Horizontal Positioning
-			if (registeredObject.HorizontalPos == "top") { // Top
-				solbit.position.Top(registeredObject.Primary, registeredObject.Secondary);
-			} else { // Bottom
-				solbit.position.Bottom(registeredObject.Primary, registeredObject.Secondary);
-			}
+			if (registeredObject.Primary.getClientRects.length !== 0) { // If this Element is visible, thus provides ClientRects
+				// Horizontal Positioning
+				if (registeredObject.HorizontalPos == "top") { // Top
+					solbit.position.Top(registeredObject.Primary, registeredObject.Secondary);
+				} else { // Bottom
+					solbit.position.Bottom(registeredObject.Primary, registeredObject.Secondary);
+				}
 
-			// Vertical Positioning
-			if (registeredObject.VerticalPos == "center") { // Center
-				solbit.position.Center(registeredObject.Primary, registeredObject.Secondary);
+				// Vertical Positioning
+				if (registeredObject.VerticalPos == "center") { // Center
+					solbit.position.Center(registeredObject.Primary, registeredObject.Secondary);
+				}
 			}
 		}
 	}
