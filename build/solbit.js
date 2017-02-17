@@ -160,7 +160,7 @@ var solbit;
         }
         searchbox_1.Search = Search;
         function Propagate(results, searchData) {
-            var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list]');
+            var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list"]');
             var currentListItems = resultsViewList.querySelectorAll('div[data-solbit="list-item"]');
             if (currentListItems.length !== 0) {
                 for (var item in currentListItems) {

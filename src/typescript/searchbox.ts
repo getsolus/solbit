@@ -63,7 +63,7 @@ namespace solbit.searchbox {
 	// Propagate
 	// This function is responsible for propagating any items provided by the async func from Search to the Results View of searchData
 	export function Propagate(results: SearchResult[], searchData: SearchData) {
-		let resultsViewList: Element = searchData.ResultsView.querySelector('div[data-solbit="list]'); // Get the inner List of the resultsView
+		let resultsViewList: Element = searchData.ResultsView.querySelector('div[data-solbit="list"]'); // Get the inner List of the resultsView
 		let currentListItems: NodeList = resultsViewList.querySelectorAll('div[data-solbit="list-item"]'); // Get all List Items
 
 		if (currentListItems.length !== 0) { // If there are List Items
