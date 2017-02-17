@@ -29,7 +29,7 @@ namespace solbit.searchbox {
 	// Search
 	// This function is responsible for performing a Search operation and handling the results.
 	export function Search(searchData: SearchData): void {
-		let code: string = arguments[2].code;
+		let code: string = arguments[1].code;
 		let invalidKey: boolean = false;
 		let invalidKeys = ["Alt", "Caps", "Control", "Tab"];
 

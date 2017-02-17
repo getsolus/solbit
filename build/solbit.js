@@ -132,7 +132,7 @@ var solbit;
         }
         searchbox_1.Enable = Enable;
         function Search(searchData) {
-            var code = arguments[2].code;
+            var code = arguments[1].code;
             var invalidKey = false;
             var invalidKeys = ["Alt", "Caps", "Control", "Tab"];
             for (var _i = 0, invalidKeys_1 = invalidKeys; _i < invalidKeys_1.length; _i++) {
