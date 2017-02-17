@@ -31,7 +31,7 @@ declare namespace solbit.header {
     function Toggle(headerItemElement: Element, customElement: HTMLElement, forceAction?: boolean): void;
 }
 declare namespace solbit.searchbox {
-    function Enable(searchbox: HTMLInputElement, resultsview: HTMLElement, resultsFunc: () => SearchResult[]): boolean;
+    function Enable(searchbox: any, resultsview: any, resultsFunc: (query: string) => SearchResult[]): boolean;
     function Search(searchData: SearchData): void;
 }
 declare namespace solbit.sidepane {

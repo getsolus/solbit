@@ -7,7 +7,7 @@ namespace solbit.searchbox {
 
 	// Enable
 	// This function is responsible for enabling the displaying of a results view on a Searchbox input Element
-	export function Enable(searchbox: HTMLInputElement, resultsview: HTMLElement, resultsFunc: () => SearchResult[]): boolean {
+	export function Enable(searchbox: any, resultsview: any, resultsFunc: (query: string) => SearchResult[]): boolean {
 		let success: boolean = false;
 
 		if ((typeof searchbox.tagName == "string") && (searchbox.tagName.toLowerCase() == "input")) { // If searchbox is an input Element
