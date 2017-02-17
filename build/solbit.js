@@ -11,7 +11,7 @@ var solbit;
         position.Top = Top;
         function Bottom(primaryElement, secondaryElement) {
             var primaryElementDimensions = primaryElement.getClientRects()[0];
-            secondaryElement.style.bottom = primaryElementDimensions.bottom.toString() + "px";
+            secondaryElement.style.top = primaryElementDimensions.bottom.toString() + "px";
         }
         position.Bottom = Bottom;
         function Center(primaryElement, secondaryElement) {

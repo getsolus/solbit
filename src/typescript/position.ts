@@ -17,7 +17,7 @@ namespace solbit.position {
 	// This function will position the secondary Element specified below the first
 	export function Bottom(primaryElement: Element, secondaryElement: HTMLElement): void {
 		let primaryElementDimensions: ClientRect = primaryElement.getClientRects()[0]; // Get the ClientRect Object of the primaryElement
-		secondaryElement.style.bottom = primaryElementDimensions.bottom.toString() + "px"; // primaryElementDimensions.bottom
+		secondaryElement.style.top = primaryElementDimensions.bottom.toString() + "px"; // Set the top of the secondaryElement to the bottom Y value of the primaryElement
 	}
 
 	// Center
