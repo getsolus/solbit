@@ -124,39 +124,31 @@ var solbit;
                         "ResultsView": resultsview,
                         "ResultsFunc": resultsFunc
                     };
+                    searchbox.addEventListener("focusin", solbit.searchbox.ShowResults.bind(this, searchData));
                     searchbox.addEventListener("focusout", solbit.render.ToggleDisplay.bind(this, resultsview, false));
-                    searchbox.addEventListener("keyup", solbit.searchbox.Search.bind(this, searchData));
+                    searchbox.addEventListener("input", solbit.searchbox.Search.bind(this, searchData));
                     solbit.position.Register(["bottom", "center"], searchbox, resultsview);
                 }
             }
             return success;
         }
         searchbox_1.Enable = Enable;
-        function Search(searchData) {
-            var code = arguments[1].code;
-            var invalidKey = false;
-            var invalidKeys = ["Alt", "Caps", "Control", "Tab"];
-            for (var _i = 0, invalidKeys_1 = invalidKeys; _i < invalidKeys_1.length; _i++) {
-                var invalidKeyString = invalidKeys_1[_i];
-                switch (code.indexOf(invalidKeyString) !== -1) {
-                    case true:
-                        invalidKey = true;
-                        break;
-                }
+        function ShowResults(searchData) {
+            var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list"]');
+            if (resultsViewList.children.length > 1) {
+                solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
+                solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+                solbit.render.ToggleDisplay(searchData.ResultsView, true);
             }
-            if (!invalidKey) {
-                var doingSearch = false;
-                if (code !== "Escape") {
-                    var value = searchData.Searchbox.value;
-                    doingSearch = (value.length > 1);
-                    if (doingSearch) {
-                        solbit.render.HideAll();
-                        searchData.ResultsFunc(value, searchData);
-                    }
-                }
-                if (!doingSearch) {
-                    solbit.render.HideAll();
-                }
+        }
+        searchbox_1.ShowResults = ShowResults;
+        function Search(searchData) {
+            var value = searchData.Searchbox.value;
+            if (value.length > 1) {
+                searchData.ResultsFunc(value, searchData);
+            }
+            else {
+                solbit.render.ToggleDisplay(searchData.ResultsView, false);
             }
         }
         searchbox_1.Search = Search;

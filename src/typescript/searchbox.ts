@@ -18,8 +18,9 @@ namespace solbit.searchbox {
 					"ResultsFunc": resultsFunc
 				};
 
+				searchbox.addEventListener("focusin", solbit.searchbox.ShowResults.bind(this, searchData)); // Enable the re-showing of results in the event of a focusout, by listening to focusin
 				searchbox.addEventListener("focusout", solbit.render.ToggleDisplay.bind(this, resultsview, false)); // Hide the Results View when focus ends on the Searchbox
-				searchbox.addEventListener("keyup", solbit.searchbox.Search.bind(this, searchData));
+				searchbox.addEventListener("input", solbit.searchbox.Search.bind(this, searchData));
 
 				solbit.position.Register(["bottom", "center"], searchbox, resultsview); // Register to positioning system so we get dynamic repositioning
 			}
@@ -28,37 +29,27 @@ namespace solbit.searchbox {
 		return success;
 	}
 
+	// ShowResults
+	// This function is responsible for re-showing of existing results in the event of a focusin after a focusout has occured
+	export function ShowResults(searchData: SearchData): void {
+		let resultsViewList: Element = searchData.ResultsView.querySelector('div[data-solbit="list"]'); // Get the inner List of the resultsView
+
+		if (resultsViewList.children.length > 1) { // If it isn't only the "No Results" section is in the List
+			solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
+			solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+			solbit.render.ToggleDisplay(searchData.ResultsView, true); // Show
+		}
+	}
+
 	// Search
 	// This function is responsible for performing a Search operation and handling the results.
 	export function Search(searchData: SearchData): void {
-		let code: string = arguments[1].code;
-		let invalidKey: boolean = false;
-		let invalidKeys = ["Alt", "Caps", "Control", "Tab"];
+		let value: string = searchData.Searchbox.value; // Set value to the current value of the Searchbox
 
-		for (let invalidKeyString of invalidKeys) {
-			switch (code.indexOf(invalidKeyString) !== -1) {
-				case true:
-					invalidKey = true;
-					break;
-			}
-		}
-
-		if (!invalidKey) { // If this isn't an invalid key
-			let doingSearch = false;
-
-			if (code !== "Escape") { // If we're not ending the search operation via Escape
-				let value: string = searchData.Searchbox.value; // Set value to the current value of the Searchbox
-				doingSearch = (value.length > 1);
-
-				if (doingSearch) { // If the searchbox value has meaningful input content (Bleve doesn't like 1 char search, which is understandable)
-					solbit.render.HideAll(); // Hide all existing Elements to avoid clashing between multiple Custom Elements.
-					searchData.ResultsFunc(value, searchData); // Get results, pass along searchData so the function can call Propagate
-				}
-			}
-
-			if (!doingSearch) { // If we're not doing a search
-				solbit.render.HideAll(); // Hide all existing Elements to avoid clashing between multiple Custom Elements.
-			}
+		if (value.length > 1) { // If the searchbox value has meaningful input content (Bleve doesn't like 1 char search, which is understandable)
+			searchData.ResultsFunc(value, searchData); // Get results, pass along searchData so the function can call Propagate
+		} else { // If we're not doing a search or only 1-char is in the Searchbox
+			solbit.render.ToggleDisplay(searchData.ResultsView, false); // Hide
 		}
 	}
 

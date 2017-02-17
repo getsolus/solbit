@@ -32,6 +32,7 @@ declare namespace solbit.header {
 }
 declare namespace solbit.searchbox {
     function Enable(searchbox: any, resultsview: any, resultsFunc: (query: string, searchData: SearchData) => void): boolean;
+    function ShowResults(searchData: SearchData): void;
     function Search(searchData: SearchData): void;
     function Propagate(results: SearchResult[], searchData: SearchData): void;
 }
