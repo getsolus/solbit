@@ -1,7 +1,10 @@
 // Styling for Search related functionality
 
 div[data-solbit="search-results"] { // Search Results
-	background-color: fadeout(#fafafa, 5%); // Have a slightly transparent background to the results
+	background-color: #fafafa;
+	position: absolute;
+	overflow-y: auto;
+	z-index: 10;
 
 	&:not([data-solbit-show]) { // If we're not doing a force show
 		visibility:hidden; // Hide
