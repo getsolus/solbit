@@ -126,7 +126,7 @@ var solbit;
                     };
                     searchbox.addEventListener("focusout", solbit.render.ToggleDisplay.bind(this, resultsview, false));
                     searchbox.addEventListener("keyup", solbit.searchbox.Search.bind(this, searchData));
-                    solbit.position.Register(["center", "bottom"], searchbox, resultsview);
+                    solbit.position.Register(["bottom", "center"], searchbox, resultsview);
                 }
             }
             return success;
