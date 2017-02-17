@@ -135,7 +135,7 @@ var solbit;
         searchbox_1.Enable = Enable;
         function ShowResults(searchData) {
             var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list"]');
-            if (resultsViewList.children.length > 1) {
+            if ((searchData.Searchbox.value !== "") && (resultsViewList.children.length > 1)) {
                 solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
                 solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
                 solbit.render.ToggleDisplay(searchData.ResultsView, true);

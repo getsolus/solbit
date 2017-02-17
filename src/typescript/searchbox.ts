@@ -34,7 +34,7 @@ namespace solbit.searchbox {
 	export function ShowResults(searchData: SearchData): void {
 		let resultsViewList: Element = searchData.ResultsView.querySelector('div[data-solbit="list"]'); // Get the inner List of the resultsView
 
-		if (resultsViewList.children.length > 1) { // If it isn't only the "No Results" section is in the List
+		if ((searchData.Searchbox.value !== "") && (resultsViewList.children.length > 1)) { // If the Searchbox isn't empty and there isn't only the "No Results" section is in the List
 			solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
 			solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
 			solbit.render.ToggleDisplay(searchData.ResultsView, true); // Show
