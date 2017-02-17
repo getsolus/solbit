@@ -30,7 +30,7 @@ var solbit;
         }
         position.Center = Center;
         function Register(positions, primaryElement, secondaryElement) {
-            var registeredObject = { HorizontalPos: positions[0], VerticalPos: positions[0], Primary: primaryElement, Secondary: secondaryElement };
+            var registeredObject = { HorizontalPos: positions[0], VerticalPos: positions[1], Primary: primaryElement, Secondary: secondaryElement };
             solbit.position.registered.push(registeredObject);
         }
         position.Register = Register;

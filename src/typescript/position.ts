@@ -42,7 +42,7 @@ namespace solbit.position {
 	// Register
 	// This function will register the requested positioning, primary, and secondary Elements for Update.
 	export function Register(positions: string[], primaryElement: Element, secondaryElement: HTMLElement): void {
-		let registeredObject: RegisteredObject = { HorizontalPos: positions[0], VerticalPos: positions[0], Primary: primaryElement, Secondary: secondaryElement };
+		let registeredObject: RegisteredObject = { HorizontalPos: positions[0], VerticalPos: positions[1], Primary: primaryElement, Secondary: secondaryElement };
 		solbit.position.registered.push(registeredObject); // Add the registeredObject
 	}
 
