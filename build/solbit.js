@@ -149,40 +149,47 @@ var solbit;
                     var value = searchData.Searchbox.value;
                     doingSearch = (value.length > 1);
                     if (doingSearch) {
-                        var results = searchData.ResultsFunc(value);
-                        var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list]');
-                        var currentListItems = resultsViewList.querySelectorAll('div[data-solbit="list-item]');
-                        if (currentListItems.length !== 0) {
-                            for (var item in currentListItems) {
-                                resultsViewList.removeChild(currentListItems[item]);
-                            }
-                        }
-                        if (results.length !== 0) {
-                            for (var _a = 0, results_1 = results; _a < results_1.length; _a++) {
-                                var result = results_1[_a];
-                                var resultElement = document.createElement("div");
-                                resultElement.setAttribute("data-solbit", "list-item");
-                                resultElement.setAttribute("data-solbit-nolistbg", "");
-                                var resultElementLink = document.createElement("a");
-                                resultElementLink.title = result.Title;
-                                resultElementLink.textContent = result.Title;
-                                resultElementLink.href = result.Title;
-                                var resultElementContent = document.createElement("section");
-                                resultElementContent.innerHTML = result.Description.replace("\n", "<br />");
-                                resultElement.appendChild(resultElementLink);
-                                resultElement.appendChild(resultElementContent);
-                                resultsViewList.appendChild(resultElement);
-                            }
-                        }
                         solbit.render.HideAll();
-                        solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
-                        solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+                        searchData.ResultsFunc(value, searchData);
                     }
                 }
-                solbit.render.ToggleDisplay(searchData.ResultsView, doingSearch);
+                if (!doingSearch) {
+                    solbit.render.HideAll();
+                }
             }
         }
         searchbox_1.Search = Search;
+        function Propagate(results, searchData) {
+            var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list]');
+            var currentListItems = resultsViewList.querySelectorAll('div[data-solbit="list-item]');
+            if (currentListItems.length !== 0) {
+                for (var item in currentListItems) {
+                    resultsViewList.removeChild(currentListItems[item]);
+                }
+            }
+            if (results.length !== 0) {
+                for (var _i = 0, results_1 = results; _i < results_1.length; _i++) {
+                    var result = results_1[_i];
+                    var resultElement = document.createElement("div");
+                    resultElement.setAttribute("data-solbit", "list-item");
+                    resultElement.setAttribute("data-solbit-nolistbg", "");
+                    var resultElementLink = document.createElement("a");
+                    resultElementLink.title = result.Title;
+                    resultElementLink.textContent = result.Title;
+                    resultElementLink.href = result.Title;
+                    var resultElementContent = document.createElement("section");
+                    resultElementContent.innerHTML = result.Description.replace("\n", "<br />");
+                    resultElement.appendChild(resultElementLink);
+                    resultElement.appendChild(resultElementContent);
+                    resultsViewList.appendChild(resultElement);
+                }
+                solbit.render.HideAll();
+                solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
+                solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+                solbit.render.ToggleDisplay(searchData.ResultsView, true);
+            }
+        }
+        searchbox_1.Propagate = Propagate;
     })(searchbox = solbit.searchbox || (solbit.searchbox = {}));
 })(solbit || (solbit = {}));
 var solbit;

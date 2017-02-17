@@ -7,7 +7,7 @@ namespace solbit.searchbox {
 
 	// Enable
 	// This function is responsible for enabling the displaying of a results view on a Searchbox input Element
-	export function Enable(searchbox: any, resultsview: any, resultsFunc: (query: string) => SearchResult[]): boolean {
+	export function Enable(searchbox: any, resultsview: any, resultsFunc: (query: string, searchData: SearchData) => void): boolean {
 		let success: boolean = false;
 
 		if ((typeof searchbox.tagName == "string") && (searchbox.tagName.toLowerCase() == "input")) { // If searchbox is an input Element
@@ -49,45 +49,54 @@ namespace solbit.searchbox {
 				doingSearch = (value.length > 1);
 
 				if (doingSearch) { // If the searchbox value has meaningful input content (Bleve doesn't like 1 char search, which is understandable)
-					let results: SearchResult[] = searchData.ResultsFunc(value); // Get results
-
-					let resultsViewList: Element = searchData.ResultsView.querySelector('div[data-solbit="list]'); // Get the inner List of the resultsView
-					let currentListItems: NodeList = resultsViewList.querySelectorAll('div[data-solbit="list-item]'); // Get all List Items
-
-					if (currentListItems.length !== 0) { // If there are List Items
-						for (let item in currentListItems) { // For each List item
-							resultsViewList.removeChild(currentListItems[item]); // Remove this Element
-						}
-					}
-
-					if (results.length !== 0) { // If there are results
-						for (let result of results) {
-							let resultElement: HTMLDivElement = document.createElement("div");
-							resultElement.setAttribute("data-solbit", "list-item"); // Declare as a List Item
-							resultElement.setAttribute("data-solbit-nolistbg", ""); // Don't have any background styling
-
-							let resultElementLink: HTMLAnchorElement = document.createElement("a");
-							resultElementLink.title = result.Title;
-							resultElementLink.textContent = result.Title;
-							resultElementLink.href = result.Title;
-
-							let resultElementContent: HTMLElement = document.createElement("section"); // Create a section Element
-							resultElementContent.innerHTML = result.Description.replace("\n", "<br />"); // Set the innerHTML to the description provided, accounting for newline strings
-
-							resultElement.appendChild(resultElementLink); // Add the link
-							resultElement.appendChild(resultElementContent); // Add the textContent
-
-							resultsViewList.appendChild(resultElement); // Append the resultElement to the Result View List
-						}
-					}
-
 					solbit.render.HideAll(); // Hide all existing Elements to avoid clashing between multiple Custom Elements.
-					solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
-					solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+					searchData.ResultsFunc(value, searchData); // Get results, pass along searchData so the function can call Propagate
 				}
 			}
 
-			solbit.render.ToggleDisplay(searchData.ResultsView, doingSearch);
+			if (!doingSearch) { // If we're not doing a search
+				solbit.render.HideAll(); // Hide all existing Elements to avoid clashing between multiple Custom Elements.
+			}
+		}
+	}
+
+	// Propagate
+	// This function is responsible for propagating any items provided by the async func from Search to the Results View of searchData
+	export function Propagate(results: SearchResult[], searchData: SearchData) {
+		let resultsViewList: Element = searchData.ResultsView.querySelector('div[data-solbit="list]'); // Get the inner List of the resultsView
+		let currentListItems: NodeList = resultsViewList.querySelectorAll('div[data-solbit="list-item]'); // Get all List Items
+
+		if (currentListItems.length !== 0) { // If there are List Items
+			for (let item in currentListItems) { // For each List item
+				resultsViewList.removeChild(currentListItems[item]); // Remove this Element
+			}
+		}
+
+		if (results.length !== 0) { // If there are results
+			for (let result of results) {
+				let resultElement: HTMLDivElement = document.createElement("div");
+				resultElement.setAttribute("data-solbit", "list-item"); // Declare as a List Item
+				resultElement.setAttribute("data-solbit-nolistbg", ""); // Don't have any background styling
+
+				let resultElementLink: HTMLAnchorElement = document.createElement("a");
+				resultElementLink.title = result.Title;
+				resultElementLink.textContent = result.Title;
+				resultElementLink.href = result.Title;
+
+				let resultElementContent: HTMLElement = document.createElement("section"); // Create a section Element
+				resultElementContent.innerHTML = result.Description.replace("\n", "<br />"); // Set the innerHTML to the description provided, accounting for newline strings
+
+				resultElement.appendChild(resultElementLink); // Add the link
+				resultElement.appendChild(resultElementContent); // Add the textContent
+
+				resultsViewList.appendChild(resultElement); // Append the resultElement to the Result View List
+			}
+
+			solbit.render.HideAll(); // Hide all existing Elements to avoid clashing between multiple Custom Elements.
+			solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
+			solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+
+			solbit.render.ToggleDisplay(searchData.ResultsView, true); // Show
 		}
 	}
 }
