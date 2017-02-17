@@ -53,6 +53,31 @@ var solbit;
 })(solbit || (solbit = {}));
 var solbit;
 (function (solbit) {
+    var render;
+    (function (render) {
+        function HideAll() {
+            for (var _i = 0, _a = solbit.position.registered; _i < _a.length; _i++) {
+                var registeredObject = _a[_i];
+                registeredObject.Secondary.removeAttribute("data-solbit-show");
+            }
+        }
+        render.HideAll = HideAll;
+        function ToggleDisplay(element, forceAction) {
+            if (forceAction == undefined) {
+                forceAction = !element.hasAttribute("data-solbit-show");
+            }
+            if (forceAction) {
+                element.setAttribute("data-solbit-show", "");
+            }
+            else {
+                element.removeAttribute("data-solbit-show");
+            }
+        }
+        render.ToggleDisplay = ToggleDisplay;
+    })(render = solbit.render || (solbit.render = {}));
+})(solbit || (solbit = {}));
+var solbit;
+(function (solbit) {
     var header;
     (function (header) {
         function Enable(type, headerItemElement, customElement) {
@@ -75,26 +100,11 @@ var solbit;
             return success;
         }
         header.Enable = Enable;
-        function HideAll() {
-            for (var _i = 0, _a = solbit.position.registered; _i < _a.length; _i++) {
-                var registeredObject = _a[_i];
-                registeredObject.Secondary.removeAttribute("data-solbit-show");
-            }
-        }
-        header.HideAll = HideAll;
         function Toggle(headerItemElement, customElement, forceAction) {
-            if (forceAction == undefined) {
-                forceAction = !customElement.hasAttribute("data-solbit-show");
-            }
-            if (forceAction) {
-                solbit.header.HideAll();
-                solbit.position.Bottom(headerItemElement, customElement);
-                solbit.position.Center(headerItemElement, customElement);
-                customElement.setAttribute("data-solbit-show", "");
-            }
-            else {
-                customElement.removeAttribute("data-solbit-show");
-            }
+            solbit.render.HideAll();
+            solbit.position.Bottom(headerItemElement, customElement);
+            solbit.position.Center(headerItemElement, customElement);
+            solbit.render.ToggleDisplay(customElement, forceAction);
         }
         header.Toggle = Toggle;
     })(header = solbit.header || (solbit.header = {}));
@@ -141,7 +151,7 @@ var solbit;
         solbit.sidepane.Enable();
         var headerElement = document.body.querySelector("header");
         if (headerElement !== null) {
-            headerElement.addEventListener("mouseleave", solbit.header.HideAll);
+            headerElement.addEventListener("mouseleave", solbit.render.HideAll);
         }
         window.addEventListener("resize", solbit.position.Update);
     }

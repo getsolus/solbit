@@ -1,11 +1,5 @@
 // Positioning Functionality
-
-interface RegisteredObject extends Object {
-	Primary: Element;
-	Secondary: HTMLElement;
-	HorizontalPos: string;
-	VerticalPos: string;
-}
+/// <reference path="interfaces.ts" />
 
 namespace solbit.position {
 	export var registered: RegisteredObject[] = []; // Array of Objects

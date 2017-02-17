@@ -1,5 +1,6 @@
 // Header Functionality
 /// <reference path="position.ts" />
+/// <reference path="render.ts" />
 
 namespace solbit.header {
 	// Enable
@@ -26,31 +27,13 @@ namespace solbit.header {
 		return success;
 	}
 
-	// HideAll
-	// This function will hide all Custom Elements
-	export function HideAll(): void {
-		for (let registeredObject of solbit.position.registered) { // For each registeredObject of the registered Objects
-			registeredObject.Secondary.removeAttribute("data-solbit-show"); // Hide the Element. No need to call Toggle.
-		}
-	}
-
 	// Toggle
 	// This function toggles the visibility of a Custom Element.
 	// forceAction set to true will force show. forceAction set to false will force hide. No value passed enables dynamic toggle.
 	export function Toggle(headerItemElement: Element, customElement: HTMLElement, forceAction?: boolean): void {
-		if (forceAction == undefined) { // If no value is passed
-			forceAction = !customElement.hasAttribute("data-solbit-show"); // Set forceAction to inverse value of has attribute. If it doesn't, show. If it does, hide.
-		}
-
-		if (forceAction) { // If we're going to show the Element
-			solbit.header.HideAll(); // Hide all existing Elements to avoid clashing between multiple Custom Elements.
-			solbit.position.Bottom(headerItemElement, customElement);
-			solbit.position.Center(headerItemElement, customElement);
-
-			customElement.setAttribute("data-solbit-show", ""); // Add data-solbit-show to customElement
-		} else { // If we're going to hide the Element.
-			customElement.removeAttribute("data-solbit-show"); // Hide away.
-		}
+		solbit.render.HideAll(); // Hide all existing Elements to avoid clashing between multiple Custom Elements.
+		solbit.position.Bottom(headerItemElement, customElement);
+		solbit.position.Center(headerItemElement, customElement);
+		solbit.render.ToggleDisplay(customElement, forceAction);
 	}
-
 }

@@ -4,6 +4,16 @@ interface RegisteredObject extends Object {
     HorizontalPos: string;
     VerticalPos: string;
 }
+interface SearchData extends Object {
+    Searchbox: HTMLInputElement;
+    ResultsView: HTMLElement;
+    ResultsFunc: Function;
+}
+interface SearchResult extends Object {
+    Title: string;
+    Description: string;
+    URL: string;
+}
 declare namespace solbit.position {
     var registered: RegisteredObject[];
     function Top(primaryElement: Element, secondaryElement: HTMLElement): void;
@@ -12,9 +22,12 @@ declare namespace solbit.position {
     function Register(positions: string[], primaryElement: Element, secondaryElement: HTMLElement): void;
     function Update(): void;
 }
+declare namespace solbit.render {
+    function HideAll(): void;
+    function ToggleDisplay(element: HTMLElement, forceAction?: boolean): void;
+}
 declare namespace solbit.header {
     function Enable(type: string, headerItemElement: Element, customElement: HTMLElement): boolean;
-    function HideAll(): void;
     function Toggle(headerItemElement: Element, customElement: HTMLElement, forceAction?: boolean): void;
 }
 declare namespace solbit.sidepane {

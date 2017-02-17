@@ -11,7 +11,7 @@ namespace solbit {
 		let headerElement: HTMLElement = document.body.querySelector("header");
 
 		if (headerElement !== null) { // If we have a header
-			headerElement.addEventListener("mouseleave", solbit.header.HideAll);
+			headerElement.addEventListener("mouseleave", solbit.render.HideAll);
 		}
 
 		window.addEventListener("resize", solbit.position.Update); // Ensure we do Update positions on window resize
