@@ -162,9 +162,9 @@ var solbit;
         function Propagate(results, searchData) {
             var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list"]');
             var currentListItems = resultsViewList.querySelectorAll('div[data-solbit="list-item"]');
-            if (currentListItems.length !== 0) {
-                for (var item in currentListItems) {
-                    resultsViewList.removeChild(currentListItems[item]);
+            if (currentListItems.length > 0) {
+                for (var i = 0; i < currentListItems.length; i++) {
+                    resultsViewList.removeChild(currentListItems[i]);
                 }
             }
             if (results.length !== 0) {

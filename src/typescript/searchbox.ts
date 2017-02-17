@@ -66,9 +66,9 @@ namespace solbit.searchbox {
 		let resultsViewList: Element = searchData.ResultsView.querySelector('div[data-solbit="list"]'); // Get the inner List of the resultsView
 		let currentListItems: NodeList = resultsViewList.querySelectorAll('div[data-solbit="list-item"]'); // Get all List Items
 
-		if (currentListItems.length !== 0) { // If there are List Items
-			for (let item in currentListItems) { // For each List item
-				resultsViewList.removeChild(currentListItems[item]); // Remove this Element
+		if (currentListItems.length > 0) { // If there are List Items
+			for (let i = 0; i < currentListItems.length; i++) { // For each List item
+				resultsViewList.removeChild(currentListItems[i]); // Remove this Element
 			}
 		}
 
