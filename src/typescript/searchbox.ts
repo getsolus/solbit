@@ -18,7 +18,8 @@ namespace solbit.searchbox {
 					"ResultsFunc": resultsFunc
 				};
 
-				searchbox.addEventListener("input", solbit.searchbox.Search.bind(this, searchData));
+				searchbox.addEventListener("focusout", solbit.render.ToggleDisplay.bind(this, resultsview, false)); // Hide the Results View when focus ends on the Searchbox
+				searchbox.addEventListener("keyup", solbit.searchbox.Search.bind(this, searchData));
 			}
 		}
 
@@ -28,44 +29,49 @@ namespace solbit.searchbox {
 	// Search
 	// This function is responsible for performing a Search operation and handling the results.
 	export function Search(searchData: SearchData): void {
-		let value: string = searchData.Searchbox.value; // Set value to the current value of the Searchbox
-		let doingSearch: boolean = (value.length > 1);
+		let keyEvent: KeyboardEvent = arguments[2];
+		let doingSearch = false;
 
-		if (doingSearch) { // If the searchbox value has meaningful input content (Bleve doesn't like 1 char search, which is understandable)
-			let results: SearchResult[] = searchData.ResultsFunc(value); // Get results
+		if (keyEvent.code !== "Escape") { // If we're not ending the search operation via Escape
+			let value: string = searchData.Searchbox.value; // Set value to the current value of the Searchbox
+			doingSearch = (value.length > 1);
 
-			let resultsViewList: Element = searchData.ResultsView.querySelector('div[data-solbit="list]'); // Get the inner List of the resultsView
-			let currentListItems: NodeList = resultsViewList.querySelectorAll('div[data-solbit="list-item]'); // Get all List Items
+			if (doingSearch) { // If the searchbox value has meaningful input content (Bleve doesn't like 1 char search, which is understandable)
+				let results: SearchResult[] = searchData.ResultsFunc(value); // Get results
 
-			if (currentListItems.length !== 0) { // If there are List Items
-				for (let listItem of currentListItems) { // For each List item
-					resultsViewList.removeChild(listItem); // Remove this Element
+				let resultsViewList: Element = searchData.ResultsView.querySelector('div[data-solbit="list]'); // Get the inner List of the resultsView
+				let currentListItems: NodeList = resultsViewList.querySelectorAll('div[data-solbit="list-item]'); // Get all List Items
+
+				if (currentListItems.length !== 0) { // If there are List Items
+					for (let item in currentListItems) { // For each List item
+						resultsViewList.removeChild(currentListItems[item]); // Remove this Element
+					}
 				}
-			}
 
-			if (results.length !== 0) { // If there are results
-				for (let result of results) {
-					let resultElement: HTMLDivElement = document.createElement("div");
-					resultElement.setAttribute("data-solbit", "list-item"); // Declare as a List Item
+				if (results.length !== 0) { // If there are results
+					for (let result of results) {
+						let resultElement: HTMLDivElement = document.createElement("div");
+						resultElement.setAttribute("data-solbit", "list-item"); // Declare as a List Item
 
-					let resultElementLink: HTMLAnchorElement = document.createElement("a");
-					resultElementLink.title = result.Title;
-					resultElementLink.textContent = result.Title;
-					resultElementLink.href = result.Title;
+						let resultElementLink: HTMLAnchorElement = document.createElement("a");
+						resultElementLink.title = result.Title;
+						resultElementLink.textContent = result.Title;
+						resultElementLink.href = result.Title;
 
-					let resultElementContent: HTMLElement = document.createElement("section"); // Create a section Element
-					resultElementContent.innerHTML = result.Description.replace("\n", "<br />"); // Set the innerHTML to the description provided, accounting for newline strings
+						let resultElementContent: HTMLElement = document.createElement("section"); // Create a section Element
+						resultElementContent.innerHTML = result.Description.replace("\n", "<br />"); // Set the innerHTML to the description provided, accounting for newline strings
 
-					resultElement.appendChild(resultElementLink); // Add the link
-					resultElement.appendChild(resultElementContent); // Add the textContent
+						resultElement.appendChild(resultElementLink); // Add the link
+						resultElement.appendChild(resultElementContent); // Add the textContent
 
-					resultsViewList.appendChild(resultElement); // Append the resultElement to the Result View List
+						resultsViewList.appendChild(resultElement); // Append the resultElement to the Result View List
+					}
 				}
-			}
 
-			solbit.render.HideAll(); // Hide all existing Elements to avoid clashing between multiple Custom Elements.
-			solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
-			solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+				solbit.render.HideAll(); // Hide all existing Elements to avoid clashing between multiple Custom Elements.
+				solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
+				solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+			}
 		}
 
 		solbit.render.ToggleDisplay(searchData.ResultsView, doingSearch);

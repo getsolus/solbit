@@ -111,6 +111,67 @@ var solbit;
 })(solbit || (solbit = {}));
 var solbit;
 (function (solbit) {
+    var searchbox;
+    (function (searchbox_1) {
+        function Enable(searchbox, resultsview, resultsFunc) {
+            var success = false;
+            if ((typeof searchbox.tagName == "string") && (searchbox.tagName.toLowerCase() == "input")) {
+                if (typeof resultsview.tagName == "string") {
+                    var searchData = {
+                        "Searchbox": searchbox,
+                        "ResultsView": resultsview,
+                        "ResultsFunc": resultsFunc
+                    };
+                    searchbox.addEventListener("focusout", solbit.render.ToggleDisplay.bind(this, resultsview, false));
+                    searchbox.addEventListener("keyup", solbit.searchbox.Search.bind(this, searchData));
+                }
+            }
+            return success;
+        }
+        searchbox_1.Enable = Enable;
+        function Search(searchData) {
+            var keyEvent = arguments[2];
+            var doingSearch = false;
+            if (keyEvent.code !== "Escape") {
+                var value = searchData.Searchbox.value;
+                doingSearch = (value.length > 1);
+                if (doingSearch) {
+                    var results = searchData.ResultsFunc(value);
+                    var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list]');
+                    var currentListItems = resultsViewList.querySelectorAll('div[data-solbit="list-item]');
+                    if (currentListItems.length !== 0) {
+                        for (var item in currentListItems) {
+                            resultsViewList.removeChild(currentListItems[item]);
+                        }
+                    }
+                    if (results.length !== 0) {
+                        for (var _i = 0, results_1 = results; _i < results_1.length; _i++) {
+                            var result = results_1[_i];
+                            var resultElement = document.createElement("div");
+                            resultElement.setAttribute("data-solbit", "list-item");
+                            var resultElementLink = document.createElement("a");
+                            resultElementLink.title = result.Title;
+                            resultElementLink.textContent = result.Title;
+                            resultElementLink.href = result.Title;
+                            var resultElementContent = document.createElement("section");
+                            resultElementContent.innerHTML = result.Description.replace("\n", "<br />");
+                            resultElement.appendChild(resultElementLink);
+                            resultElement.appendChild(resultElementContent);
+                            resultsViewList.appendChild(resultElement);
+                        }
+                    }
+                    solbit.render.HideAll();
+                    solbit.position.Bottom(searchData.Searchbox, searchData.ResultsView);
+                    solbit.position.Center(searchData.Searchbox, searchData.ResultsView);
+                }
+            }
+            solbit.render.ToggleDisplay(searchData.ResultsView, doingSearch);
+        }
+        searchbox_1.Search = Search;
+    })(searchbox = solbit.searchbox || (solbit.searchbox = {}));
+})(solbit || (solbit = {}));
+var solbit;
+(function (solbit) {
     var sidepane;
     (function (sidepane) {
         function Enable() {

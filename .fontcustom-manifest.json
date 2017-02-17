@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "930e83f532f59c42066b278db053c95ed612ddcc7ad6318e8b2446e2f8198317",
-    "current": "930e83f532f59c42066b278db053c95ed612ddcc7ad6318e8b2446e2f8198317"
+    "previous": "20b727e0415bf22d9ca249dd2a40085e5c3db14948cd1575f7f87d75da4e669c",
+    "current": "20b727e0415bf22d9ca249dd2a40085e5c3db14948cd1575f7f87d75da4e669c"
   },
   "fonts": [
     "build/fonts//solbit.ttf",
@@ -30,9 +30,17 @@
       "codepoint": 61700,
       "source": "src/font/star.svg"
     },
+    "tags": {
+      "codepoint": 61702,
+      "source": "src/font/tags.svg"
+    },
     "user": {
       "codepoint": 61701,
       "source": "src/font/user.svg"
+    },
+    "users": {
+      "codepoint": 61703,
+      "source": "src/font/users.svg"
     }
   },
   "options": {

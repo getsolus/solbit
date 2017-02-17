@@ -30,6 +30,10 @@ declare namespace solbit.header {
     function Enable(type: string, headerItemElement: Element, customElement: HTMLElement): boolean;
     function Toggle(headerItemElement: Element, customElement: HTMLElement, forceAction?: boolean): void;
 }
+declare namespace solbit.searchbox {
+    function Enable(searchbox: HTMLInputElement, resultsview: HTMLElement, resultsFunc: () => SearchResult[]): boolean;
+    function Search(searchData: SearchData): void;
+}
 declare namespace solbit.sidepane {
     var Container: Element;
     var SidepaneButton: Element;
