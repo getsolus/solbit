@@ -125,7 +125,7 @@ var solbit;
                         "ResultsFunc": resultsFunc
                     };
                     searchbox.addEventListener("focusin", solbit.searchbox.ShowResults.bind(this, searchData));
-                    searchbox.addEventListener("focusout", solbit.render.ToggleDisplay.bind(this, resultsview, false));
+                    searchbox.addEventListener("focusout", window.setTimeout(solbit.render.ToggleDisplay.bind(this, resultsview, false), 50));
                     searchbox.addEventListener("input", solbit.searchbox.Search.bind(this, searchData));
                     solbit.position.Register(["bottom", "center"], searchbox, resultsview);
                 }
