@@ -169,7 +169,7 @@ var solbit;
                     var resultElementLink = document.createElement("a");
                     resultElementLink.title = result.Title;
                     resultElementLink.textContent = result.Title;
-                    resultElementLink.href = result.Title;
+                    resultElementLink.href = result.URL;
                     var resultElementContent = document.createElement("section");
                     resultElementContent.innerHTML = result.Description.replace("\n", "<br />");
                     resultElement.appendChild(resultElementLink);

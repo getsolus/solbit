@@ -74,7 +74,7 @@ namespace solbit.searchbox {
 				let resultElementLink: HTMLAnchorElement = document.createElement("a");
 				resultElementLink.title = result.Title;
 				resultElementLink.textContent = result.Title;
-				resultElementLink.href = result.Title;
+				resultElementLink.href = result.URL;
 
 				let resultElementContent: HTMLElement = document.createElement("section"); // Create a section Element
 				resultElementContent.innerHTML = result.Description.replace("\n", "<br />"); // Set the innerHTML to the description provided, accounting for newline strings
