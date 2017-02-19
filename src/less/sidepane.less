@@ -16,7 +16,8 @@ div[data-solbit="sidepane"]{
 		width: 60%; // 60% of page
 		max-width: 500px;
 		transform: translateX(100%); // Default to only showing the edge of the Sidepane
-		-webkit-transform: translateX(100%); // Default to only showing the edge of the Sidepane
+		-ms-transform: translateX(100%); // IE / Edge
+		-webkit-transform: translateX(100%); // WebKit
 
 		.slide(0, 250); // Enable slide animation for Sidepane so it slides to left position of 0 in 250ms
 
