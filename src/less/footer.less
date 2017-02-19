@@ -5,7 +5,7 @@ body {
 		footer { // Footer
 			@media screen and (min-width: 1024px) { // Non-Mobile
 				& > div[data-solbit="footer-menus"] { // Footer Menus
-					margin: 1.5% 0 1.5% @page-margin; // 2.5 vertical margins, @page-margin on left
+					margin-left: @page-margin; // 2.5 vertical margins, @page-margin on left
 				}
 			}
 		}
@@ -15,7 +15,7 @@ body {
 		footer { // Footer
 			@media screen and (min-width: 1024px) { // Non-Mobile
 				& > div[data-solbit="footer-menus"] { // Footer Menus
-					margin: 1.5% @page-margin 1.5% 0; // 2.5 vertical margins, @page-margin on right
+					margin-right: @page-margin; // 2.5 vertical margins, @page-margin on right
 				}
 			}
 		}
@@ -27,10 +27,11 @@ body {
 footer { // Footer
 	display: -webkit-flex;
 	display: flex;
-	min-height: 200px;
+	min-height: 190px;
 	.fullWidth;
 	color: contrast(@navigation-bg-color);
 	background-color: @navigation-bg-color;
+	padding: 1.5% 0;
 
 	// #region Scalable
 
