@@ -17,7 +17,15 @@ namespace solbit.position {
 	// This function will position the secondary Element specified below the first
 	export function Bottom(primaryElement: Element, secondaryElement: HTMLElement): void {
 		let primaryElementDimensions: ClientRect = primaryElement.getClientRects()[0]; // Get the ClientRect Object of the primaryElement
-		secondaryElement.style.top = primaryElementDimensions.bottom.toString() + "px"; // Set the top of the secondaryElement to the bottom Y value of the primaryElement
+		let y: number = primaryElementDimensions.bottom;
+
+		let documentScrollAmount: number = document.body.getClientRects()[0].top; // Get the current top (y position) of the document.body. Can be a negative during scroll.
+
+		if (documentScrollAmount < 0) {
+			y += Math.abs(documentScrollAmount); // Add the absolute value of the documentScrollAmount to y position value
+		}
+
+		secondaryElement.style.top = y.toString() + "px"; // Set the top of the secondaryElement to the bottom Y value of the primaryElement
 	}
 
 	// Center

@@ -11,7 +11,12 @@ var solbit;
         position.Top = Top;
         function Bottom(primaryElement, secondaryElement) {
             var primaryElementDimensions = primaryElement.getClientRects()[0];
-            secondaryElement.style.top = primaryElementDimensions.bottom.toString() + "px";
+            var y = primaryElementDimensions.bottom;
+            var documentScrollAmount = document.body.getClientRects()[0].top;
+            if (documentScrollAmount < 0) {
+                y += Math.abs(documentScrollAmount);
+            }
+            secondaryElement.style.top = y.toString() + "px";
         }
         position.Bottom = Bottom;
         function Center(primaryElement, secondaryElement) {
