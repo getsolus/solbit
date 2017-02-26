@@ -42,7 +42,7 @@ var solbit;
         function Update() {
             for (var _i = 0, _a = solbit.position.registered; _i < _a.length; _i++) {
                 var registeredObject = _a[_i];
-                if (registeredObject.Primary.getClientRects.length !== 0) {
+                if (registeredObject.Primary.getClientRects().length !== 0) {
                     if (registeredObject.VerticalPos == "top") {
                         solbit.position.Top(registeredObject.Primary, registeredObject.Secondary);
                     }

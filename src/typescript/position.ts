@@ -58,7 +58,7 @@ namespace solbit.position {
 	// This function will update positions of Elements
 	export function Update(): void {
 		for (let registeredObject of solbit.position.registered) { // For each registeredObject
-			if (registeredObject.Primary.getClientRects.length !== 0) { // If this Element is visible, thus provides ClientRects
+			if (registeredObject.Primary.getClientRects().length !== 0) { // If this Element is visible, thus provides ClientRects
 				// Vertical Positioning
 				if (registeredObject.VerticalPos == "top") { // Top
 					solbit.position.Top(registeredObject.Primary, registeredObject.Secondary);
