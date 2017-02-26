@@ -28,7 +28,7 @@ declare namespace solbit.render {
 }
 declare namespace solbit.header {
     function Enable(type: string, headerItemElement: Element, customElement: HTMLElement): boolean;
-    function Toggle(headerItemElement: Element, customElement: HTMLElement, forceAction?: boolean): void;
+    function Toggle(customElement: HTMLElement, forceAction?: boolean): void;
 }
 declare namespace solbit.searchbox {
     function Enable(searchbox: any, resultsview: any, resultsFunc: (query: string, searchData: SearchData) => void): boolean;

@@ -35,7 +35,7 @@ var solbit;
         }
         position.Center = Center;
         function Register(positions, primaryElement, secondaryElement) {
-            var registeredObject = { HorizontalPos: positions[0], VerticalPos: positions[1], Primary: primaryElement, Secondary: secondaryElement };
+            var registeredObject = { VerticalPos: positions[0], HorizontalPos: positions[1], Primary: primaryElement, Secondary: secondaryElement };
             solbit.position.registered.push(registeredObject);
         }
         position.Register = Register;
@@ -43,13 +43,13 @@ var solbit;
             for (var _i = 0, _a = solbit.position.registered; _i < _a.length; _i++) {
                 var registeredObject = _a[_i];
                 if (registeredObject.Primary.getClientRects.length !== 0) {
-                    if (registeredObject.HorizontalPos == "top") {
+                    if (registeredObject.VerticalPos == "top") {
                         solbit.position.Top(registeredObject.Primary, registeredObject.Secondary);
                     }
                     else {
                         solbit.position.Bottom(registeredObject.Primary, registeredObject.Secondary);
                     }
-                    if (registeredObject.VerticalPos == "center") {
+                    if (registeredObject.HorizontalPos == "center") {
                         solbit.position.Center(registeredObject.Primary, registeredObject.Secondary);
                     }
                 }
@@ -93,13 +93,13 @@ var solbit;
                 if ((typeof headerItemElement.tagName == "string") && (headerItemElement.tagName.toLowerCase() == "span")) {
                     if (typeof customElement.tagName == "string") {
                         if (type == "click") {
-                            headerItemElement.addEventListener("mouseup", solbit.header.Toggle.bind(this, headerItemElement, customElement));
+                            headerItemElement.addEventListener("mouseup", solbit.header.Toggle.bind(this, customElement));
                         }
                         else {
-                            headerItemElement.addEventListener("mouseenter", solbit.header.Toggle.bind(this, headerItemElement, customElement, true));
-                            customElement.addEventListener("mouseleave", solbit.header.Toggle.bind(this, headerItemElement, customElement, false));
+                            headerItemElement.addEventListener("mouseenter", solbit.header.Toggle.bind(this, customElement, true));
+                            customElement.addEventListener("mouseleave", solbit.header.Toggle.bind(this, customElement, false));
                         }
-                        solbit.position.Register(["center", "bottom"], headerItemElement, customElement);
+                        solbit.position.Register(["bottom", "center"], headerItemElement, customElement);
                         success = true;
                     }
                 }
@@ -107,10 +107,9 @@ var solbit;
             return success;
         }
         header.Enable = Enable;
-        function Toggle(headerItemElement, customElement, forceAction) {
+        function Toggle(customElement, forceAction) {
             solbit.render.HideAll();
-            solbit.position.Bottom(headerItemElement, customElement);
-            solbit.position.Center(headerItemElement, customElement);
+            solbit.position.Update();
             solbit.render.ToggleDisplay(customElement, forceAction);
         }
         header.Toggle = Toggle;

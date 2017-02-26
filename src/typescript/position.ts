@@ -50,7 +50,7 @@ namespace solbit.position {
 	// Register
 	// This function will register the requested positioning, primary, and secondary Elements for Update.
 	export function Register(positions: string[], primaryElement: Element, secondaryElement: HTMLElement): void {
-		let registeredObject: RegisteredObject = { HorizontalPos: positions[0], VerticalPos: positions[1], Primary: primaryElement, Secondary: secondaryElement };
+		let registeredObject: RegisteredObject = { VerticalPos: positions[0], HorizontalPos: positions[1], Primary: primaryElement, Secondary: secondaryElement };
 		solbit.position.registered.push(registeredObject); // Add the registeredObject
 	}
 
@@ -59,15 +59,15 @@ namespace solbit.position {
 	export function Update(): void {
 		for (let registeredObject of solbit.position.registered) { // For each registeredObject
 			if (registeredObject.Primary.getClientRects.length !== 0) { // If this Element is visible, thus provides ClientRects
-				// Horizontal Positioning
-				if (registeredObject.HorizontalPos == "top") { // Top
+				// Vertical Positioning
+				if (registeredObject.VerticalPos == "top") { // Top
 					solbit.position.Top(registeredObject.Primary, registeredObject.Secondary);
 				} else { // Bottom
 					solbit.position.Bottom(registeredObject.Primary, registeredObject.Secondary);
 				}
 
-				// Vertical Positioning
-				if (registeredObject.VerticalPos == "center") { // Center
+				// Horizontal Positioning
+				if (registeredObject.HorizontalPos == "center") { // Center
 					solbit.position.Center(registeredObject.Primary, registeredObject.Secondary);
 				}
 			}
