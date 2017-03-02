@@ -87,11 +87,13 @@ namespace solbit.searchbox {
 				resultElementLink.textContent = result.Title;
 				resultElementLink.href = result.URL;
 
-				let resultElementContent: HTMLElement = document.createElement("section"); // Create a section Element
-				resultElementContent.innerHTML = result.Description.replace("\n", "<br />"); // Set the innerHTML to the description provided, accounting for newline strings
-
 				resultElement.appendChild(resultElementLink); // Add the link
-				resultElement.appendChild(resultElementContent); // Add the textContent
+
+				if (typeof result.Description == "string" && (result.Description !== "")) { // If the Description isn't empty
+					let resultElementContent: HTMLElement = document.createElement("section"); // Create a section Element
+					resultElementContent.innerHTML = result.Description.replace("\n", "<br />"); // Set the innerHTML to the description provided, accounting for newline strings
+					resultElement.appendChild(resultElementContent); // Add the textContent
+				}
 
 				resultsViewList.appendChild(resultElement); // Append the resultElement to the Result View List
 			}

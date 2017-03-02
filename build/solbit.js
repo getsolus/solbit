@@ -182,10 +182,12 @@ var solbit;
                     resultElementLink.title = result.Title;
                     resultElementLink.textContent = result.Title;
                     resultElementLink.href = result.URL;
-                    var resultElementContent = document.createElement("section");
-                    resultElementContent.innerHTML = result.Description.replace("\n", "<br />");
                     resultElement.appendChild(resultElementLink);
-                    resultElement.appendChild(resultElementContent);
+                    if (typeof result.Description == "string" && (result.Description !== "")) {
+                        var resultElementContent = document.createElement("section");
+                        resultElementContent.innerHTML = result.Description.replace("\n", "<br />");
+                        resultElement.appendChild(resultElementContent);
+                    }
                     resultsViewList.appendChild(resultElement);
                 }
                 solbit.render.HideAll();
