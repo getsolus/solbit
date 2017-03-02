@@ -19,7 +19,7 @@ namespace solbit.searchbox {
 				};
 
 				searchbox.addEventListener("focusin", solbit.searchbox.ShowResults.bind(this, searchData)); // Enable the re-showing of results in the event of a focusout, by listening to focusin
-				searchbox.addEventListener("focusout", solbit.searchbox.DelayClose.bind(this, resultsview)); // Hide the Results View when focus ends on the Searchbox
+				searchbox.addEventListener("blur", solbit.searchbox.DelayClose.bind(this, resultsview)); // Hide the Results View when focus ends on the Searchbox
 				searchbox.addEventListener("input", solbit.searchbox.Search.bind(this, searchData));
 
 				solbit.position.Register(["bottom", "center"], searchbox, resultsview); // Register to positioning system so we get dynamic repositioning
