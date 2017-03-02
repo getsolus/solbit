@@ -19,7 +19,7 @@ namespace solbit.searchbox {
 				};
 
 				searchbox.addEventListener("focusin", solbit.searchbox.ShowResults.bind(this, searchData)); // Enable the re-showing of results in the event of a focusout, by listening to focusin
-				searchbox.addEventListener("blur", solbit.searchbox.DelayClose.bind(this, resultsview)); // Hide the Results View when focus ends on the Searchbox
+				searchbox.addEventListener("blur", solbit.searchbox.CloseResultsView.bind(this, resultsview)); // Hide the Results View when focus ends on the Searchbox
 				searchbox.addEventListener("input", solbit.searchbox.Search.bind(this, searchData));
 
 				solbit.position.Register(["bottom", "center"], searchbox, resultsview); // Register to positioning system so we get dynamic repositioning
@@ -29,15 +29,15 @@ namespace solbit.searchbox {
 		return success;
 	}
 
-	// DelayClose
-	// This function is responsible for an intentional delayed close so clicks will register before focusout on the Searchbox is done.
-	export function DelayClose(resultsview: any) {
-		// Debugging
-		console.log(arguments);
-		console.log(event);
+	// CloseResultsView
+	// This function is responsible for closing of the ResultsView during the appropriate focusout events.
+	export function CloseResultsView(resultsview: any) {
+		let focusRelatedTarget: Element = arguments[1].relatedTarget;
+		let isInsideSearchResults: boolean = resultsview.contains(focusRelatedTarget) || (resultsview == focusRelatedTarget); // If we're clicking something inside the Results View
 
-		let closer: Function = solbit.render.ToggleDisplay.bind(this, resultsview, false);
-		window.setTimeout(closer, 50); // Set a 50ms timeout and call action
+		if (!isInsideSearchResults) { // If we're not clicking inside the Results View
+			solbit.render.ToggleDisplay(resultsview, false);
+		}
 	}
 
 	// ShowResults

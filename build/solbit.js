@@ -129,7 +129,7 @@ var solbit;
                         "ResultsFunc": resultsFunc
                     };
                     searchbox.addEventListener("focusin", solbit.searchbox.ShowResults.bind(this, searchData));
-                    searchbox.addEventListener("blur", solbit.searchbox.DelayClose.bind(this, resultsview));
+                    searchbox.addEventListener("blur", solbit.searchbox.CloseResultsView.bind(this, resultsview));
                     searchbox.addEventListener("input", solbit.searchbox.Search.bind(this, searchData));
                     solbit.position.Register(["bottom", "center"], searchbox, resultsview);
                 }
@@ -137,13 +137,14 @@ var solbit;
             return success;
         }
         searchbox_1.Enable = Enable;
-        function DelayClose(resultsview) {
-            console.log(arguments);
-            console.log(event);
-            var closer = solbit.render.ToggleDisplay.bind(this, resultsview, false);
-            window.setTimeout(closer, 50);
+        function CloseResultsView(resultsview) {
+            var focusRelatedTarget = arguments[1].relatedTarget;
+            var isInsideSearchResults = resultsview.contains(focusRelatedTarget) || (resultsview == focusRelatedTarget);
+            if (!isInsideSearchResults) {
+                solbit.render.ToggleDisplay(resultsview, false);
+            }
         }
-        searchbox_1.DelayClose = DelayClose;
+        searchbox_1.CloseResultsView = CloseResultsView;
         function ShowResults(searchData) {
             var resultsViewList = searchData.ResultsView.querySelector('div[data-solbit="list"]');
             if ((searchData.Searchbox.value !== "") && (resultsViewList.children.length > 1)) {
