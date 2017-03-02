@@ -32,6 +32,10 @@ namespace solbit.searchbox {
 	// DelayClose
 	// This function is responsible for an intentional delayed close so clicks will register before focusout on the Searchbox is done.
 	export function DelayClose(resultsview: any) {
+		// Debugging
+		console.log(arguments);
+		console.log(event);
+
 		let closer: Function = solbit.render.ToggleDisplay.bind(this, resultsview, false);
 		window.setTimeout(closer, 50); // Set a 50ms timeout and call action
 	}

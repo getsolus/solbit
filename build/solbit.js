@@ -138,6 +138,8 @@ var solbit;
         }
         searchbox_1.Enable = Enable;
         function DelayClose(resultsview) {
+            console.log(arguments);
+            console.log(event);
             var closer = solbit.render.ToggleDisplay.bind(this, resultsview, false);
             window.setTimeout(closer, 50);
         }
