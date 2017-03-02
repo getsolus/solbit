@@ -11,7 +11,7 @@ interface SearchData extends Object {
 }
 interface SearchResult extends Object {
     Title: string;
-    Description: string;
+    Description?: string;
     URL: string;
 }
 declare namespace solbit.position {
