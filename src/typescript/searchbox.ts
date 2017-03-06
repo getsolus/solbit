@@ -4,6 +4,7 @@
 /// <reference path="render.ts" />
 
 namespace solbit.searchbox {
+	var CurrentInputLength: number;
 
 	// Enable
 	// This function is responsible for enabling the displaying of a results view on a Searchbox input Element
@@ -56,10 +57,19 @@ namespace solbit.searchbox {
 	// This function is responsible for performing a Search operation and handling the results.
 	export function Search(searchData: SearchData): void {
 		let value: string = searchData.Searchbox.value; // Set value to the current value of the Searchbox
+		let doSearch: boolean = (value.length > 1); // Set doSearch to if the input value is greater than 1
 
-		if (value.length > 1) { // If the searchbox value has meaningful input content (Bleve doesn't like 1 char search, which is understandable)
+		if (doSearch) { // If we should do search already (input greater than 1), do further checks
+			if (CurrentInputLength !== undefined) { // If a value for CurrentInputLength is already defined
+				doSearch = (value.length > CurrentInputLength); // Set doSearch to boolean, of if new input length is greather than previous
+			}
+		}
+
+		CurrentInputLength = value.length;
+
+		if (doSearch) { // If we should perform a search
 			searchData.ResultsFunc(value, searchData); // Get results, pass along searchData so the function can call Propagate
-		} else { // If we're not doing a search or only 1-char is in the Searchbox
+		} else { // If we're not doing a search
 			solbit.render.ToggleDisplay(searchData.ResultsView, false); // Hide
 		}
 	}
