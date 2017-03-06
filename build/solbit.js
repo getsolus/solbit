@@ -119,6 +119,7 @@ var solbit;
 (function (solbit) {
     var searchbox;
     (function (searchbox_1) {
+        searchbox_1.CurrentInputLength = 0;
         function Enable(searchbox, resultsview, resultsFunc) {
             var success = false;
             if ((typeof searchbox.tagName == "string") && (searchbox.tagName.toLowerCase() == "input")) {
@@ -158,9 +159,7 @@ var solbit;
             var value = searchData.Searchbox.value;
             var doSearch = (value.length > 1);
             if (doSearch) {
-                if (solbit.searchbox.CurrentInputLength !== undefined) {
-                    doSearch = (value.length > solbit.searchbox.CurrentInputLength);
-                }
+                doSearch = (value.length > solbit.searchbox.CurrentInputLength);
             }
             solbit.searchbox.CurrentInputLength = value.length;
             if (doSearch) {

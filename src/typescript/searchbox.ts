@@ -4,7 +4,7 @@
 /// <reference path="render.ts" />
 
 namespace solbit.searchbox {
-	export var CurrentInputLength: number;
+	export var CurrentInputLength: number = 0;
 
 	// Enable
 	// This function is responsible for enabling the displaying of a results view on a Searchbox input Element
@@ -60,9 +60,7 @@ namespace solbit.searchbox {
 		let doSearch: boolean = (value.length > 1); // Set doSearch to if the input value is greater than 1
 
 		if (doSearch) { // If we should do search already (input greater than 1), do further checks
-			if (solbit.searchbox.CurrentInputLength !== undefined) { // If a value for CurrentInputLength is already defined
-				doSearch = (value.length > solbit.searchbox.CurrentInputLength); // Set doSearch to boolean, of if new input length is greather than previous
-			}
+			doSearch = (value.length > solbit.searchbox.CurrentInputLength); // Set doSearch to boolean, of if new input length is greather than previous
 		}
 
 		solbit.searchbox.CurrentInputLength = value.length;
