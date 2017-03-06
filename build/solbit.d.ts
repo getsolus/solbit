@@ -31,6 +31,7 @@ declare namespace solbit.header {
     function Toggle(customElement: HTMLElement, forceAction?: boolean): void;
 }
 declare namespace solbit.searchbox {
+    var CurrentInputLength: number;
     function Enable(searchbox: any, resultsview: any, resultsFunc: (query: string, searchData: SearchData) => void): boolean;
     function CloseResultsView(resultsview: any): void;
     function ShowResults(searchData: SearchData): void;
