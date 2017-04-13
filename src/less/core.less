@@ -22,6 +22,16 @@ html {
 			}
 		}
 
+		div[data-solbit-flexcol]{ // Flexbox column support for any div under body
+			display: inline-flex;
+			flex-direction: column;
+		}
+
+		div[data-solbit-flexrow]{ // Flexbox row support for any div under body
+			display: inline-flex;
+			flex-direction: row;
+		}
+
 		div[data-solbit="main"] {
 			.fullWidth;
 			min-height: 100%;
