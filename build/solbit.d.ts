@@ -18,7 +18,7 @@ declare namespace solbit.position {
     var registered: RegisteredObject[];
     function Top(primaryElement: Element, secondaryElement: HTMLElement): void;
     function Bottom(primaryElement: Element, secondaryElement: HTMLElement): void;
-    function Center(primaryElement: Element, secondaryElement: HTMLElement): void;
+    function Center(primaryElement: any, secondaryElement: any): void;
     function Register(positions: string[], primaryElement: Element, secondaryElement: HTMLElement): void;
     function Update(): void;
 }

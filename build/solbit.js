@@ -22,14 +22,29 @@ var solbit;
         function Center(primaryElement, secondaryElement) {
             var primaryElementDimensions = primaryElement.getClientRects()[0];
             var secondaryElementDimensions = secondaryElement.getClientRects()[0];
-            var primaryElementWidth = primaryElementDimensions.width;
-            var secondaryElementWidth = secondaryElementDimensions.width;
-            var secondaryElementX;
-            if (primaryElementWidth > secondaryElementWidth) {
-                secondaryElementX = primaryElementDimensions.left + ((primaryElementWidth - secondaryElementWidth) / 2);
+            var primaryElementWidth;
+            var secondaryElementWidth;
+            var primaryElementLeft;
+            if (typeof primaryElementDimensions !== "undefined") {
+                primaryElementWidth = primaryElementDimensions.width;
+                primaryElementLeft = primaryElementDimensions.left;
             }
             else {
-                secondaryElementX = primaryElementDimensions.left - ((secondaryElementWidth - primaryElementWidth) / 2);
+                primaryElementWidth = primaryElement.clientWidth;
+                primaryElementLeft = primaryElement.offsetLeft;
+            }
+            if (typeof secondaryElementDimensions !== "undefined") {
+                secondaryElementWidth = secondaryElementDimensions.width;
+            }
+            else {
+                secondaryElementWidth = secondaryElement.clientWidth;
+            }
+            var secondaryElementX;
+            if (primaryElementWidth > secondaryElementWidth) {
+                secondaryElementX = primaryElementLeft + ((primaryElementWidth - secondaryElementWidth) / 2);
+            }
+            else {
+                secondaryElementX = primaryElementLeft - ((secondaryElementWidth - primaryElementWidth) / 2);
             }
             secondaryElement.style.left = secondaryElementX.toString() + "px";
         }

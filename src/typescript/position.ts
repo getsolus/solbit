@@ -30,18 +30,34 @@ namespace solbit.position {
 
 	// Center
 	// This function will position the secondary Element centered respective to the first
-	export function Center(primaryElement: Element, secondaryElement: HTMLElement): void {
+	export function Center(primaryElement: any, secondaryElement: any): void {
 		let primaryElementDimensions: ClientRect = primaryElement.getClientRects()[0]; // Get the ClientRect Object of the primaryElement
 		let secondaryElementDimensions: ClientRect = secondaryElement.getClientRects()[0]; // Get the ClientRect Object of the secondaryElement
-		let primaryElementWidth: number = primaryElementDimensions.width;
-		let secondaryElementWidth: number = secondaryElementDimensions.width;
+
+		let primaryElementWidth: number; // Width of primary Element
+		let secondaryElementWidth: number; // Width of secondary Element
+		let primaryElementLeft: number; // Left position of primaryElement
+
+		if (typeof primaryElementDimensions !== "undefined") { // If we successfully fetched the primary Element's dimensions
+			primaryElementWidth = primaryElementDimensions.width;
+			primaryElementLeft = primaryElementDimensions.left;
+		} else {
+			primaryElementWidth = primaryElement.clientWidth; // At least attempt to get the clientWidth
+			primaryElementLeft = primaryElement.offsetLeft; // Get the offsetLeft value
+		}
+
+		if (typeof secondaryElementDimensions !== "undefined") { // If we successfully fetched the secondary Element's dimensions
+			secondaryElementWidth = secondaryElementDimensions.width;
+		} else {
+			secondaryElementWidth = secondaryElement.clientWidth; // At least attempt to get the clientWidth
+		}
 
 		let secondaryElementX: number; // Define secondaryElementX as the x position we'll set secondaryElement to
 
 		if (primaryElementWidth > secondaryElementWidth) { // If the primaryElement is wider than the secondaryElement
-			secondaryElementX = primaryElementDimensions.left + ((primaryElementWidth - secondaryElementWidth) / 2);
+			secondaryElementX = primaryElementLeft + ((primaryElementWidth - secondaryElementWidth) / 2);
 		} else {
-			secondaryElementX = primaryElementDimensions.left - ((secondaryElementWidth - primaryElementWidth) / 2);
+			secondaryElementX = primaryElementLeft - ((secondaryElementWidth - primaryElementWidth) / 2);
 		}
 
 		secondaryElement.style.left = secondaryElementX.toString() + "px";
