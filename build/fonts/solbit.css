@@ -25,7 +25,9 @@
 [data-icon]:before,
 .solbit-icon-check:before,
 .solbit-icon-error:before,
+.solbit-icon-list:before,
 .solbit-icon-menu:before,
+.solbit-icon-pin:before,
 .solbit-icon-rss:before,
 .solbit-icon-star:before,
 .solbit-icon-tags:before,
@@ -47,7 +49,9 @@
 
 .solbit-icon-check:before { content: "\f100"; }
 .solbit-icon-error:before { content: "\f101"; }
+.solbit-icon-list:before { content: "\f108"; }
 .solbit-icon-menu:before { content: "\f102"; }
+.solbit-icon-pin:before { content: "\f109"; }
 .solbit-icon-rss:before { content: "\f103"; }
 .solbit-icon-star:before { content: "\f104"; }
 .solbit-icon-tags:before { content: "\f106"; }
