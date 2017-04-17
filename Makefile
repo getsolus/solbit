@@ -41,6 +41,7 @@ less:
 
 minify:
 	ccjs build/solbit.js $(CCJS_FLAGS) > build/solbit.min.js
+	./dosum.sh
 
 ts: buildts minify
 
