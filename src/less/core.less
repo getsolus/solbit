@@ -22,14 +22,16 @@ html {
 			}
 		}
 
-		div[data-solbit-flexcol], section[data-solbit-flexcol] { // Flexbox column support for any div or section under body
-			display: inline-flex;
-			flex-direction: column;
-		}
+		div, section, span {
+			&[data-solbit-flexcol] { // Flexbox column support
+				display: inline-flex;
+				flex-direction: column;
+			}
 
-		div[data-solbit-flexrow], section[data-solbit-flexrow]{ // Flexbox row support for any div or section under body
-			display: inline-flex;
-			flex-direction: row;
+			&[data-solbit-flexrow] { // Flexbox row support
+				display: inline-flex;
+				flex-direction: row;
+			}
 		}
 
 		div[data-solbit="main"] {
