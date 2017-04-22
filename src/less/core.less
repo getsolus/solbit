@@ -22,12 +22,12 @@ html {
 			}
 		}
 
-		div[data-solbit-flexcol]{ // Flexbox column support for any div under body
+		div[data-solbit-flexcol], section[data-solbit-flexcol] { // Flexbox column support for any div or section under body
 			display: inline-flex;
 			flex-direction: column;
 		}
 
-		div[data-solbit-flexrow]{ // Flexbox row support for any div under body
+		div[data-solbit-flexrow], section[data-solbit-flexrow]{ // Flexbox row support for any div or section under body
 			display: inline-flex;
 			flex-direction: row;
 		}
