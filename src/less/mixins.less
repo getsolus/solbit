@@ -36,6 +36,13 @@
 	margin-right: e("calc(50% - @{halfWidth})");
 }
 
+.horizontalPadContainer(@width) when (ispercentage(@width)){ // Horizontal Pad based On Container Width
+	@halfMargin: unit(((100 - unit(@width)) / 2), get-unit(@width));
+	width: @width;
+	padding-left: @halfMargin;
+	padding-right: @halfMargin;
+}
+
 // #endregion
 
 // #region Animation Parametric Mixin - Allows easy adding of animations
