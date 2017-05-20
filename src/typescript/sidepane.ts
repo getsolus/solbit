@@ -24,7 +24,7 @@ namespace solbit.sidepane {
 	// Is Sidepane Visible
 	export function IsVisible(): boolean {
 		if ((solbit.sidepane.SidepaneButton !== null) && (solbit.sidepane.Container !== null)) { // If we have a Sidepane
-			return solbit.sidepane.SidepaneButton.hasAttribute("active"); // Get active attribute, if any
+			return solbit.sidepane.Container.hasAttribute("data-solbit-animation"); // Get the solbit animation value, if it exists.
 		} else {
 			return false;
 		}

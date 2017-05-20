@@ -238,7 +238,7 @@ var solbit;
         sidepane.Enable = Enable;
         function IsVisible() {
             if ((solbit.sidepane.SidepaneButton !== null) && (solbit.sidepane.Container !== null)) {
-                return solbit.sidepane.SidepaneButton.hasAttribute("active");
+                return solbit.sidepane.Container.hasAttribute("data-solbit-animation");
             }
             else {
                 return false;
