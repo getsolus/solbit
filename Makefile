@@ -26,6 +26,7 @@ TSC_COMPILE_FLAGS = --declaration \
 	--target ES5
 
 buildts:
+	rm build/*.min.js
 	tsc $(TSC_COMPILE_FLAGS) src/typescript/solbit.ts --outFile build/solbit.js
 
 font:
