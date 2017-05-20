@@ -236,9 +236,17 @@ var solbit;
             }
         }
         sidepane.Enable = Enable;
+        function IsVisible() {
+            if ((solbit.sidepane.SidepaneButton !== null) && (solbit.sidepane.Container !== null)) {
+                return solbit.sidepane.SidepaneButton.hasAttribute("active");
+            }
+            else {
+                return false;
+            }
+        }
+        sidepane.IsVisible = IsVisible;
         function Toggle() {
-            var containerShowing = solbit.sidepane.SidepaneButton.hasAttribute("active");
-            if (!containerShowing) {
+            if (!solbit.sidepane.IsVisible()) {
                 solbit.sidepane.SidepaneButton.setAttribute("active", "");
                 solbit.sidepane.Container.setAttribute("data-solbit-animation", "slide");
                 if (solbit.sidepane.ContentOverlay) {

@@ -21,11 +21,18 @@ namespace solbit.sidepane {
 		}
 	}
 
+	// Is Sidepane Visible
+	export function IsVisible(): boolean {
+		if ((solbit.sidepane.SidepaneButton !== null) && (solbit.sidepane.Container !== null)) { // If we have a Sidepane
+			return solbit.sidepane.SidepaneButton.hasAttribute("active"); // Get active attribute, if any
+		} else {
+			return false;
+		}
+	}
+
 	// Toggling the Sidepane
 	export function Toggle(): void {
-		let containerShowing: boolean = solbit.sidepane.SidepaneButton.hasAttribute("active"); // Get active attribute, if any
-
-		if (!containerShowing) { // If container is NOT showing
+		if (!solbit.sidepane.IsVisible()) { // If container is NOT showing
 			solbit.sidepane.SidepaneButton.setAttribute("active", ""); // Set active attribute
 			solbit.sidepane.Container.setAttribute("data-solbit-animation", "slide"); // Slide the Container
 
@@ -41,4 +48,4 @@ namespace solbit.sidepane {
 			}
 		}
 	}
-}
+} 

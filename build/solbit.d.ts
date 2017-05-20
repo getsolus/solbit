@@ -43,6 +43,7 @@ declare namespace solbit.sidepane {
     var SidepaneButton: Element;
     var ContentOverlay: Element;
     function Enable(): void;
+    function IsVisible(): boolean;
     function Toggle(): void;
 }
 declare namespace solbit {
