@@ -33,6 +33,7 @@ namespace solbit.sidepane {
 	// Toggling the Sidepane
 	export function Toggle(): void {
 		if (!solbit.sidepane.IsVisible()) { // If container is NOT showing
+			document.body.style.overflowY = "hidden"; // Disable scrolling page
 			solbit.sidepane.SidepaneButton.setAttribute("active", ""); // Set active attribute
 			solbit.sidepane.Container.setAttribute("data-solbit-animation", "slide"); // Slide the Container
 
@@ -40,6 +41,7 @@ namespace solbit.sidepane {
 				solbit.sidepane.ContentOverlay.setAttribute("active", ""); // Show the content overlay
 			}
 		} else { // If container is showing
+			document.body.removeAttribute("style"); // Remove style property
 			solbit.sidepane.SidepaneButton.removeAttribute("active"); // Remove active attribute
 			solbit.sidepane.Container.removeAttribute("data-solbit-animation"); // Remove animation attribute
 

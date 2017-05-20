@@ -247,6 +247,7 @@ var solbit;
         sidepane.IsVisible = IsVisible;
         function Toggle() {
             if (!solbit.sidepane.IsVisible()) {
+                document.body.style.overflowY = "hidden";
                 solbit.sidepane.SidepaneButton.setAttribute("active", "");
                 solbit.sidepane.Container.setAttribute("data-solbit-animation", "slide");
                 if (solbit.sidepane.ContentOverlay) {
@@ -254,6 +255,7 @@ var solbit;
                 }
             }
             else {
+                document.body.removeAttribute("style");
                 solbit.sidepane.SidepaneButton.removeAttribute("active");
                 solbit.sidepane.Container.removeAttribute("data-solbit-animation");
                 if (solbit.sidepane.ContentOverlay) {
