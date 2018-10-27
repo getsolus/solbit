@@ -34,6 +34,7 @@
 .solbit-icon-menu:before,
 .solbit-icon-other:before,
 .solbit-icon-pin:before,
+.solbit-icon-reddit:before,
 .solbit-icon-rss:before,
 .solbit-icon-star:before,
 .solbit-icon-tags:before,
@@ -65,6 +66,7 @@
 .solbit-icon-menu:before { content: "\f102"; }
 .solbit-icon-other:before { content: "\f10b"; }
 .solbit-icon-pin:before { content: "\f109"; }
+.solbit-icon-reddit:before { content: "\f111"; }
 .solbit-icon-rss:before { content: "\f103"; }
 .solbit-icon-star:before { content: "\f104"; }
 .solbit-icon-tags:before { content: "\f106"; }
