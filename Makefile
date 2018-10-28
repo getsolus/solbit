@@ -1,8 +1,5 @@
 SHELL = /bin/bash
 
-CCJS_FLAGS= --compilation_level=SIMPLE_OPTIMIZATIONS \
-	--warning_level=QUIET
-
 FONTCUSTOM_FLAGS = --config src/font/fontcustom.yml \
 	--name=solbit \
 	--no-hash \
@@ -25,6 +22,8 @@ TSC_COMPILE_FLAGS = --declaration \
 	--removeComments \
 	--target ES5
 
+UGLIIFYJS_FLAGS= --compress --mangle warnings=false
+
 buildts:
 	rm build/*.min.js
 	tsc $(TSC_COMPILE_FLAGS) src/typescript/solbit.ts --outFile build/solbit.js
@@ -34,14 +33,14 @@ font:
 
 setup:
 	sudo eopkg install nodejs ruby-devel woff-tools
-	sudo npm install -g closurecompiler less less-plugin-clean-css less-plugin-glob typescript
+	sudo npm install -g less less-plugin-clean-css less-plugin-glob typescript uglify-js2
 	sudo gem install fontcustom
 
 less:
 	lessc $(LESSFLAGS) src/less/solbit.less > build/solbit.css
 
 minify:
-	ccjs build/solbit.js $(CCJS_FLAGS) > build/solbit.min.js
+	uglifyjs2 build/solbit.js $(UGLIIFYJS_FLAGS) build/solbit.js > build/solbit.min.js
 	./dosum.sh
 
 ts: buildts minify
