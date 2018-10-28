@@ -40,7 +40,7 @@ less:
 	lessc $(LESSFLAGS) src/less/solbit.less > build/solbit.css
 
 minify:
-	uglifyjs2 build/solbit.js $(UGLIIFYJS_FLAGS) build/solbit.js > build/solbit.min.js
+	uglifyjs2 $(UGLIIFYJS_FLAGS) build/solbit.js > build/solbit.min.js
 	./dosum.sh
 
 ts: buildts minify
