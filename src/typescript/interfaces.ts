@@ -20,7 +20,7 @@ interface SearchData extends Object {
 // SearchResult
 // SearchResult describes an Object with specific attributes by our Searchbox implementation.
 interface SearchResult extends Object {
-	Title: string;
 	Description?: string;
-	URL: string;
+	DocumentTitle: string;
+	Path: string;
 }

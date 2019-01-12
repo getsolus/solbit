@@ -91,9 +91,9 @@ namespace solbit.searchbox {
 				resultElement.setAttribute("data-solbit-nolistbg", ""); // Don't have any background styling
 
 				let resultElementLink: HTMLAnchorElement = document.createElement("a");
-				resultElementLink.title = result.Title;
-				resultElementLink.textContent = result.Title;
-				resultElementLink.href = result.URL;
+				resultElementLink.title = result.DocumentTitle;
+				resultElementLink.textContent = result.DocumentTitle;
+				resultElementLink.href = result.Path;
 
 				resultElement.appendChild(resultElementLink); // Add the link
 

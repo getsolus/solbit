@@ -200,9 +200,9 @@ var solbit;
                     resultElement.setAttribute("data-solbit", "list-item");
                     resultElement.setAttribute("data-solbit-nolistbg", "");
                     var resultElementLink = document.createElement("a");
-                    resultElementLink.title = result.Title;
-                    resultElementLink.textContent = result.Title;
-                    resultElementLink.href = result.URL;
+                    resultElementLink.title = result.DocumentTitle;
+                    resultElementLink.textContent = result.DocumentTitle;
+                    resultElementLink.href = result.Path;
                     resultElement.appendChild(resultElementLink);
                     if (typeof result.Description == "string" && (result.Description !== "")) {
                         var resultElementContent = document.createElement("section");

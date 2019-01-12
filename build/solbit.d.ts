@@ -10,9 +10,9 @@ interface SearchData extends Object {
     ResultsFunc: Function;
 }
 interface SearchResult extends Object {
-    Title: string;
     Description?: string;
-    URL: string;
+    DocumentTitle: string;
+    Path: string;
 }
 declare namespace solbit.position {
     var registered: RegisteredObject[];

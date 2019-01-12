@@ -25,7 +25,7 @@ TSC_COMPILE_FLAGS = --declaration \
 UGLIIFYJS_FLAGS= --compress --mangle warnings=false
 
 buildts:
-	rm build/*.min.js
+	rm -f build/*.min.js
 	tsc $(TSC_COMPILE_FLAGS) src/typescript/solbit.ts --outFile build/solbit.js
 
 font:
