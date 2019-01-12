@@ -15,6 +15,7 @@ interface SearchData extends Object {
 	Searchbox: HTMLInputElement;
 	ResultsView: HTMLElement;
 	ResultsFunc: Function;
+	Type: string;
 }
 
 // SearchResult

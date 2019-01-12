@@ -8,6 +8,7 @@ interface SearchData extends Object {
     Searchbox: HTMLInputElement;
     ResultsView: HTMLElement;
     ResultsFunc: Function;
+    Type: string;
 }
 interface SearchResult extends Object {
     Description?: string;
@@ -32,7 +33,7 @@ declare namespace solbit.header {
 }
 declare namespace solbit.searchbox {
     var CurrentInputLength: number;
-    function Enable(searchbox: any, resultsview: any, resultsFunc: (query: string, searchData: SearchData) => void): boolean;
+    function Enable(searchbox: any, resultsview: any, type: string, resultsFunc: (query: string, searchData: SearchData) => void): boolean;
     function CloseResultsView(resultsview: any): void;
     function ShowResults(searchData: SearchData): void;
     function Search(searchData: SearchData): void;

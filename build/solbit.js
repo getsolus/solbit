@@ -135,12 +135,13 @@ var solbit;
     var searchbox;
     (function (searchbox_1) {
         searchbox_1.CurrentInputLength = 0;
-        function Enable(searchbox, resultsview, resultsFunc) {
+        function Enable(searchbox, resultsview, type, resultsFunc) {
             var success = false;
             if ((typeof searchbox.tagName == "string") && (searchbox.tagName.toLowerCase() == "input")) {
                 if (typeof resultsview.tagName == "string") {
                     var searchData = {
                         "Searchbox": searchbox,
+                        "Type": type,
                         "ResultsView": resultsview,
                         "ResultsFunc": resultsFunc
                     };
