@@ -28,11 +28,11 @@
 .solbit-icon-desktop:before,
 .solbit-icon-error:before,
 .solbit-icon-github:before,
-.solbit-icon-google_plus:before,
 .solbit-icon-list:before,
 .solbit-icon-mastodon:before,
 .solbit-icon-menu:before,
 .solbit-icon-other:before,
+.solbit-icon-patreon:before,
 .solbit-icon-pin:before,
 .solbit-icon-reddit:before,
 .solbit-icon-rss:before,
@@ -60,11 +60,11 @@
 .solbit-icon-desktop:before { content: "\f10a"; }
 .solbit-icon-error:before { content: "\f101"; }
 .solbit-icon-github:before { content: "\f10d"; }
-.solbit-icon-google_plus:before { content: "\f10e"; }
 .solbit-icon-list:before { content: "\f108"; }
 .solbit-icon-mastodon:before { content: "\f10f"; }
 .solbit-icon-menu:before { content: "\f102"; }
 .solbit-icon-other:before { content: "\f10b"; }
+.solbit-icon-patreon:before { content: "\f112"; }
 .solbit-icon-pin:before { content: "\f109"; }
 .solbit-icon-reddit:before { content: "\f111"; }
 .solbit-icon-rss:before { content: "\f103"; }
