@@ -1,0 +1,45 @@
+// Solbit Buttons
+
+.normalButtonSizing
+	$buttonHeight: 40px
+	height: $buttonHeight
+	min-width: 140px
+	line-height: $buttonHeight
+	text-align: center
+
+.smallButtonSizing
+	$buttonHeight: 32px
+	height: $buttonHeight
+	width: $buttonHeight
+	line-height: $buttonHeight
+	text-align: center
+
+a[data-solbit="button"], button[data-solbit="button"], div[data-solbit="button"]
+	display: block
+	font-family: "Roboto"
+	font-size: 1em
+	text-decoration: none
+	border: 0
+
+	&:not([data-solbit-custom])
+		color: contrast($button-bg-color)
+		background-color: $button-bg-color
+
+	&:not([data-solbit-custom]):not([data-solbit-size="small"]) // Not an intentionally custom or small button
+		@extend .normalButtonSizing
+		border-radius: 5px
+
+	&[data-solbit-size="small"] // Small button
+		@extend .smallButtonSizing
+
+	&[data-solbit-size="large"][data-solbit-enfsize]
+		width: 140px
+
+	&[data-solbit-toggleable]:not([data-solbit-custom]), &[data-solbit-icon="menu"]
+		@include animate(all, 125ms)
+		&:not([active]) // Not active
+			color: $button-menu-inactive-color
+
+		&[active] // Active Button
+			color: contrast($button-bg-color)
+			background-color: $button-bg-color

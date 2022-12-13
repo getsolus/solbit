@@ -1,0 +1,65 @@
+html
+	height: 100%
+	overflow-x: hidden
+
+	& > body
+		.fullWidth
+		height: 100%
+		color: $text
+		font-family: "Roboto"
+		font-size: 14px
+		margin: 0
+
+		&:not([dir="rtl"]) // LTR
+			div[data-solbit="main"]
+				float: left
+
+		&[dir="rtl"] // RTL
+			div[data-solbit="main"]
+				float: right
+		div, section, span
+			&[data-solbit-flexcol] // Flexbox column support
+				display: inline-flex
+				flex-direction: column
+
+			&[data-solbit-flexrow] // Flexbox row support
+				display: inline-flex
+				flex-direction: row
+		div[data-solbit="main"]
+			.fullWidth
+			min-height: 100%
+			margin: 0
+
+			div[data-solbit="content"]
+				@include horizontalAlign($page-margin)
+				margin-bottom: 5%
+
+				// #region Scalable
+
+				@media screen and (min-width: 1024px) // Non-Mobile
+					margin-top: 3%
+				// #endregion
+
+				div[data-solbit-show] // Force Show for any div (handy for Custom Elements)
+					visibility: visible
+		& > div[data-solbit="content-overlay"] // Overlay for content
+			height: calc(100% - 60px)
+			@include fullWidth()
+			background-color: fade-out($navigation-bg-color, 0.2)
+			position: fixed
+			bottom: 0
+			z-index: 98
+
+			&:not([active]) // Not actively showing
+				display: none
+			&[active] // Actively showing
+				display: block
+		a // Links
+			color: $link
+			cursor: pointer
+			text-decoration: none // No more underline for you!
+		img
+			border: 0
+		input // Any inputs
+			&:focus // If focused
+				outline: none // Don't want any outline from user agent stylesheet.

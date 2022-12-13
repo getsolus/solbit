@@ -24,24 +24,24 @@
 [data-icon]:before { content: attr(data-icon); }
 
 [data-icon]:before,
-.solbit-icon-check:before,
-.solbit-icon-desktop:before,
-.solbit-icon-error:before,
-.solbit-icon-github:before,
-.solbit-icon-list:before,
-.solbit-icon-mastodon:before,
-.solbit-icon-menu:before,
-.solbit-icon-other:before,
-.solbit-icon-patreon:before,
-.solbit-icon-pin:before,
-.solbit-icon-reddit:before,
-.solbit-icon-rss:before,
-.solbit-icon-star:before,
-.solbit-icon-tags:before,
-.solbit-icon-tooling:before,
-.solbit-icon-twitter:before,
-.solbit-icon-user:before,
-.solbit-icon-users:before {
+.icon-check:before,
+.icon-desktop:before,
+.icon-error:before,
+.icon-github:before,
+.icon-list:before,
+.icon-mastodon:before,
+.icon-menu:before,
+.icon-other:before,
+.icon-patreon:before,
+.icon-pin:before,
+.icon-reddit:before,
+.icon-rss:before,
+.icon-star:before,
+.icon-tags:before,
+.icon-tooling:before,
+.icon-twitter:before,
+.icon-user:before,
+.icon-users:before {
   display: inline-block;
   font-family: "solbit";
   font-style: normal;
@@ -56,21 +56,21 @@
   font-smoothing: antialiased;
 }
 
-.solbit-icon-check:before { content: "\f100"; }
-.solbit-icon-desktop:before { content: "\f10a"; }
-.solbit-icon-error:before { content: "\f101"; }
-.solbit-icon-github:before { content: "\f10d"; }
-.solbit-icon-list:before { content: "\f108"; }
-.solbit-icon-mastodon:before { content: "\f10f"; }
-.solbit-icon-menu:before { content: "\f102"; }
-.solbit-icon-other:before { content: "\f10b"; }
-.solbit-icon-patreon:before { content: "\f112"; }
-.solbit-icon-pin:before { content: "\f109"; }
-.solbit-icon-reddit:before { content: "\f111"; }
-.solbit-icon-rss:before { content: "\f103"; }
-.solbit-icon-star:before { content: "\f104"; }
-.solbit-icon-tags:before { content: "\f106"; }
-.solbit-icon-tooling:before { content: "\f10c"; }
-.solbit-icon-twitter:before { content: "\f110"; }
-.solbit-icon-user:before { content: "\f105"; }
-.solbit-icon-users:before { content: "\f107"; }
+.icon-check:before { content: "\f100"; }
+.icon-desktop:before { content: "\f101"; }
+.icon-error:before { content: "\f102"; }
+.icon-github:before { content: "\f103"; }
+.icon-list:before { content: "\f104"; }
+.icon-mastodon:before { content: "\f105"; }
+.icon-menu:before { content: "\f106"; }
+.icon-other:before { content: "\f107"; }
+.icon-patreon:before { content: "\f108"; }
+.icon-pin:before { content: "\f109"; }
+.icon-reddit:before { content: "\f10a"; }
+.icon-rss:before { content: "\f10b"; }
+.icon-star:before { content: "\f10c"; }
+.icon-tags:before { content: "\f10d"; }
+.icon-tooling:before { content: "\f10e"; }
+.icon-twitter:before { content: "\f10f"; }
+.icon-user:before { content: "\f110"; }
+.icon-users:before { content: "\f111"; }

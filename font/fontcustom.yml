@@ -6,7 +6,7 @@
 font_name: Solbit
 
 # Format of CSS selectors. {{glyph}} is substituted for the glyph name.
-css_selector: .solbit-icon-{{glyph}}
+css_selector: .icon-{{glyph}}
 
 # Generate fonts without asset-busting hashes.
 no_hash: true

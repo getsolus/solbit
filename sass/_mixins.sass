@@ -1,0 +1,59 @@
+// Alignment and Width Mixins
+
+@mixin fullWidth
+	width: 100%
+
+@mixin halfWidth
+	width: 50%
+
+// Horizontal Align based on margin
+@mixin horizontalAlign($margin)
+	@if ispercentage($margin)
+		width: 100% - ($margin * 2)
+	@else if ispixel($margin)
+		width: calc(100% - ($margin * 2))
+	margin-left: $margin
+	margin-right: $margin
+
+// Horizontal Align based On Container Width
+@mixin horizontalAlignContainer($width)
+	@if ispercentage($width)
+		$halfMargin: unit(((100 - unit($width)) / 2), get-unit($width))
+		width: $width
+		margin-left: $halfMargin
+		margin-right: $halfMargin
+	@else if ispixel($width)
+		$halfWidth: unit((unit($width) / 2), px)
+		width: $width
+		margin-left: calc(50% - $halfWidth)
+		margin-right: calc(50% - $halfWidth)
+
+// Horizontal Pad based On Container Width
+@mixin horizontalPadContainer($width)
+	@if ispercentage($width)
+		$halfMargin: unit(((100 - unit($width)) / 2), get-unit($width))
+		width: $width
+		padding-left: $halfMargin
+		padding-right: $halfMargin
+
+// Animation Parametric Mixin - Allows easy adding of animations
+@mixin animate($properties, $duration : 250ms)
+
+	// When the animation is active
+	&:not([data-solbit-render-animation="false"]) // If we are not "overriding" Animation by setting render-animation to false
+		transition: e($properties) $duration // String escape the provided properties that'll change in transform
+		-moz-transition: e($properties) $duration // Gecko-specific
+		-o-transition: e($properties) $duration // Opera-specific
+		-webkit-transition: e($properties) $duration // Blink/WebKit-specific
+
+// Sliding Mixin
+// Returns properties that are used with the parent went the parent has [data-solbit-animation="slide"]
+
+@mixin slide($pos, $milliseconds) // Default slide using translateX
+	@include animate("transform", $milliseconds)
+	&[data-solbit-animation="slide"]
+		transform: translateX($pos) // Set translateX to @pos, where pos can be px, e(calc()), etc.
+		-moz-transform: translateX($pos) // Gecko-specific
+		-ms-transform: translateX($pos) // IE / Edge specific
+		-o-transform: translateX($pos) // Opera-specific
+		-webkit-transform: translateX($pos) // Blink/WebKit-specific

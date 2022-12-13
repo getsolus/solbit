@@ -1,0 +1,15 @@
+// List
+
+div[data-solbit="list"] // List
+	div[data-solbit="list-item"]
+		&:not([data-solbit-nolistbg]) // If we not specifying to NOT have a background
+			&:nth-of-type(odd)
+				background-color: $white // Have a slightly darker background
+		& > a // Header Links
+			display: block
+			@include fullWidth()
+			font-size: 1.2em
+		& > section // Description
+			@include fullWidth()
+			font-size: 1em
+			color: $text
