@@ -31,7 +31,7 @@
 // Horizontal Pad based On Container Width
 @mixin horizontalPadContainer($width)
 	@if ispercentage($width)
-		$halfMargin: unit(((100 - unit($width)) / 2), get-unit($width))
+		$halfMargin: (100 - unit($width)) / 2
 		width: $width
 		padding-left: $halfMargin
 		padding-right: $halfMargin
