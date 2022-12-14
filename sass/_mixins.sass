@@ -18,12 +18,12 @@
 // Horizontal Align based On Container Width
 @mixin horizontalAlignContainer($width)
 	@if ispercentage($width)
-		$halfMargin: unit(((100 - unit($width)) / 2), get-unit($width))
+		$halfMargin: (100 - unit($width)) / 2
 		width: $width
 		margin-left: $halfMargin
 		margin-right: $halfMargin
 	@else if ispixel($width)
-		$halfWidth: unit((unit($width) / 2), px)
+		$halfWidth: (unit($width) / 2
 		width: $width
 		margin-left: calc(50% - $halfWidth)
 		margin-right: calc(50% - $halfWidth)
