@@ -1,0 +1,17 @@
+// Banner
+.banner
+	@include fullWidth()
+	@include column()
+	padding: $banner-padding
+
+	&.top
+		align-items: center
+		background-color: $banner-top-bg-color
+
+		h1, h2
+			color: $banner-top-fg-color
+			margin-bottom: $banner-top-heading-margin
+		h1
+			font-size: $banner-top-h1-size
+		h2
+			font-size: $banner-top-h2-size

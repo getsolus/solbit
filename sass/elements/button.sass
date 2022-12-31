@@ -1,0 +1,24 @@
+// Solbit Buttons
+@mixin proto-button()
+	display: inline-block
+	text-align: center
+	height: $button-normal-height
+	line-height: $button-normal-height
+	padding: 0 $button-padding
+
+.button
+	@include proto-button
+	color: $button-fg-color
+	background-color: $button-bg-color
+
+	&.small // Small button
+		height: $button-small-height
+		line-height: $button-small-height
+	&.hover
+		line-height: $button-normal-height - $button-border-width
+		border-radius: $button-radius
+		border: $button-border-width solid $button-bg-color
+		&:hover
+			color: $button-bg-color
+			background-color: $button-fg-color
+

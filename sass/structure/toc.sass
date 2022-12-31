@@ -1,0 +1,26 @@
+// Table of Contents
+.toc
+	flex-shrink: 0
+	margin-top: $toc-margin-top
+	margin-right: $toc-margin-right
+
+	> h1
+		font-size: $toc-heading-font-size
+	nav
+		background-color: $toc-nav-bg-color
+		margin-top: $toc-nav-margin-top
+		padding: $toc-nav-padding
+
+		h1, h2
+			text-align: left
+			color: $toc-nav-fg-color
+			font-size: $toc-nav-font-size
+		h1
+			font-style: bold
+		h2
+			padding-left: $toc-nav-indent
+
+@media screen and #{$mobile}
+	.toc
+		display: none
+

@@ -1,0 +1,29 @@
+// Tables
+table
+	width: initial
+	border-collapse: collapse
+	border: $table-border-width solid $table-header-bg-color
+	margin-bottom: $table-margin-bottom
+
+	th, td
+		text-align: left
+		padding: $table-cell-padding
+
+	thead // Table Header
+		height: $table-header-height
+		background-color: $table-header-bg-color
+
+		tr
+			height: $table-header-height
+		th
+			color: $table-header-fg-color
+	tbody
+		background-color: $table-cell-odd
+		tr
+			height: $table-row-height
+			&:nth-child(even)
+				background-color: $table-cell-even
+
+@media screen and #{$mobile}
+	table
+		width: 100%

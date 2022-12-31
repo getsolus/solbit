@@ -36,6 +36,7 @@
 .icon-pin:before,
 .icon-reddit:before,
 .icon-rss:before,
+.icon-search:before,
 .icon-star:before,
 .icon-tags:before,
 .icon-tooling:before,
@@ -68,6 +69,7 @@
 .icon-pin:before { content: "\f109"; }
 .icon-reddit:before { content: "\f10a"; }
 .icon-rss:before { content: "\f10b"; }
+.icon-search:before { content: "\f112"; }
 .icon-star:before { content: "\f10c"; }
 .icon-tags:before { content: "\f10d"; }
 .icon-tooling:before { content: "\f10e"; }

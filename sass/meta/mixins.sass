@@ -1,10 +1,18 @@
-// Alignment and Width Mixins
+// Mixins
 
 @mixin fullWidth
 	width: 100%
 
 @mixin halfWidth
 	width: 50%
+
+// Flex Layout Mixins
+@mixin column
+    display: inline-flex
+    flex-direction: column
+
+@mixin row
+    display: inline-flex
 
 // Horizontal Align based on margin
 @mixin horizontalAlign($margin)
@@ -18,20 +26,20 @@
 // Horizontal Align based On Container Width
 @mixin horizontalAlignContainer($width)
 	@if ispercentage($width)
-		$halfMargin: (100 - unit($width)) / 2
+		$halfMargin: (100% - $width) / 2
 		width: $width
 		margin-left: $halfMargin
 		margin-right: $halfMargin
 	@else if ispixel($width)
-		$halfWidth: (unit($width)) / 2
+		$halfWidth: $width / 2
 		width: $width
-		margin-left: calc(50% - $halfWidth)
-		margin-right: calc(50% - $halfWidth)
+		margin-left: calc(50% - #{$halfWidth})
+		margin-right: calc(50% - #{$halfWidth})
 
 // Horizontal Pad based On Container Width
 @mixin horizontalPadContainer($width)
 	@if ispercentage($width)
-		$halfMargin: (100 - unit($width)) / 2
+		$halfMargin: (100% - $width) / 2
 		width: $width
 		padding-left: $halfMargin
 		padding-right: $halfMargin
@@ -41,10 +49,10 @@
 
 	// When the animation is active
 	&:not([data-solbit-render-animation="false"]) // If we are not "overriding" Animation by setting render-animation to false
-		transition: e($properties) $duration // String escape the provided properties that'll change in transform
-		-moz-transition: e($properties) $duration // Gecko-specific
-		-o-transition: e($properties) $duration // Opera-specific
-		-webkit-transition: e($properties) $duration // Blink/WebKit-specific
+		transition: $properties $duration // String escape the provided properties that'll change in transform
+		-moz-transition: $properties $duration // Gecko-specific
+		-o-transition: $properties $duration // Opera-specific
+		-webkit-transition: $properties $duration // Blink/WebKit-specific
 
 // Sliding Mixin
 // Returns properties that are used with the parent went the parent has [data-solbit-animation="slide"]

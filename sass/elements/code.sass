@@ -1,0 +1,16 @@
+// Code blocks
+pre, code
+	color: $code-fg-color
+	background-color: $code-bg-color
+
+code
+	padding: $code-padding
+
+pre // ie. pre > code
+	border-radius: $code-border-radius
+	padding: $pre-padding
+	margin-bottom: $pre-margin-bottom
+	overflow-x: auto // Ensure there is a scrollbar for when code snippet lines exceed pre width.
+
+	code
+		padding: 0

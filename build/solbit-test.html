@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Solbit Test Page </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="solbit.css">
+        <noscript>
+            <style>.js { display:none; }</style>
+        </noscript>
+    </head>
+    <body>
+        <header>
+            <div class="bar">
+                <a href="/" class="logo">
+                    <img src="img/logo.jpg" alt="Solus Logo">
+                </a>
+                <div class="menu">
+                    <nav>
+                        <a href="/">Item 2</a>
+                        <a href="/">Item 3</a>
+                        <a href="/">Item 4</a>
+                    </nav>
+                </div>
+                <button>
+                    <label class="icon-menu" for="toggle"></label>
+                </button>
+            </div>
+            <input type="checkbox" id="toggle">
+            <div class="overlay">
+                <div class="menu">
+                    <nav>
+                        <a href="/">Item 2</a>
+                        <a href="/">Item 3</a>
+                        <a href="/">Item 4</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="banner top">
+            <h1> Section Banner </h1>
+            <h2> This is a description of this section </h2>
+            <button class="search js" tabindex="0">
+                <b class="icon-search">Search Articles</b>
+                <div class="shortcut">
+                    <kbd>Ctrl</kbd>
+                    <kbd>K</kbd>
+                </div>
+            </button>
+        </div>
+        <main>
+            <div class="toc">
+                <h1> Table of Contents </h1>
+                <nav>
+                    <a href=""><h1>Elements</h1></a>
+
+                    <a href=""><h1>Buttons</h1></a>
+
+                    <a href=""><h1>Headings</h1></a>
+                    <a href=""><h2>Heading 2</h2></a>
+
+                    <a href=""><h1>Lists</h1></a>
+                    <a href=""><h2>Ordered</h2></a>
+                    <a href=""><h2>Unordered</h2></a>
+                    <a href=""><h2>Nested</h2></a>
+                    <a href=""><h2>Definition Lists</h2></a>
+
+                    <a href=""><h1>Tables</h1></a>
+
+                    <a href=""><h1>Video</h1></a>
+
+                </nav>
+            </div>
+            <div class="content">
+                <h1> Elements </h1>
+                <h1> Buttons </h1>
+                <div>
+                    <a href="" class="button">Normal</a>
+                    <button class="button small" tabindex="0"> Small </button>
+                    <a href="" class="button hover">Hover</a>
+                </div>
+
+                <h1> Headings </h1>
+                <h2> Heading 2 </h2>
+                <h3> Heading 3 </h3>
+                <h4> Heading 4 </h4>
+                <h5> Heading 5 </h5>
+                <h6> Heading 6 </h6>
+
+                <h1> Lists </h1>
+
+                <h2> Ordered </h2>
+                <ol>
+                    <li> First </li>
+                    <li> Second </li>
+                    <li> Third </li>
+                </ol>
+
+                <h2> Unordered </h2>
+                <ul>
+                    <li> Item C </li>
+                    <li> Item A </li>
+                    <li> Item B </li>
+                </ul>
+
+                <h2> Nested </h2>
+                <ol>
+                    <li>
+                        First
+                        <ul>
+                            <li> Item A </li>
+                            <li> Item B </li>
+                        </ul>
+                    </li>
+                    <li> Second </li>
+                    <li> Third </li>
+                </ol>
+
+                <h2> Definition Lists </h2>
+                <dl>
+                    <dt> Term </dt>
+                    <dd> Definition 1 </dd>
+                    <dd> Definition 2 </dd>
+                    <dd> Definition 3 </dd>
+                </dl>
+
+                <h2> Tables </h2>
+
+                <table>
+                    <thead>
+                        <tr><th> ID </th><th> Column A </th><th> Column B </th><th> Column C </th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td> 0  </td><td> Apple    </td><td> Pear     </td><td> Mango    </td></tr>
+                        <tr><td> 1  </td><td> Banana   </td><td> Kiwi     </td><td> Grape    </td></tr>
+                        <tr><td> 2  </td><td> Oraange  </td><td> Lemon    </td><td> Lime     </td></tr>
+                    </tbody>
+                </table>
+
+                <h2> Video </h2>
+                 <video controls title="Test Video">
+                    <source src="vids/GNOME-Workspace-Switch.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <h2> Pagination </h2>
+
+                <nav class="pages">
+                    <a href="">1</a>
+                    <a href="" class="button">2</a>
+                    <a href="">3</a>
+                    <a href="">4</a>
+                    <a href="">5</a>
+                </nav>
+            </div>
+        </main>
+        <footer>
+            <div class="menu">
+                <b>Navigation</b>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/">Item 2</a>
+                    <a href="/">Item 3</a>
+                    <a href="/">Item 4</a>
+                </nav>
+            </div>
+            <div class="menu">
+                <b>Help</b>
+                <nav>
+                    <a href="/">Page</a>
+                    <a href="/">Contact</a>
+                </nav>
+            </div>
+            <p>
+                Copyright &copy; <a href="mailto:copyright@getsol.us"> (C) 2015-2022 Solus Project</a>
+            </p>
+            <p>
+                * Other names and brands may be claimed as the property of others
+            </p>
+            <a href="https://opencollective.com/getsolus/donate" target="_blank">
+		        <img src="https://opencollective.com/getsolus/donate/button@2x.png?color=blue" width="300" alt="OpenCollective Donate">
+	        </a>
+        </footer>
+    </body>
+</html>

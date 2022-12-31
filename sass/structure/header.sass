@@ -1,0 +1,61 @@
+// Header
+header
+	@include fullWidth()
+	@include column()
+	background-color: $header-bg-color
+
+	.bar
+		@include fullWidth()
+		@include row()
+		padding: $header-padding
+
+		.logo
+			display: inline-flex
+
+			& > img
+				height: 100%
+
+		& > .menu
+			flex-direction: row-reverse
+		button
+			display: flex
+			align-items: center
+			padding: $header-button-padding
+			color: $header-fg-color
+			background-color: $header-bg-color
+
+	input
+		display: none
+	.overlay
+		@include fullWidth
+		background-color: $header-menu-bg-color
+		padding: $header-padding
+
+		nav
+			@include column
+
+			a
+				margin: $header-overlay-margin
+
+	@media screen and #{$mobile}
+		input:checked
+			~ .overlay
+				@include column
+		.overlay
+			display: none
+		.bar
+			direction: ltr // Enforce LTR so logo sits on left, even on RTL
+			height: $header-height-mobile
+			justify-content: space-between
+
+			.menu
+				display: none
+
+
+	@media screen and #{$desktop}
+		.bar
+			height: $header-height-desktop
+			button
+				display: none
+		.overlay
+			display: none

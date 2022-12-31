@@ -1,0 +1,18 @@
+// Footer
+footer
+	@include fullWidth()
+	@include column
+	padding: $footer-padding
+	background-color: $footer-bg-color
+
+	// Footer menus and Copyright
+	.menu
+		&:last-of-type
+			margin-bottom: $footer-margin
+
+	b, p
+		color: $footer-fg-color
+
+	@media screen and #{$mobile} // Mobile
+		.menu
+			margin-top: $footer-margin

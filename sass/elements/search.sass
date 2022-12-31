@@ -1,4 +1,26 @@
-// Styling for Search related functionality
+// Search
+.search
+	@include row()
+	justify-content: space-between
+	width: $search-desktop-width
+	padding: $search-padding
+	color: $search-fg-color
+	background-color: $search-bg-color
+	cursor: pointer
+
+	b
+		line-height: $search-line-height
+
+		&::before
+			padding: 0 $search-padding
+
+	.shortcut
+		@include row()
+		padding: $search-padding
+
+@media screen and #{$mobile}
+	.search
+		width: 100%
 
 div[data-solbit="search-results"] // Search Results
 	background-color: #fafafa
