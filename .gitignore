@@ -1,1 +1,3 @@
 .fontcustom-manifest.json
+*.backup
+*.gz
