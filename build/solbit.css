@@ -226,7 +226,7 @@ kbd {
   background-color: #e8e8e8; }
 
 ol, ul {
-  list-style-position: inside;
+  list-style-position: outside;
   line-height: 2em;
   padding: 0 2em; }
 
