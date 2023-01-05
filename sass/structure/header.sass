@@ -29,7 +29,7 @@ header
 	.overlay
 		@include fullWidth
 		background-color: $header-menu-bg-color
-		padding: $header-padding
+		padding: $header-padding-mobile
 
 		nav
 			@include column
@@ -46,6 +46,7 @@ header
 		.bar
 			direction: ltr // Enforce LTR so logo sits on left, even on RTL
 			height: $header-height-mobile
+			padding: $header-padding-mobile
 			justify-content: space-between
 
 			.menu

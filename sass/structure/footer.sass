@@ -9,10 +9,15 @@ footer
 	.menu
 		&:last-of-type
 			margin-bottom: $footer-margin
-
+		nav
+			a
+				margin: $footer-menu-margin
 	b, p
 		color: $footer-fg-color
 
 	@media screen and #{$mobile} // Mobile
+		padding: $footer-padding-mobile
+
 		.menu
 			margin-top: $footer-margin
+

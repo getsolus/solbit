@@ -10,7 +10,8 @@ $desktop: (min-width: 1024px)
 $mobile: (max-width: 1023px)
 
 // Page margin for each side of the page.
-$page-margin: 6%
+$page-margin: 10%
+$page-margin-mobile: 5%
 $content-margin: 1rem
 
 // --------
@@ -19,6 +20,7 @@ $content-margin: 1rem
 
 // Banner
 $banner-padding: 1.25em $page-margin
+$banner-padding-mobile: 1.25em $page-margin-mobile
 $banner-top-heading-margin: 1em
 $banner-top-h1-size: 1.5em
 $banner-top-h2-size: 1em
@@ -89,6 +91,8 @@ $paragraph-margin-bottom: $content-margin
 // Footer
 $footer-margin: 1.25em
 $footer-padding: 2.5em $page-margin
+$footer-padding-mobile: 2.5em $page-margin-mobile
+$footer-menu-margin: $menu-link-margin 0.5em
 
 // Header
 $header-button-padding: 0 1em
@@ -96,10 +100,12 @@ $header-height-desktop: 5em
 $header-height-mobile: 3.75em
 $header-overlay-margin: 0.5em 0
 $header-padding: 0.625em $page-margin
+$header-padding-mobile: 0.625em $page-margin-mobile
 $header-button-padding: 0 1em
 
 // Main
 $main-padding: 1.25em $page-margin
+$main-padding-mobile: 1.25em $page-margin-mobile
 
 // Table of Contents
 $toc-heading-font-size: 1.25em

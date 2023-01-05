@@ -4,3 +4,6 @@ main
 	min-height: 100%
 	@include row()
 	padding: $main-padding
+
+	@media screen and #{$mobile}
+		padding: $main-padding-mobile
