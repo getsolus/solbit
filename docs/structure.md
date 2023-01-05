@@ -21,6 +21,7 @@ There are tons of different information we might decide to encode inside `head`,
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="path/to/solbit.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100%7CRoboto:300%7CRoboto:400" media="all">
     <noscript>
         <style>.js { display:none; }</style>
     </noscript>
@@ -29,9 +30,11 @@ There are tons of different information we might decide to encode inside `head`,
 
 1. **Viewport**  
    In order to make sure our styles scale correctly on all screen sizes, we enforce the default viewport scaling.
-2. **Link**  
+2. **CSS**  
    This one is no surprise, we need to include the stylesheet. What *is* a surprise, is that Solbit uses **ZERO** JavaScript.
-3. **Noscript**  
+3. **Roboto**  
+   Solus uses Roboto as the font on all of our sites. Solbit is no different.
+4. **Noscript**  
    Sure, most people have JS enabled all the time. Maybe they have an ad-blocker that disabled JS from some sources. But we still want our sites to be useful for browser clients with lower capabilities. A site should work without JS and be more powerful with JS. Adding this `noscript` entry makes it easy to hide those JS elements for clients that can't use them.
 
 ## Body Layout
