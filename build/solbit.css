@@ -54,18 +54,18 @@ body {
     color: #1a559c;
     margin-top: 1em; }
   .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
-    margin-bottom: 0.5rem; }
+    margin-bottom: 1rem; }
   .content h1:first-of-type {
     text-align: center;
     margin-bottom: 1em; }
   .content p {
-    min-height: 2em;
-    line-height: 2em;
-    margin-bottom: 0.5rem; }
+    min-height: 1.5em;
+    line-height: 1.5em;
+    margin-bottom: 1rem; }
   .content img {
     display: block;
     max-width: 100%;
-    margin-bottom: 0.5rem; }
+    margin-bottom: 1rem; }
     .content img.featured {
       margin-bottom: 2em; }
 
@@ -191,7 +191,7 @@ code {
 pre {
   border-radius: 0.25em;
   padding: 1em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   overflow-x: auto; }
   pre code {
     padding: 0; }
@@ -230,6 +230,9 @@ ol, ul {
   line-height: 2em;
   padding: 0 2em; }
 
+li, dd {
+  margin-top: 0.5em; }
+
 dl, ol, ul {
   margin-bottom: 1em; }
 
@@ -241,8 +244,7 @@ dt {
 
 dd {
   font-style: italics;
-  padding: 0 2em;
-  margin-top: 0.5em; }
+  padding: 0 2em; }
 
 .menu {
   display: inline-flex;
@@ -308,7 +310,7 @@ table {
   width: initial;
   border-collapse: collapse;
   border: 0.125em solid #333;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 1rem; }
   table th, table td {
     text-align: left;
     padding: 0 1em; }
@@ -332,7 +334,7 @@ table {
 
 video {
   width: 100%;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 1rem; }
 
 @media screen and (min-width: 1024px) {
   video {
