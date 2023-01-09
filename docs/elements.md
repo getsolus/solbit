@@ -85,6 +85,15 @@ Sometimes it is useful to allow pagination for lists of related pages. Solbit tr
 </nav>
 ```
 
+## Quotes
+
+Every once in awhile it is useful to have a blockquote style. Solbit keeps this one really simple:
+
+``` html
+<blockquote>
+    Hello World
+</blockquote>
+```
 
 ## Search
 
