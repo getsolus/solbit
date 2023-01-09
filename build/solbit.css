@@ -293,12 +293,14 @@ dd {
     padding: 0 1.5em; }
 
 blockquote {
-  margin: 0em 2em;
+  margin: 0em 2em 1rem;
   padding: 1em 1.5em;
   border-left: 0.125em solid #333;
   color: #333;
   background-color: #e8e8e8;
   font-style: italic; }
+  blockquote p:last-of-type {
+    margin: 0; }
 
 .search {
   display: inline-flex;
