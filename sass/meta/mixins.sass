@@ -14,6 +14,20 @@
 @mixin row
     display: inline-flex
 
+// Modal dialog window
+@mixin modal
+	display: none
+	flex-direction: column
+	align-items: center
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+
+	.dialog
+		@include column
+
 // Horizontal Align based on margin
 @mixin horizontalAlign($margin)
 	@if ispercentage($margin)

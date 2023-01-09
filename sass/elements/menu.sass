@@ -2,12 +2,14 @@
 .menu
 	@include row
 	@include fullWidth
+
 	b
 		width: $menu-label-width
 	nav
 		@include row
+		@include fullWidth
+		gap: $menu-link-gap
 		flex-wrap: wrap
 		a
 			display: flex
 			align-items: center
-			margin: $menu-link-margin

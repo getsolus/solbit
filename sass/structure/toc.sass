@@ -1,8 +1,8 @@
 // Table of Contents
 .toc
-	flex-shrink: 0
+	@include column
+	align-items: end
 	margin-top: $toc-margin-top
-	margin-right: $toc-margin-right
 
 	> h1
 		font-size: $toc-heading-font-size
@@ -10,13 +10,13 @@
 		background-color: $toc-nav-bg-color
 		margin-top: $toc-nav-margin-top
 		padding: $toc-nav-padding
-
+		width: initial
 		h1, h2
 			text-align: left
 			color: $toc-nav-fg-color
 			font-size: $toc-nav-font-size
 		h1
-			font-style: bold
+			font-weight: bold
 		h2
 			padding-left: $toc-nav-indent
 

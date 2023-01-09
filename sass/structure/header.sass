@@ -15,8 +15,8 @@ header
 			& > img
 				height: 100%
 
-		& > .menu
-			flex-direction: row-reverse
+		nav
+			justify-content: end
 		button
 			display: flex
 			align-items: center
@@ -33,9 +33,9 @@ header
 
 		nav
 			@include column
-
+			gap: $header-overlay-gap
 			a
-				margin: $header-overlay-margin
+				line-height: $header-overlay-line-height
 
 	@media screen and #{$mobile}
 		input:checked

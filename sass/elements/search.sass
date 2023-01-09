@@ -2,45 +2,19 @@
 .search
 	@include row()
 	justify-content: space-between
+	align-items: center
 	width: $search-desktop-width
 	padding: $search-padding
 	color: $search-fg-color
 	background-color: $search-bg-color
 	cursor: pointer
 
-	b
-		line-height: $search-line-height
-
-		&::before
-			padding: 0 $search-padding
+	b::before
+		padding: 0 $search-padding
 
 	.shortcut
 		@include row()
-		padding: $search-padding
 
 @media screen and #{$mobile}
 	.search
-		width: 100%
-
-div[data-solbit="search-results"] // Search Results
-	background-color: #fafafa
-	position: absolute
-	overflow-y: auto
-	z-index: 10
-
-	&:not([data-solbit-show]) // If we're not doing a force show
-		visibility:hidden // Hide
-
-	div[data-solbit="list"] // Inner List
-		& > section // "No Results Found"
-			&:not(:only-child) // Not the only child (thus, there are results)
-				display: none // Don't show. Don't compute size.
-
-			@include fullWidth()
-			height: 50px
-			color: $text
-			text-align: center
-			line-height: 50px
-		& > div[data-solbit="list-item"] // List Items
-			&:hover // When hovering
-				background-color: $white;
+		@include fullWidth

@@ -2,22 +2,16 @@
 footer
 	@include fullWidth()
 	@include column
+	gap: $footer-gap
 	padding: $footer-padding
 	background-color: $footer-bg-color
 
-	// Footer menus and Copyright
-	.menu
-		&:last-of-type
-			margin-bottom: $footer-margin
-		nav
-			a
-				margin: $footer-menu-margin
 	b, p
 		color: $footer-fg-color
 
+	.legal
+		margin: $footer-legal-margin
+
 	@media screen and #{$mobile} // Mobile
 		padding: $footer-padding-mobile
-
-		.menu
-			margin-top: $footer-margin
 
