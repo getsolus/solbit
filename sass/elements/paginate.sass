@@ -1,9 +1,9 @@
 // Pagination
 .pages
-	@include fullWidth()
 	@include row()
-	padding: $pages-padding
+	@include fullWidth()
+	@include box($pages-box)
 
 	a
-		@include proto-button()
-		padding: $pages-button-padding
+		@extend %proto-button
+		@include box($pages-button-box)

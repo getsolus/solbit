@@ -1,8 +1,6 @@
 // sidebar
 .sidebar
-	@include column
+	@include column()
 
-@media screen and #{$mobile}
-	.sidebar
+	@media screen and #{$mobile}
 		display: none
-

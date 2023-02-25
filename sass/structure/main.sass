@@ -1,12 +1,12 @@
 // Main
 main
-	@include fullWidth()
-	min-height: 100%
 	@include row()
 	gap: $main-gap
-	padding: $main-padding
+	@include fullWidth()
+	@include box($main-box)
+
 	> *
 		flex: 0 0 20%
 
 	@media screen and #{$mobile}
-		padding: $main-padding-mobile
+		@include box($main-box-mobile)

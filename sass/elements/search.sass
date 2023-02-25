@@ -3,18 +3,17 @@
 	@include row()
 	justify-content: space-between
 	align-items: center
-	width: $search-desktop-width
-	padding: $search-padding
-	color: $search-fg-color
-	background-color: $search-bg-color
+	@include box($search-box)
+	@include colors($search-swatch)
 	cursor: pointer
 
 	b::before
-		padding: 0 $search-padding
+		@include box($search-before-box)
 
 	.shortcut
 		@include row()
 
 @media screen and #{$mobile}
 	.search
-		@include fullWidth
+		@include fullWidth()
+

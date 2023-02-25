@@ -8,11 +8,12 @@
 
 // Flex Layout Mixins
 @mixin column
-    display: inline-flex
-    flex-direction: column
+	display: inline-flex
+	flex-direction: column
 
 @mixin row
-    display: inline-flex
+	display: inline-flex
+	flex-direction: row
 
 // Modal dialog window
 @mixin modal
@@ -26,56 +27,4 @@
 	height: 100%
 
 	.dialog
-		@include column
-
-// Horizontal Align based on margin
-@mixin horizontalAlign($margin)
-	@if ispercentage($margin)
-		width: 100% - ($margin * 2)
-	@else if ispixel($margin)
-		width: calc(100% - ($margin * 2))
-	margin-left: $margin
-	margin-right: $margin
-
-// Horizontal Align based On Container Width
-@mixin horizontalAlignContainer($width)
-	@if ispercentage($width)
-		$halfMargin: (100% - $width) / 2
-		width: $width
-		margin-left: $halfMargin
-		margin-right: $halfMargin
-	@else if ispixel($width)
-		$halfWidth: $width / 2
-		width: $width
-		margin-left: calc(50% - #{$halfWidth})
-		margin-right: calc(50% - #{$halfWidth})
-
-// Horizontal Pad based On Container Width
-@mixin horizontalPadContainer($width)
-	@if ispercentage($width)
-		$halfMargin: (100% - $width) / 2
-		width: $width
-		padding-left: $halfMargin
-		padding-right: $halfMargin
-
-// Animation Parametric Mixin - Allows easy adding of animations
-@mixin animate($properties, $duration : 250ms)
-
-	// When the animation is active
-	&:not([data-solbit-render-animation="false"]) // If we are not "overriding" Animation by setting render-animation to false
-		transition: $properties $duration // String escape the provided properties that'll change in transform
-		-moz-transition: $properties $duration // Gecko-specific
-		-o-transition: $properties $duration // Opera-specific
-		-webkit-transition: $properties $duration // Blink/WebKit-specific
-
-// Sliding Mixin
-// Returns properties that are used with the parent went the parent has [data-solbit-animation="slide"]
-
-@mixin slide($pos, $milliseconds) // Default slide using translateX
-	@include animate("transform", $milliseconds)
-	&[data-solbit-animation="slide"]
-		transform: translateX($pos) // Set translateX to @pos, where pos can be px, e(calc()), etc.
-		-moz-transform: translateX($pos) // Gecko-specific
-		-ms-transform: translateX($pos) // IE / Edge specific
-		-o-transform: translateX($pos) // Opera-specific
-		-webkit-transform: translateX($pos) // Blink/WebKit-specific
+		@include column()

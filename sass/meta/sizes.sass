@@ -9,115 +9,131 @@
 $desktop: (min-width: 1024px)
 $mobile: (max-width: 1023px)
 
-// Page margin for each side of the page.
+// Text Sizes
+$size-h1: 2.5em
+$size-h2: 2em
+$size-h3: 1.75em
+$size-h4: 1.5em
+$size-h5: 1.25em
+$size-text: 1em
+
+// Gap Sizes
+$gap-max: 2.5em
+$gap-big: 2em
+$gap-large: 1.5em
+$gap-medium: 1.25em
+$gap-normal: 1em
+$gap-small: 0.625em
+$gap-min: 0.5em
+
+// Common Sizes
+$content-margin: 1rem
 $page-margin: 10%
 $page-margin-mobile: 5%
-$content-margin: 1rem
+$paragraph-box: (margin-bottom: $gap-medium)
+$reset-box: (box-sizing: border-box, line-height: 1.25em, margin: 0, padding: 0)
+
+// ------
+// Mixins
+// ------
+
+@mixin box($box)
+	@each $attr, $value in $box
+		#{$attr}: $value
+
 
 // --------
 // Elements
 // --------
 
-// Banner
-$banner-padding: 1.25em $page-margin
-$banner-padding-mobile: 1.25em $page-margin-mobile
-$banner-top-heading-margin: 1em
-$banner-top-h1-size: 1.5em
-$banner-top-h2-size: 1em
-
 // Buttons
-$button-small-height: 2em
-$button-normal-height: 2.5em
-$button-radius: 0.25em
-$button-border-width: 0.125em
-$button-padding: 2em
+$button-box: (height: 2.5em, line-height: 2.5em, padding: 0 $gap-big)
+$button-small-box: (height: 2em, line-height: 2em)
 
 // Code
 $code-border-radius: 0.25em
-$code-padding: 0.5em
-$pre-margin-bottom: $content-margin
-$pre-padding: 1em
-
-// Headings
-$heading-margin: 1em
-$heading-margin-bottom: $content-margin
+$code-box: (padding: $gap-min)
+$pre-box: (padding: $gap-normal, margin: 0 0 $content-margin)
 
 // Keyboard
 $kbd-border-radius: 0.125em
-$kbd-line-height: 2em
-$kbd-margin: 0 0.25em
-$kbd-padding: 0	0.5em
+$kbd-box: (line-height: 2em, margin: 0 0.25em, padding: 0 $gap-min)
 
 // Lists
-$list-item-margin: 0.5em
-$list-line-height: 2em
-$list-margin-bottom: 1em
-$list-padding: 0 2em
+$list-box: (line-height: 2em, padding: 0 $gap-big)
+$list-item-box: (margin: $gap-min 0 0)
+$list-box-all: (margin: 0 0 $gap-normal)
 
 // Menus
-$menu-label-width: 9.375em
-$menu-link-gap: 1em 2em
+$menu-label-box: (width: 9.375em)
+$menu-link-gap: $gap-normal $gap-big
 
 // Pagination
-$pages-padding: 1em
-$pages-button-padding: 0 1.5em
+$pages-box: (padding: $gap-normal)
+$pages-button-box: (padding: 0 $gap-big)
 
 // Quotes
-$quote-margin: 0em 2em $content-margin
-$quote-padding: 1em 1.5em
+$quote-box: (margin: 0 $gap-big $content-margin, padding: $gap-normal $gap-big)
 $quote-border-width: 0.125em
 
 // Search
-$search-desktop-width: 30em
-$search-line-height: 3em
-$search-padding: 0.5em
+$search-box: (width: 30em, line-height: 3em, padding: $gap-min)
+$search-before-box: (padding: 0 $gap-min)
 
 // Tables
+$table-box: (width: initial, margin: 0 0 $content-margin)
+$table-cell-box: (padding: 0 $gap-normal)
+$table-head-box: (height: 3em)
+$table-row-box: (height: 2em)
 $table-border-width: 0.125em
-$table-cell-padding: 0 1em
-$table-header-height: 3em
-$table-margin-bottom: $content-margin
-$table-row-height: 2em
 
 // Video
-$video-margin-bottom: $content-margin
-$video-desktop-max-width: 70%
+$video-box: (margin: 0 0 $content-margin)
+
 
 // ---------
 // Structure
 // ---------
 
+// Banner
+$banner-box: (padding: $gap-medium $page-margin)
+$banner-box-mobile: (padding: $gap-medium $page-margin-mobile)
+$banner-heading-box: (margin: 0 0 $gap-normal)
+$banner-top-h1-size: $size-h4
+$banner-top-h2-size: $size-text
+
 // Content
-$content-image-margin: $content-margin
-$content-image-featured-margin: 2em
-$paragraph-line-height: 1.5em
-$paragraph-margin-bottom: $content-margin
+$content-img-box: (max-width: 100%, margin: 0 0 $content-margin)
+$content-img-featured-box: (margin: 0 0 $gap-big)
+$paragraph-box: (min-height: 1.5em, line-height: 1.5em, margin: 0 0 $content-margin)
+$heading-box: (margin: $content-margin 0)
+$heading-top-box: (margin: $content-margin)
+$heading-first-box: (margin-bottom: $gap-normal)
+
 
 // Footer
-$footer-legal-margin: 1em 0
-$footer-gap: 0.5em
-$footer-padding: 2.5em $page-margin
-$footer-padding-mobile: 2.5em $page-margin-mobile
+$footer-legal-box: (margin: $gap-normal 0)
+$footer-gap: $gap-min
+$footer-box: (padding: $gap-max $page-margin)
+$footer-box-mobile: (padding: $gap-max $page-margin-mobile)
 
 // Header
-$header-button-padding: 0 1em
-$header-height-desktop: 5em
-$header-height-mobile: 3.75em
-$header-overlay-gap: 1em 0
-$header-overlay-line-height: 2em
-$header-padding: 0.625em $page-margin
-$header-padding-mobile: 0.625em $page-margin-mobile
-$header-button-padding: 0 1em
+$header-bar-box: (height: 5em, padding: $gap-small $page-margin)
+$header-bar-box-mobile: (height: 3.75em, padding: $gap-small $page-margin-mobile)
+$header-button-box: (padding: 0 $gap-normal)
+$header-link-box: (line-height: 2em)
+$header-overlay-box: (padding: $gap-small $page-margin-mobile)
+$header-overlay-font-size: $size-h2
+$header-overlay-gap: $gap-min
 
 // Main
-$main-padding: 1.25em $page-margin
-$main-padding-mobile: 1.25em $page-margin-mobile
-$main-gap: 2em
+$main-box: (min-height: 100%, padding: $gap-medium $page-margin)
+$main-box-mobile: (padding: $gap-medium $page-margin-mobile)
+$main-gap: $gap-big
 
 // Table of Contents
-$toc-heading-font-size: 1.25em
-$toc-margin-top: 4em
-$toc-nav-font-size: 1em
-$toc-nav-margin-top: 0.5em
-$toc-nav-padding: 1em
-$toc-nav-indent: 1em
+$toc-box: (margin: 4em 0 0)
+$toc-nav-box: (width: initial, margin: $gap-min 0 0, padding: $gap-normal)
+$toc-heading-font-size: $size-h5
+$toc-nav-font-size: $size-text
+$toc-nav-indent: $gap-normal

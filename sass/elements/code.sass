@@ -1,15 +1,13 @@
 // Code blocks
 pre, code
-	color: $code-fg-color
-	background-color: $code-bg-color
+	@include colors($code-swatch)
 
 code
-	padding: $code-padding
+	@include box($code-box)
 
 pre // ie. pre > code
+	@include box($pre-box)
 	border-radius: $code-border-radius
-	padding: $pre-padding
-	margin-bottom: $pre-margin-bottom
 	overflow-x: auto // Ensure there is a scrollbar for when code snippet lines exceed pre width.
 
 	code

@@ -1,29 +1,27 @@
 // Tables
 table
-	width: initial
+	@include box($table-box)
 	border-collapse: collapse
-	border: $table-border-width solid $table-header-bg-color
-	margin-bottom: $table-margin-bottom
+	border: $table-border-width solid bg($table-header-swatch)
 
 	th, td
+		@include box($table-cell-box)
 		text-align: left
-		padding: $table-cell-padding
+	tr
+		@include box($table-row-box)
 
 	thead // Table Header
-		height: $table-header-height
-		background-color: $table-header-bg-color
+		@include box($table-head-box)
+		background: bg($table-header-swatch)
 
-		tr
-			height: $table-header-height
 		th
-			color: $table-header-fg-color
+			color: fg($table-header-swatch)
 	tbody
-		background-color: $table-cell-odd
+		background: $table-cell-odd
 		tr
-			height: $table-row-height
 			&:nth-child(even)
-				background-color: $table-cell-even
+				background: $table-cell-even
 
 @media screen and #{$mobile}
 	table
-		width: 100%
+		@include fullWidth()

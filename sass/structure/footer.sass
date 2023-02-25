@@ -1,17 +1,16 @@
 // Footer
 footer
-	@include fullWidth()
-	@include column
+	@include column()
 	gap: $footer-gap
-	padding: $footer-padding
-	background-color: $footer-bg-color
+	@include fullWidth()
+	@include box($footer-box)
+	@include colors($footer-swatch)
 
 	b, p
-		color: $footer-fg-color
+		color: fg($footer-swatch)
 
 	.legal
-		margin: $footer-legal-margin
+		@include box($footer-legal-box)
 
-	@media screen and #{$mobile} // Mobile
-		padding: $footer-padding-mobile
-
+	@media screen and #{$mobile}
+		@include box($footer-box-mobile)

@@ -28,6 +28,7 @@
 .icon-desktop:before,
 .icon-error:before,
 .icon-github:before,
+.icon-irc:before,
 .icon-list:before,
 .icon-mastodon:before,
 .icon-menu:before,
@@ -42,7 +43,8 @@
 .icon-tooling:before,
 .icon-twitter:before,
 .icon-user:before,
-.icon-users:before {
+.icon-users:before,
+.icon-www:before {
   display: inline-block;
   font-family: "solbit";
   font-style: normal;
@@ -61,6 +63,7 @@
 .icon-desktop:before { content: "\f101"; }
 .icon-error:before { content: "\f102"; }
 .icon-github:before { content: "\f103"; }
+.icon-irc:before { content: "\f113"; }
 .icon-list:before { content: "\f104"; }
 .icon-mastodon:before { content: "\f105"; }
 .icon-menu:before { content: "\f106"; }
@@ -76,3 +79,4 @@
 .icon-twitter:before { content: "\f10f"; }
 .icon-user:before { content: "\f110"; }
 .icon-users:before { content: "\f111"; }
+.icon-www:before { content: "\f114"; }

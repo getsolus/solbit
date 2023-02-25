@@ -1,26 +1,24 @@
 // Table of Contents
 .toc
-	@include column
+	@include column()
 	align-items: end
-	margin-top: $toc-margin-top
+	@include box($toc-box)
 
 	> h1
 		font-size: $toc-heading-font-size
+
 	nav
-		background-color: $toc-nav-bg-color
-		margin-top: $toc-nav-margin-top
-		padding: $toc-nav-padding
-		width: initial
+		@include box($toc-nav-box)
+		@include colors($toc-swatch)
+
 		h1, h2
+			color: fg($toc-swatch)
 			text-align: left
-			color: $toc-nav-fg-color
 			font-size: $toc-nav-font-size
 		h1
 			font-weight: bold
 		h2
 			padding-left: $toc-nav-indent
 
-@media screen and #{$mobile}
-	.toc
+	@media screen and #{$mobile}
 		display: none
-

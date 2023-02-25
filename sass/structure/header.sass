@@ -1,13 +1,13 @@
 // Header
 header
-	@include fullWidth()
 	@include column()
-	background-color: $header-bg-color
+	@include fullWidth()
+	@include colors($header-swatch)
 
 	.bar
-		@include fullWidth()
 		@include row()
-		padding: $header-padding
+		@include fullWidth()
+		@include box($header-bar-box)
 
 		.logo
 			display: inline-flex
@@ -17,37 +17,40 @@ header
 
 		nav
 			justify-content: end
+
 		button
 			display: flex
 			align-items: center
-			padding: $header-button-padding
-			color: $header-fg-color
-			background-color: $header-bg-color
+			@include box($header-button-box)
+			@include colors($header-swatch)
 
 	input
 		display: none
+
 	.overlay
-		@include fullWidth
-		background-color: $header-menu-bg-color
-		padding: $header-padding-mobile
+		@include fullWidth()
+		@include box($header-overlay-box)
+		@include colors($header-menu-swatch)
 
 		nav
-			@include column
+			@include column()
 			gap: $header-overlay-gap
+			font-size: $header-overlay-font-size
 			a
-				line-height: $header-overlay-line-height
+				@include box($header-link-box)
 
 	@media screen and #{$mobile}
 		input:checked
 			~ .overlay
-				@include column
+				@include column()
+
 		.overlay
 			display: none
+
 		.bar
 			direction: ltr // Enforce LTR so logo sits on left, even on RTL
-			height: $header-height-mobile
-			padding: $header-padding-mobile
 			justify-content: space-between
+			@include box($header-bar-box-mobile)
 
 			.menu
 				display: none
@@ -55,8 +58,8 @@ header
 
 	@media screen and #{$desktop}
 		.bar
-			height: $header-height-desktop
 			button
 				display: none
+
 		.overlay
 			display: none

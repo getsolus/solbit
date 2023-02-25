@@ -1,13 +1,10 @@
 // Resets
 *
-  box-sizing: border-box
-  margin: 0
-  padding: 0
-  vertical-align: middle
-  font-family: Roboto
-  line-height: 1.25em
-  color: $text
-  border: none
+	vertical-align: middle
+	@include box($reset-box)
+	color: $text
+	border: none
+	font-family: Roboto
 
 a
 	color: $link
@@ -15,7 +12,7 @@ a
 	text-decoration: none // No more underline for you!
 
 p
-	margin-bottom: 1.25em
+	@include box($paragraph-box)
 
 img
 	border: 0

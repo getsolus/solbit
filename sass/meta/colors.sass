@@ -1,6 +1,7 @@
 // Solbit Color Configuration
 // Intended to be overridden while inherited, when necessary. This can be done via SASS lazy loading.
 
+
 // ------------
 // Named Colors
 // ------------
@@ -9,11 +10,11 @@
 $solus-blue: #5294E2
 $blue: #1a559c
 $gray: #333
-$off-white: #f5f5f5
+$marble: #f5f5f5
 $white: #fff
 
 // Derived Colors
-$light-gray: darken($off-white, 5%)
+$light-gray: darken($marble, 10%)
 
 // Pastels
 $green: #87d838
@@ -21,68 +22,75 @@ $red: #f67878
 $orange: #ff9900
 $purple: #c489bd
 
-// ----
 // Defaults
-// ----
 $link: $blue
 $text: $gray
+
+
+// --------
+// Swatches
+// --------
+
+// Get background color
+@function bg($swatch)
+    @return map-get($swatch, bg)
+
+// Get foreground color
+@function fg($swatch)
+    @return map-get($swatch, fg)
+
+// Simple mixin for applying a swatch to an element
+@mixin colors($swatch)
+    background: bg($swatch)
+    color: fg($swatch)
+
+// Normal Swatches
+$swatch-default: (bg: $white, fg: $solus-blue)
+$swatch-gray: (bg: $gray, fg: $white)
+$swatch-light-gray: (bg: $light-gray, fg: $gray)
+$swatch-marble: (bg: $marble, fg: $gray)
+$swatch-solus: (bg: $solus-blue, fg: $white)
+$swatch-white: (bg: $white, fg: $gray)
 
 
 // -------
 // Elements
 // -------
 
-// Buttons
-$button-bg-color: $solus-blue
-$button-fg-color: $white
+// --- Buttons ---
+$button-swatch: $swatch-solus
+$button-inverse-swatch: $swatch-default
+$button-white-swatch: $swatch-white
 $button-menu-inactive-color: $gray
-
-// Code
-$code-fg-color: $text
-$code-bg-color: $off-white
-
-// Keybaord
-$kbd-fg-color: $text
-$kbd-bg-color: $light-gray
-
-// Navigation
-$navigation-bg-color: $off-white
-$navigation-fg-color: $text
-$navigation-link-color: $navigation-fg-color
-
-// Quotes
+// --- Code ----
+$code-swatch: $swatch-marble
+// --- Keyboard ---
+$kbd-swatch: $swatch-light-gray
+// --- Navigation ---
+$navigation-swatch: $swatch-marble
+// --- Quotes ---
+$quote-swatch: $swatch-light-gray
 $quote-border-color: $gray
-$quote-fg-color: $text
-$quote-bg-color: $light-gray
-
-// Search
-$search-fg-color: $text
-$search-bg-color: $white
-
-// Tables
+// --- Search ---
+$search-swatch: $swatch-white
+// --- Tables ---
+$table-header-swatch: $swatch-gray
 $table-cell-odd: $white
 $table-cell-even: $light-gray
-$table-header-fg-color: $white
-$table-header-bg-color: $gray
 
 
 // ------
 // Structure
 // ------
 
-// Banner
-$banner-top-fg-color: $white
-$banner-top-bg-color: $solus-blue
-
-// Footer
-$footer-bg-color: $navigation-bg-color
-$footer-fg-color: $navigation-fg-color
-
-// Header
-$header-bg-color: $navigation-bg-color
-$header-fg-color: $navigation-fg-color
-$header-menu-bg-color: darken($navigation-bg-color, 5%)
-
-// Table of Contents
-$toc-nav-fg-color: $link
-$toc-nav-bg-color: $light-gray
+// --- HTML ---
+$body-swatch: $swatch-default
+// --- Banner ---
+$banner-top-swatch: $swatch-solus
+// --- Footer ---
+$footer-swatch: $navigation-swatch
+// --- Header ---
+$header-swatch: $navigation-swatch
+$header-menu-swatch: $swatch-light-gray
+// --- Table of Contents ---
+$toc-swatch: (bg: $marble, fg: $link)

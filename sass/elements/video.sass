@@ -2,8 +2,4 @@
 
 video
 	@include fullWidth()
-	margin-bottom: $video-margin-bottom
-
-@media screen and #{$desktop}
-	video
-		max-width: $video-desktop-max-width
+	@include box($video-box)

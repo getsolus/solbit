@@ -2,14 +2,15 @@
 
 ol, ul
 	list-style-position: outside
-	line-height: $list-line-height
-	padding: $list-padding
+
+ol, ul, dd
+	@include box($list-box)
 
 li, dd
-	margin-top: $list-item-margin
+	@include box($list-item-box)
 
 dl, ol, ul
-	margin-bottom: $list-margin-bottom
+	@include box($list-box-all)
 
 ul
 	list-style-type: disc
@@ -18,4 +19,3 @@ dt
 	font-weight: bold
 dd
 	font-style: italics
-	padding: $list-padding

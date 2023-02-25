@@ -1,15 +1,17 @@
 // Common bits
 .menu
-	@include row
-	@include fullWidth
+	@include row()
+	@include fullWidth()
 
 	b
-		width: $menu-label-width
+		@include box($menu-label-box)
+
 	nav
-		@include row
-		@include fullWidth
+		@include row()
 		gap: $menu-link-gap
 		flex-wrap: wrap
+		@include fullWidth()
+
 		a
 			display: flex
 			align-items: center

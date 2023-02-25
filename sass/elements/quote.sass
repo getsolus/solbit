@@ -1,11 +1,9 @@
 // Quote
 
 blockquote
-	margin: $quote-margin
-	padding: $quote-padding
+	@include box($quote-box)
+	@include colors($quote-swatch)
 	border-left: $quote-border-width solid $quote-border-color
-	color: $quote-fg-color
-	background-color: $quote-bg-color
 	font-style: italic
 
 	p:last-of-type

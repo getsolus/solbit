@@ -15,6 +15,7 @@ setup:
 compile:
 	fontcustom compile $(FONTCUSTOM_FLAGS)
 	sassc $(SASSFLAGS) sass/solbit.sass > build/solbit.css
+	gzip -kf build/solbit.css
 
 .DEFAULT_GOAL := all
 

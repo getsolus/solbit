@@ -1,20 +1,20 @@
 // Banner
 .banner
-	@include fullWidth()
 	@include column()
-	padding: $banner-padding
+	@include fullWidth()
+	@include box($banner-box)
 
 	&.top
 		align-items: center
-		background-color: $banner-top-bg-color
+		@include colors($banner-top-swatch)
 
 		h1, h2
-			color: $banner-top-fg-color
-			margin-bottom: $banner-top-heading-margin
+			@include box($banner-heading-box)
+			color: fg($banner-top-swatch)
 		h1
 			font-size: $banner-top-h1-size
 		h2
 			font-size: $banner-top-h2-size
 
 	@media screen and #{$mobile}
-		padding: $banner-padding-mobile
+		@include box($banner-box-mobile)
