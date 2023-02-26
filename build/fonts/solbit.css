@@ -27,13 +27,12 @@
 .icon-check:before,
 .icon-desktop:before,
 .icon-error:before,
+.icon-fork-awesome:before,
 .icon-github:before,
 .icon-irc:before,
 .icon-list:before,
 .icon-mastodon:before,
 .icon-menu:before,
-.icon-other:before,
-.icon-patreon:before,
 .icon-pin:before,
 .icon-reddit:before,
 .icon-rss:before,
@@ -62,13 +61,12 @@
 .icon-check:before { content: "\f100"; }
 .icon-desktop:before { content: "\f101"; }
 .icon-error:before { content: "\f102"; }
+.icon-fork-awesome:before { content: "\f115"; }
 .icon-github:before { content: "\f103"; }
 .icon-irc:before { content: "\f113"; }
 .icon-list:before { content: "\f104"; }
 .icon-mastodon:before { content: "\f105"; }
 .icon-menu:before { content: "\f106"; }
-.icon-other:before { content: "\f107"; }
-.icon-patreon:before { content: "\f108"; }
 .icon-pin:before { content: "\f109"; }
 .icon-reddit:before { content: "\f10a"; }
 .icon-rss:before { content: "\f10b"; }
