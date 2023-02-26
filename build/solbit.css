@@ -158,6 +158,8 @@ main {
     flex: 0 0 20%; }
   @media screen and (max-width: 1023px) {
     main {
+      display: inline-flex;
+      flex-direction: column;
       padding: 1.25em 5%; } }
 .sidebar {
   display: inline-flex;
