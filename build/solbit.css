@@ -327,11 +327,9 @@ blockquote {
   .search .shortcut {
     display: inline-flex;
     flex-direction: row; }
-
-@media screen and (max-width: 1023px) {
-  .search {
-    width: 100%; } }
-
+  @media screen and (max-width: 1023px) {
+    .search {
+      width: 100%; } }
 table {
   width: initial;
   margin: 0 0 1rem;
@@ -351,11 +349,9 @@ table {
     background: #fff; }
     table tbody tr:nth-child(even) {
       background: gainsboro; }
-
-@media screen and (max-width: 1023px) {
-  table {
-    width: 100%; } }
-
+  @media screen and (max-width: 1023px) {
+    table {
+      width: 100%; } }
 video {
   width: 100%;
   margin: 0 0 1rem; }
