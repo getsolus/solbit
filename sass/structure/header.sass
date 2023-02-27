@@ -10,7 +10,7 @@ header
 		@include box($header-bar-box)
 
 		.logo
-			display: inline-flex
+			@include box($header-bar-logo-box)
 
 			& > img
 				height: 100%
@@ -23,7 +23,7 @@ header
 			align-items: center
 			@include box($header-button-box)
 			@include colors($header-swatch)
-
+			font-size: $header-button-font-size
 	input
 		display: none
 
